@@ -4,7 +4,7 @@ const config = require("config");
 
 //create express app
 const app = express();
-app.get("/",(req,res) => {
+app.get("/", (req, res) => {
     res.send("hello");
 });
 
@@ -14,14 +14,15 @@ app.use(routes);
 
 //connect to mongoDB database
 const dbURI = config.get("dbURI");
-mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true});
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 //catch connection errors and log activity
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once("open",function(){
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function () {
     console.log("connected to the database");
-})
+});
 
 //start the server
 const port = process.env.PORT || 5000;
-app.listen(port,() => console.log("server running at port: " + port))
+app.listen(port, () => console.log("server running at port: " + port));
+module.exports = app;
