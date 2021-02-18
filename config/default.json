@@ -1,4 +1,5 @@
 {
     "host":"http://localhost:5000",
-    "dbURI":"mongodb+srv://raader:JzVyKOhggWiY6j5x@main.g0got.mongodb.net/dev?retryWrites=true&w=majority"
+    "dbURI":"mongodb+srv://raader:JzVyKOhggWiY6j5x@main.g0got.mongodb.net/dev?retryWrites=true&w=majority",
+    "privateKey":"ubeydullahınkafası"
 }

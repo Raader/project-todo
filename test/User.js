@@ -1,7 +1,14 @@
 const expect = require("chai").expect;
-const { saveUser } = require("../models/User");
+const { model } = require("../models/User");
 
 describe("User database methods", function () {
+    before(function (done) {
+        this.timeout(0);
+        model.init(function (err) {
+            if (err) console.error(err);
+            done();
+        });
+    });
     describe("saving a user", function () {
         it("should save the user to the database", function (done) {
             const user = {
@@ -9,7 +16,7 @@ describe("User database methods", function () {
                 email: "faruk@farukmail.com",
                 password: "faruk2356",
             };
-            saveUser(user, function (err, doc) {
+            model.saveUser(user, function (err, doc) {
                 expect(err).to.not.exist;
                 expect(doc).to.exist;
                 done();
@@ -21,7 +28,7 @@ describe("User database methods", function () {
                 email: "faruk@farukmail",
                 password: "faruk2356",
             };
-            saveUser(user, function (err, doc) {
+            model.saveUser(user, function (err, doc) {
                 expect(err.errors["email"]).to.exist;
                 done();
             });
@@ -32,7 +39,7 @@ describe("User database methods", function () {
                 email: "faruk@farukmail.com",
                 password: "faruk2356",
             };
-            saveUser(user, function (err, doc) {
+            model.saveUser(user, function (err, doc) {
                 expect(err).to.exist;
                 done();
             });
