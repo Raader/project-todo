@@ -34,21 +34,13 @@ userSchema.statics.saveUser = function (user, cb) {
         .catch((err) => cb(err));
 };
 
+userSchema.statics.findUserById = function (id, cb) {
+    this.findById(id)
+        .exec()
+        .then((doc) => cb(null, doc))
+        .catch((err) => cb(err));
+};
+
 const userModel = mongoose.model("User", userSchema);
 
-module.exports = {
-    model: userModel,
-    saveUser: function (user, cb) {
-        userModel.init().then(function () {
-            const doc = new userModel({
-                name: user.name,
-                email: user.email,
-                password: user.password,
-            });
-            return doc.hashPassword(function (err, hash) {
-                if (err) cb(err);
-                doc.save(cb);
-            });
-        });
-    },
-};
+module.exports = userModel;

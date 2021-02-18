@@ -10,7 +10,8 @@ app.get("/", (req, res) => {
 
 //use routes for all routes besides the main route
 const routes = require("./routes/routes");
-app.use(routes);
+app.use(express.json()); //json body parser
+app.use("/api", routes);
 
 //connect to mongoDB database
 const dbURI = config.get("dbURI");
