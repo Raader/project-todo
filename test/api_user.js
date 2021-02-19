@@ -3,9 +3,10 @@ const app = require("..");
 
 const chai = require("chai");
 const chaihttp = require("chai-http");
+const { expect } = require("chai");
 chai.use(chaihttp);
 
-const should = chai.should;
+const should = chai.should();
 const request = chai.request;
 
 describe("Users api", function () {
@@ -17,12 +18,13 @@ describe("Users api", function () {
                 password: "faruk2356",
             };
             request(app)
-                .post("/api/users/register")
+                .post("/api/user/register")
                 .send({ user })
                 .end(function (err, res) {
                     res.should.have.status(200);
                     res.body.should.not.have.property("err");
                     res.body.should.have.property("msg");
+                    res.body.should.have.property("user");
                     res.body.should.have.property("token");
                     done();
                 });
@@ -35,7 +37,7 @@ describe("Users api", function () {
                 password: "faruk2356",
             };
             request(app)
-                .post("/api/users/login")
+                .post("/api/user/login")
                 .send({ user })
                 .end(function (err, res) {
                     res.should.have.status(200);
@@ -53,7 +55,7 @@ describe("Users api", function () {
                 password: "faruk2356",
             };
             request(app)
-                .post("/api/users/login")
+                .post("/api/user/login")
                 .send({ user })
                 .end(function (err, res) {
                     res.should.have.status(200);
@@ -61,7 +63,8 @@ describe("Users api", function () {
                     res.body.should.have.property("msg");
                     res.body.should.have.property("token");
                     request(app)
-                        .get("/api/users/" + res.body.token)
+                        .get("/api/users/")
+                        .set("Authorization", "Bearer " + res.body.token)
                         .end(function (err, res) {
                             res.should.have.status(200);
                             res.body.should.not.have.property("err");
