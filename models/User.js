@@ -18,8 +18,11 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.hashPassword = function (cb) {
-    if (!cb) return bcrypt.hash(this.password, 10);
-    bcrypt.hash(this.password, 10, cb);
+    bcrypt.hash(this.password, 10, (err, hash) => {
+        if (err) return cb(err);
+        this.password = hash;
+        cb(null);
+    });
 };
 
 userSchema.statics.saveUser = function (user, cb) {
@@ -28,16 +31,32 @@ userSchema.statics.saveUser = function (user, cb) {
         email: user.email,
         password: user.password,
     });
-    doc.hashPassword()
-        .then(() => doc.save())
-        .then((doc) => cb(null, doc))
-        .catch((err) => cb(err));
+    doc.hashPassword((err) => {
+        if (err) cb(err);
+        doc.save()
+            .then((doc) => cb(null, doc))
+            .catch((err) => cb(err));
+    });
 };
 
 userSchema.statics.findUserById = function (id, cb) {
     this.findById(id)
         .exec()
         .then((doc) => cb(null, doc))
+        .catch((err) => cb(err));
+};
+
+userSchema.statics.findUser = function (email, password, cb) {
+    this.findOne({ email })
+        .exec()
+        .then((doc) => {
+            if (!doc) throw new Error("user not found");
+            bcrypt.compare(password, doc.password, function (err, same) {
+                if (err) throw err;
+                if (!same) throw new Error("passwords are not matching");
+                cb(null, doc);
+            });
+        })
         .catch((err) => cb(err));
 };
 
