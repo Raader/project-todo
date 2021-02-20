@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { registerUser, selectUser } from "./userSlice";
+import { loginUser, selectUser } from "./userSlice";
 
-export function User() {
+export function Login() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   useEffect(() => {
@@ -13,10 +12,6 @@ export function User() {
   }, [user]);
   return (
     <div>
-      <input
-        placeholder="name"
-        onInput={(e) => setName(e.target.value)}
-      ></input>
       <input
         placeholder="email"
         type="email"
@@ -28,8 +23,8 @@ export function User() {
         onInput={(e) => setPassword(e.target.value)}
       ></input>
 
-      <button onClick={() => dispatch(registerUser({ name, email, password }))}>
-        register
+      <button onClick={() => dispatch(loginUser({ email, password }))}>
+        login
       </button>
     </div>
   );

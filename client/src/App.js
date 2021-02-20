@@ -2,12 +2,14 @@ import React from "react";
 import logo from "./logo.svg";
 import { Counter } from "./features/counter/Counter";
 import "./App.css";
-import { User } from "./features/user/User";
+import { Register } from "./features/user/Register";
+import { Login } from "./features/user/Login";
 
 function App() {
   return (
     <div className="App">
-      <User></User>
+      <Register></Register>
+      <Login></Login>
     </div>
   );
 }

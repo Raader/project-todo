@@ -48,6 +48,26 @@ export const registerUser = (user) => (dispatch) => {
     })
     .catch((err) => console.error(err));
 };
+
+export const loginUser = (user) => (dispatch) => {
+  const options = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ user }),
+  };
+  fetch("/api/user/login", options)
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.err) throw data.err;
+      const user = data.user;
+      user.token = data.token;
+      dispatch(setUser(user));
+    })
+    .catch((err) => console.error(err));
+};
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
