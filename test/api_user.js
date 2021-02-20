@@ -72,6 +72,20 @@ describe("Users api", function () {
                     done();
                 });
         });
+        it("should not log in the user(user does not exist)", function (done) {
+            const user = {
+                email: "faruk8@farukmail.com",
+                password: "faruk2356",
+            };
+            request(app)
+                .post("/api/user/login")
+                .send({ user })
+                .end(function (err, res) {
+                    res.should.have.status(400);
+                    res.body.should.have.property("err");
+                    done();
+                });
+        });
     });
     describe("getting user with token", function () {
         it("should get the user", function (done) {
@@ -97,6 +111,17 @@ describe("Users api", function () {
                             res.body.should.have.property("user");
                             done();
                         });
+                });
+        });
+
+        it("should not get the user(invalid token)", function (done) {
+            request(app)
+                .get("/api/user")
+                .set("Authorization", "Bearer " + "dasdsda")
+                .end(function (err, res) {
+                    res.should.have.status(401);
+                    res.body.should.have.property("err");
+                    done();
                 });
         });
     });

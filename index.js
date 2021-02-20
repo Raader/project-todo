@@ -15,7 +15,11 @@ app.use("/api", routes);
 
 //connect to mongoDB database
 const dbURI = config.get("dbURI");
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(dbURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+});
 const db = mongoose.connection;
 //catch connection errors and log activity
 db.on("error", console.error.bind(console, "connection error:"));
