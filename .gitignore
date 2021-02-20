@@ -118,3 +118,4 @@ dist
 config/
 .prettierrc
 .eslintrc.json
+.DS_Store
