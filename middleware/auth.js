@@ -7,7 +7,7 @@ module.exports = function (req, res, next) {
     if (!token) return res.status(400).json({ err: "no bearer token" });
     jwt.verify(token, config.get("privateKey"), function (err, decoded) {
         if (err) return res.status(401).json({ err });
-        req.userId = decoded;
+        req.userId = decoded.id;
         next();
     });
 };

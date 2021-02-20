@@ -7,7 +7,7 @@ function login(req, res) {
     const user = req.body.user;
     User.findUser(user.email, user.password, (err, doc) => {
         if (err) return res.status(400).json({ err });
-        jwt.sign(doc.id, privateKey, (err, token) => {
+        jwt.sign({ id: doc.id }, privateKey, (err, token) => {
             if (err) return res.status(400).json({ err });
             res.json({
                 user: { name: doc.name, email: doc.email, id: doc.id },
@@ -22,7 +22,7 @@ function register(req, res) {
     const user = req.body.user;
     User.saveUser(user, (err, doc) => {
         if (err) return res.status(400).json({ err });
-        jwt.sign(doc.id, privateKey, (err, token) => {
+        jwt.sign({ id: doc.id }, privateKey, (err, token) => {
             if (err) return res.status(400).json({ err });
             res.json({
                 user: { name: doc.name, email: doc.email, id: doc.id },
