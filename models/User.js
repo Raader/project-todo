@@ -26,6 +26,7 @@ userSchema.methods.hashPassword = function (cb) {
 };
 
 userSchema.statics.saveUser = function (user, cb) {
+    if (!user) return cb(new Error("no user found"));
     const doc = new this({
         name: user.name,
         email: user.email,
@@ -52,8 +53,8 @@ userSchema.statics.findUser = function (email, password, cb) {
         .then((doc) => {
             if (!doc) throw new Error("user not found");
             bcrypt.compare(password, doc.password, function (err, same) {
-                if (err) throw err;
-                if (!same) throw new Error("passwords are not matching");
+                if (err) return console.error(err);
+                if (!same) cb(new Error("passwords are not matching"));
                 cb(null, doc);
             });
         })

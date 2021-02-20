@@ -4,7 +4,7 @@ const model = require("../models/User");
 describe("User database methods", function () {
     before(function (done) {
         this.timeout(0);
-        model.remove({}, function (err) {
+        model.deleteMany({}, function (err) {
             if (err) console.error(err);
             model.init(function (err) {
                 if (err) console.error(err);
@@ -20,7 +20,7 @@ describe("User database methods", function () {
     let sampleUser;
     beforeEach(function (done) {
         this.timeout(0);
-        model.remove({}, function (err) {
+        model.deleteMany({}, function (err) {
             if (err) console.error(err);
             model.saveUser(testUser, function (err, doc) {
                 if (err) console.error(err);
@@ -41,8 +41,8 @@ describe("User database methods", function () {
                     expect(err).to.not.exist;
                     expect(doc).to.exist;
                     done();
-                } catch {
-                    done(err);
+                } catch (e) {
+                    done(e);
                 }
             });
         });
@@ -56,8 +56,8 @@ describe("User database methods", function () {
                 try {
                     expect(err.errors["email"]).to.exist;
                     done();
-                } catch {
-                    done(new Error("should have given error"));
+                } catch (e) {
+                    done(e);
                 }
             });
         });
@@ -65,14 +65,14 @@ describe("User database methods", function () {
             model.saveUser(testUser, function (err, doc) {
                 try {
                     expect(err).to.exist;
+                    expect(doc).to.not.exist;
                     done();
-                } catch {
-                    done(new Error("should have given error"));
+                } catch (e) {
+                    done(e);
                 }
             });
         });
     });
-
     describe("finding a user", function () {
         it("should find user by id", function (done) {
             model.findUserById(sampleUser.id, function (err, d) {
@@ -94,8 +94,8 @@ describe("User database methods", function () {
                         expect(err).to.not.exist;
                         expect(d).to.exist;
                         done();
-                    } catch {
-                        done(err);
+                    } catch (e) {
+                        done(e);
                     }
                 }
             );

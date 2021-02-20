@@ -11,15 +11,15 @@ const request = chai.request;
 
 describe("Users api", function () {
     describe("signing up a user", function () {
+        const sampleUser = {
+            name: "faruk",
+            email: "faruk2@farukmail.com",
+            password: "faruk2356",
+        };
         it("should sign up the user", function (done) {
-            const user = {
-                name: "faruk",
-                email: "faruk2@farukmail.com",
-                password: "faruk2356",
-            };
             request(app)
                 .post("/api/user/register")
-                .send({ user })
+                .send({ user: sampleUser })
                 .end(function (err, res) {
                     res.should.have.status(200);
                     res.body.should.not.have.property("err");
@@ -29,9 +29,34 @@ describe("Users api", function () {
                     done();
                 });
         });
+        it("should not sign up the user(duplicate)", function (done) {
+            request(app)
+                .post("/api/user/register")
+                .send({ user: sampleUser })
+                .end(function (err, res) {
+                    res.should.have.status(400);
+                    res.body.should.have.property("err");
+                    done();
+                });
+        });
+        it("should not sign up the user(invalid email)", function (done) {
+            const user = {
+                name: "faruk3",
+                email: "faruk3@farukmail",
+                password: "faruk2356",
+            };
+            request(app)
+                .post("/api/user/register")
+                .send({ user })
+                .end(function (err, res) {
+                    res.should.have.status(400);
+                    res.body.should.have.property("err");
+                    done();
+                });
+        });
     });
-    describe("signing in a user", function () {
-        it("should sing in the user", function (done) {
+    describe("logging in a user", function () {
+        it("should log in the user", function (done) {
             const user = {
                 email: "faruk2@farukmail.com",
                 password: "faruk2356",
@@ -63,7 +88,7 @@ describe("Users api", function () {
                     res.body.should.have.property("msg");
                     res.body.should.have.property("token");
                     request(app)
-                        .get("/api/users/")
+                        .get("/api/user")
                         .set("Authorization", "Bearer " + res.body.token)
                         .end(function (err, res) {
                             res.should.have.status(200);

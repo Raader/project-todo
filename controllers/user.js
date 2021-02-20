@@ -33,6 +33,15 @@ function register(req, res) {
     });
 }
 
-function get(req, res) {}
+function get(req, res) {
+    const id = req.userId;
+    User.findUserById(id, function (err, doc) {
+        if (err) return res.status(400).json({ err });
+        res.json({
+            user: { name: doc.name, email: doc.email, id: doc.id },
+            msg: "succesfully got user",
+        });
+    });
+}
 
 module.exports = { login, register, get };
