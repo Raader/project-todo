@@ -22,29 +22,23 @@ describe("User database methods", function () {
         this.timeout(0);
         model.deleteMany({}, function (err) {
             if (err) console.error(err);
-            model.saveUser(testUser, function (err, doc) {
-                if (err) console.error(err);
-                sampleUser = doc;
-                done();
-            });
+            model
+                .saveUser(testUser)
+                .then((doc) => {
+                    sampleUser = doc;
+                    done();
+                })
+                .catch((err) => console.error(err));
         });
     });
     describe("saving a user", function () {
-        it("should save the user to the database", function (done) {
+        it("should save the user to the database", function () {
             const user = {
                 name: "faruk",
                 email: "faruk@farukmail.com",
                 password: "faruk2356",
             };
-            model.saveUser(user, function (err, doc) {
-                try {
-                    expect(err).to.not.exist;
-                    expect(doc).to.exist;
-                    done();
-                } catch (e) {
-                    done(e);
-                }
-            });
+            return model.saveUser(user);
         });
         it("should not save the user(invalid email format)", function (done) {
             const user = {
@@ -52,25 +46,24 @@ describe("User database methods", function () {
                 email: "faruk@farukmail",
                 password: "faruk2356",
             };
-            model.saveUser(user, function (err, doc) {
-                try {
-                    expect(err.errors["email"]).to.exist;
+            model
+                .saveUser(user)
+                .then((doc) => {
+                    done("expected error");
+                })
+                .catch((err) => {
                     done();
-                } catch (e) {
-                    done(e);
-                }
-            });
+                });
         });
         it("should not save the user(duplicate user)", function (done) {
-            model.saveUser(testUser, function (err, doc) {
-                try {
-                    expect(err).to.exist;
-                    expect(doc).to.not.exist;
+            model
+                .saveUser(testUser)
+                .then((doc) => {
+                    done("expected error");
+                })
+                .catch((err) => {
                     done();
-                } catch (e) {
-                    done(e);
-                }
-            });
+                });
         });
     });
     describe("finding a user", function () {

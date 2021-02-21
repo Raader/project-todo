@@ -17,27 +17,21 @@ const userSchema = new mongoose.Schema({
     cake: { type: Date, default: Date.now },
 });
 
-userSchema.methods.hashPassword = function (cb) {
-    bcrypt.hash(this.password, 10, (err, hash) => {
-        if (err) return cb(err);
-        this.password = hash;
-        cb(null);
-    });
+userSchema.methods.hashPassword = function () {
+    return bcrypt
+        .hash(this.password, 10)
+        .then((hash) => (this.password = hash));
 };
 
-userSchema.statics.saveUser = function (user, cb) {
-    if (!user) return cb(new Error("no user found"));
+userSchema.statics.saveUser = async function (user) {
+    if (!user) throw new Error("no user found");
     const doc = new this({
         name: user.name,
         email: user.email,
         password: user.password,
     });
-    doc.hashPassword((err) => {
-        if (err) cb(err);
-        doc.save()
-            .then((doc) => cb(null, doc))
-            .catch((err) => cb(err));
-    });
+    const hash = await doc.hashPassword();
+    return doc.save();
 };
 
 userSchema.statics.findUserById = function (id, cb) {
