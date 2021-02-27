@@ -1,5 +1,5 @@
 import { Button, Container, Row, Col, Jumbotron } from "react-bootstrap";
-import "../styles/Home.css";
+import "../../styles/Home.css";
 export function Home() {
   return (
     <div>

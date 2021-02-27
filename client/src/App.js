@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import { Counter } from "./features/counter/Counter";
 import "./App.css";
-import { Register } from "./features/user/Register";
-import { Login } from "./features/user/Login";
-import { Home } from "./components/Home";
+import { Register } from "./components/pages/Register";
+import { Login } from "./components/pages/Login";
+import { Home } from "./components/pages/Home";
 
 import { NavMenu } from "./components/NavMenu";
-
+import { Route, Switch } from "react-router";
 function App() {
   useEffect(() => {
     document.body.style.background = "#C5D9E2";
@@ -15,7 +15,17 @@ function App() {
   return (
     <div className="App">
       <NavMenu></NavMenu>
-      <Home></Home>
+      <Switch>
+        <Route path="/login">
+          <Login></Login>
+        </Route>
+        <Route path="/register">
+          <Register></Register>
+        </Route>
+        <Route path="/">
+          <Home></Home>
+        </Route>
+      </Switch>
     </div>
   );
 }

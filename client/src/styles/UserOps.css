@@ -1,0 +1,21 @@
+.user-opform {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.user-op {
+  margin-top: 1rem;
+}
+
+.user-oplink {
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s;
+  padding: 0.2rem;
+}
+.user-oplink:hover {
+  background-color: black;
+  color: white;
+  border-radius: 0.5rem;
+}

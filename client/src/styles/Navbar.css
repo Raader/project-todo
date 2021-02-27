@@ -12,11 +12,23 @@
 .user-ops {
   font-size: large;
   color: black !important;
+  cursor: pointer !important;
 }
-.login-link {
+.login-link,
+.register-link {
   color: black !important;
+  padding: 0.2rem !important;
+  font-weight: 500;
+  transition: all 0.4s;
+}
+.login-link:hover,
+.register-link:hover {
+  background-color: black;
+  color: white !important;
+  border-radius: 0.5rem;
 }
 
-.register-link {
+.username {
+  font-size: large;
   color: black !important;
 }
