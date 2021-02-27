@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Anton&family=Open+Sans:ital,wght@0,400;1,300;1,400;1,600&family=Shippori+Mincho:wght@400;500&display=swap");
 .App {
   text-align: center;
+  font-family: "Akaya Telivigala", cursive;
 }
 
 .App-logo {
@@ -31,9 +33,9 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(10px)
+    transform: translateY(10px);
   }
   100% {
-    transform: translateY(0px)
+    transform: translateY(0px);
   }
 }
