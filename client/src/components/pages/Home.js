@@ -1,6 +1,8 @@
 import { Button, Container, Row, Col, Jumbotron } from "react-bootstrap";
 import "../../styles/Home.css";
+import { useHistory } from "react-router";
 export function Home() {
+  const history = useHistory();
   return (
     <div>
       <Jumbotron>
@@ -10,7 +12,9 @@ export function Home() {
           free.
         </p>
         <p>
-          <Button variant="primary">Learn more</Button>
+          <Button variant="primary" onClick={() => history.push("/register")}>
+            Get Started
+          </Button>
         </p>
       </Jumbotron>
       <div className="paragraphs">

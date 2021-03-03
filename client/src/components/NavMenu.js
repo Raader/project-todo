@@ -9,7 +9,7 @@ export function NavMenu() {
   const user = useSelector(selectUser);
   return (
     <Navbar sticky="top">
-      <Navbar.Brand onClick={() => history.push("/")}>
+      <Navbar.Brand className="main-title" onClick={() => history.push("/")}>
         <i class="fas fa-list-alt"></i> PROJECT-TODO
       </Navbar.Brand>
       <Navbar.Toggle></Navbar.Toggle>
