@@ -54,8 +54,9 @@ export function Register() {
             </Form.Group>
             <Button
               onClick={() => {
-                dispatch(registerUser({ name, email, password }));
-                history.push("/");
+                dispatch(registerUser({ name, email, password })).then(() =>
+                  history.push("/")
+                );
               }}
             >
               Register

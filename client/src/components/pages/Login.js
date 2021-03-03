@@ -45,8 +45,9 @@ export function Login() {
             </Form.Group>
             <Button
               onClick={() => {
-                dispatch(loginUser({ email, password }));
-                history.push("/");
+                dispatch(loginUser({ email, password })).then(() =>
+                  history.push("/")
+                );
               }}
             >
               Log in

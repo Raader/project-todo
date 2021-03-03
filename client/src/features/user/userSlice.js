@@ -38,7 +38,7 @@ export const registerUser = (user) => (dispatch) => {
     },
     body: JSON.stringify({ user }),
   };
-  fetch("/api/user/register", options)
+  return fetch("/api/user/register", options)
     .then((res) => res.json())
     .then((data) => {
       if (data.err) throw data.err;
@@ -58,7 +58,7 @@ export const loginUser = (user) => (dispatch) => {
     },
     body: JSON.stringify({ user }),
   };
-  fetch("/api/user/login", options)
+  return fetch("/api/user/login", options)
     .then((res) => res.json())
     .then((data) => {
       if (data.err) throw data.err;
