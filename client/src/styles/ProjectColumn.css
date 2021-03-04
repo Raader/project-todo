@@ -1,0 +1,23 @@
+.project-list {
+  text-align: left;
+  overflow-y: scroll;
+  height: 80%;
+  border: black 0.1rem solid;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.project-list .list-item {
+  font-size: large;
+  cursor: pointer;
+  padding: 0.1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+.project-list .list-item:hover {
+  background-color: black;
+  color: white;
+}
+
+.project-footer {
+  text-align: left;
+}

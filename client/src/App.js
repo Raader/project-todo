@@ -8,6 +8,7 @@ import { Home } from "./components/pages/Home";
 
 import { NavMenu } from "./components/NavMenu";
 import { Route, Switch } from "react-router";
+import { Main } from "./components/pages/Main";
 function App() {
   useEffect(() => {
     document.body.style.background = "#C5D9E2";
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path="/register">
           <Register></Register>
+        </Route>
+        <Route path="/main">
+          <Main></Main>
         </Route>
         <Route path="/">
           <Home></Home>
