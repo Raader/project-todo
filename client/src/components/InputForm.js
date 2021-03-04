@@ -25,7 +25,11 @@ export function InputForm(props) {
           ></Form.Control>
         </Form.Group>
       ))}
-      <Button onClick={() => props.onSubmit(createData())}>
+      <Button
+        onClick={() => {
+          props.onSubmit(createData());
+        }}
+      >
         {props.submitText}
       </Button>
     </Form>

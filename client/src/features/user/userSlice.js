@@ -45,8 +45,7 @@ export const registerUser = (user) => (dispatch) => {
       const user = data.user;
       user.token = data.token;
       dispatch(setUser(user));
-    })
-    .catch((err) => console.error(err));
+    });
 };
 
 export const loginUser = (user) => (dispatch) => {

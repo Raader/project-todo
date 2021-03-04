@@ -3,17 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { registerUser, selectUser } from "../../features/user/userSlice";
 import { Button, Container, Form, Row, Col } from "react-bootstrap";
 import { useHistory } from "react-router";
+import { InputForm } from "../InputForm";
 import "../../styles/UserOps.css";
 export function Register() {
   const dispatch = useDispatch();
+  const [msg, setMsg] = useState("");
   const history = useHistory();
-  const user = useSelector(selectUser);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
   return (
     <Container className="user-op">
       <h6>
@@ -24,46 +19,39 @@ export function Register() {
         instead!
       </h6>
       <Row>
-        <Col md="5" className="user-opform mx-auto">
-          <Form>
-            <h3>Register an account</h3>
-            <Form.Text></Form.Text>
-            <Form.Group>
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="username"
-                onInput={(e) => setName(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="example@mail.com"
-                onInput={(e) => setEmail(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                onInput={(e) => setPassword(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
-            <Button
-              onClick={() => {
-                dispatch(registerUser({ name, email, password })).then(() =>
-                  history.push("/")
-                );
-              }}
-            >
-              Register
-            </Button>
-          </Form>
+        <Col md="5" className="mx-auto">
+          <InputForm
+            title="Register an account"
+            submitText="Register"
+            fields={[
+              {
+                name: "name",
+                label: "Name",
+                placeholder: "username",
+                type: "text",
+              },
+              {
+                name: "email",
+                label: "Email",
+                placeholder: "example@mail.com",
+                type: "email",
+              },
+              {
+                name: "password",
+                label: "Password",
+                placeholder: "password",
+                type: "password",
+              },
+            ]}
+            onSubmit={(data) => {
+              dispatch(registerUser(data))
+                .then(() => history.push("/"))
+                .catch((err) => setMsg(err));
+            }}
+          ></InputForm>
         </Col>
       </Row>
+      <h6>{msg}</h6>
     </Container>
   );
 }
