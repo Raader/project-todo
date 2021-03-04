@@ -65,8 +65,7 @@ export const loginUser = (user) => (dispatch) => {
       const user = data.user;
       user.token = data.token;
       dispatch(setUser(user));
-    })
-    .catch((err) => console.error(err));
+    });
 };
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
