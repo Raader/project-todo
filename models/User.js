@@ -6,11 +6,14 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         lowercase: true,
-        required: true,
+        required: [true, "no email adress"],
         unique: true,
-        validate: function (v) {
-            const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-            return re.test(v);
+        validate: {
+            validator: function (v) {
+                const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+                return re.test(v);
+            },
+            message: "invalid email adress",
         },
     },
     password: { type: String, required: true },
