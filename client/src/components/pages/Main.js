@@ -11,10 +11,10 @@ export function Main() {
           <Col className="no-padding" md="3">
             <ProjectSection></ProjectSection>
           </Col>
-          <Col className="no-padding" xs="6" md="6">
+          <Col className="no-padding">
             <ListSection></ListSection>
           </Col>
-          <Col className="no-padding" md="3">
+          <Col className="no-padding" md="5">
             <TodoSection></TodoSection>
           </Col>
         </Row>

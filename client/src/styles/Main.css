@@ -1,11 +1,23 @@
 .white-section {
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
   border-radius: 0.5rem;
   height: 80vh;
   margin: 1rem;
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
 }
-
+.section-title {
+  font-weight: 700;
+}
 .no-padding {
   padding: 0 !important;
+}
+
+.btn-nice {
+  background-color: white !important;
+  color: black !important;
+  border: none !important;
+  font-weight: 600 !important;
 }

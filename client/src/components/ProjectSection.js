@@ -8,20 +8,25 @@ export function ProjectSection(props) {
   useEffect(() => {
     const list = [];
     for (let i = 0; i < 100; i++) {
-      list.push({ name: "PROEJET-TODO" });
+      list.push({ name: "project-TODO", count: "5" });
     }
     setProjects(list);
   }, []);
   return (
     <Section>
-      <h3>Projects</h3>
+      <h4 className="section-title">Projects</h4>
       <div className="project-list">
         {projects.map((project) => (
-          <div className="list-item">{project.name}</div>
+          <div className="list-item">
+            <i class="fas fa-bars"></i> {project.name}
+            <div className="item-footer">
+              <i class="fas fa-check-square"></i> {project.count} todos
+            </div>
+          </div>
         ))}
       </div>
       <div className="project-footer">
-        <Button>New Project</Button>
+        <Button variant="nice">New Project</Button>
       </div>
     </Section>
   );
