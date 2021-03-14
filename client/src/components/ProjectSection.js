@@ -5,6 +5,7 @@ import "../styles/ProjectColumn.css";
 
 export function ProjectSection(props) {
   const [projects, setProjects] = useState([]);
+  const [project, setProject] = useState({});
   useEffect(() => {
     const list = [];
     for (let i = 0; i < 100; i++) {

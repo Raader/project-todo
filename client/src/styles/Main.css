@@ -7,6 +7,7 @@
   margin: 1rem;
   text-align: left;
   font-family: "Open Sans", sans-serif;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .section-title {
   font-weight: 700;
@@ -20,4 +21,15 @@
   color: black !important;
   border: none !important;
   font-weight: 600 !important;
+}
+
+.project-name {
+  margin-top: 0.75rem;
+  text-align: left;
+}
+.project-name h2:hover {
+}
+.project-name h2 {
+  margin-bottom: 0;
+  cursor: pointer !important;
 }
