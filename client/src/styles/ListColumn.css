@@ -1,5 +1,5 @@
 .todo-list {
-  height: 80%;
+  height: 90%;
   overflow-y: scroll;
   text-align: left;
   font-size: medium;
@@ -12,13 +12,43 @@
   border-radius: 0.25rem;
   background-color: white;
   margin: 0.6rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
   transition: all 0.2s;
   border: 0.1rem rgb(230, 229, 229) solid;
 }
+
 .todo-box {
   font-size: large;
 }
 
 .todo-list .list-item:hover {
-  background-color: rgba(255, 255, 255, 0.5);;
+  border-color: black;
+}
+
+.todo-input{
+  margin-bottom: 0.25rem;
+  font-size: 1rem !important;
+}
+.input-group{
+}
+.input-group-text{
+  background-color:white !important;
+  font-weight: 600 !important;
+  border: 0.1rem rgb(230, 229, 229) solid !important;
+}
+
+.form-control{
+  border: 0.1rem rgb(230, 229, 229) solid !important;
+  font-weight: 600 !important;
+}
+
+.btn-tline{
+  background-color: white !important;
+  border: 0.1rem rgb(230, 229, 229) solid !important;
+  font-weight: 600 !important;
+  transition: all 0.2s;
+}
+.btn-tline:hover{
+  border-color: black !important;
 }

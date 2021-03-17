@@ -6,7 +6,7 @@ import { TodoSection } from "../TodoSection";
 export function Main() {
   return (
     <div>
-      <Container fluid>
+      <Container fluid className="main-cont">
         <Row>
           <Col className="no-padding" md="3">
             <ProjectSection></ProjectSection>

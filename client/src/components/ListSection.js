@@ -1,6 +1,7 @@
 import { Section } from "./Section";
 import "../styles/ListColumn.css";
 import { useEffect, useState } from "react";
+import { Button, InputGroup, FormControl } from "react-bootstrap";
 
 export function ListSection(props) {
   const [todos, setTodos] = useState([]);
@@ -14,7 +15,17 @@ export function ListSection(props) {
   return (
     <div>
       <Section>
-        <h4 className="section-title">TODOS</h4>
+        <div className="section-title">
+          <InputGroup className="todo-input">
+            <InputGroup.Prepend>
+              <InputGroup.Text>Todo</InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl />
+            <InputGroup.Append>
+              <Button variant="tline">Add</Button>
+            </InputGroup.Append>
+          </InputGroup>
+        </div>
         <div className="todo-list">
           {todos.map((todo) => (
             <div className="list-item">
