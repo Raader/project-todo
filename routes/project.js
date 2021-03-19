@@ -20,4 +20,10 @@ router.get("/remove/:id", auth, function (req, res) {
     });
 });
 
+router.get("/list", auth, function (req, res) {
+    controller.list(req, res).catch((err) => {
+        res.status(400).json({ err: err.message });
+    });
+});
+
 module.exports = router;
