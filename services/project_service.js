@@ -10,4 +10,9 @@ async function createProject(name, userId) {
     return { name: project.name, created: project.created, id: project.id };
 }
 
-module.exports = { createProject };
+async function deleteProject(id) {
+    return projectModel
+        .findByIdAndRemove(id, { useFindAndModify: false })
+        .exec();
+}
+module.exports = { createProject, deleteProject };

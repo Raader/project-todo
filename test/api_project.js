@@ -10,29 +10,41 @@ const should = chai.should();
 const request = chai.request;
 
 describe("Project Api", function () {
+    let token;
+    before(function () {
+        const user = {
+            name: "faruk10",
+            email: "faruk10@farukmail.com",
+            password: "faruk2356",
+        };
+        return request(app)
+            .post("/api/user/register")
+            .send({ user })
+            .then((res) => (token = res.body.token));
+    });
+    let project;
     describe("creating a project", function () {
         it("should create a project", function () {
-            const user = {
-                name: "faruk10",
-                email: "faruk10@farukmail.com",
-                password: "faruk2356",
-            };
             return request(app)
-                .post("/api/user/register")
-                .send({ user })
+                .post("/api/project/create")
+                .set("Authorization", "Bearer " + token)
+                .send({ project: { name: "farukun projesi" } })
                 .then((res) => {
-                    return request(app)
-                        .post("/api/project/create")
-                        .set("Authorization", "Bearer " + res.body.token)
-                        .send({ project: { name: "farukun projesi" } });
-                })
-                .then((res) => {
-                    console.log(res.body);
+                    project = res.body.project;
                     expect(res).to.have.status(200);
                 });
         });
     });
-    describe("deleting a project", function () {});
+    describe("deleting a project", function () {
+        it("should delete a project", function () {
+            return request(app)
+                .get("/api/project/remove/" + project.id)
+                .set("Authorization", "Bearer " + token)
+                .then((res) => {
+                    expect(res).to.have.status(200);
+                });
+        });
+    });
     describe("adding a todo", function () {});
     describe("deleting a todo", function () {});
     describe("completing a todo", function () {});
