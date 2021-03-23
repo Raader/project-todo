@@ -35,6 +35,17 @@ describe("Project Api", function () {
                 });
         });
     });
+    describe("fetching a project or projects", function () {
+        it("should get project names and ids", function () {
+            return request(app)
+                .get("/api/project/list")
+                .set("Authorization", "Bearer " + token)
+                .then((res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("projects");
+                });
+        });
+    });
     describe("deleting a project", function () {
         it("should delete a project", function () {
             return request(app)

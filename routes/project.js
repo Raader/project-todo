@@ -2,7 +2,7 @@ const router = require("express").Router();
 const controller = require("../controllers/project");
 const auth = require("../middleware/auth");
 
-router.get("/:id", auth, function (req, res) {
+router.get("/get/:id", auth, function (req, res) {
     controller.get(req, res).catch((err) => {
         res.status(400).json({ err: err.message });
     });

@@ -1,0 +1,12 @@
+const router = require("express").Router();
+const controller = require("../controllers/todo");
+const auth = require("../middleware/auth");
+const select = require("../middleware/select_project");
+
+router.post("/add", auth, select, function (req, res) {
+    controller.add(req, res).catch((err) => {
+        res.status(400).json({ err: err.message });
+    });
+});
+
+module.exports = router;

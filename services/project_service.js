@@ -15,4 +15,11 @@ async function deleteProject(id) {
         .findByIdAndRemove(id, { useFindAndModify: false })
         .exec();
 }
-module.exports = { createProject, deleteProject };
+
+async function listProjects(userId) {
+    const projects = await projectModel.find({ owner: userId }).exec();
+    return projects.map((val) => {
+        return { name: val.name, id: val.id };
+    });
+}
+module.exports = { createProject, deleteProject, listProjects };

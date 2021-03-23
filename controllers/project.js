@@ -18,4 +18,8 @@ async function remove(req, res) {
     res.json({ msg: "succesfully deleted project" });
 }
 
-module.exports = { get, create, remove };
+async function list(req, res) {
+    const projects = await projectService.listProjects(req.userId);
+    res.json({ projects, msg: "succeesfully listed projects" });
+}
+module.exports = { get, create, remove, list };
