@@ -41,3 +41,12 @@
     transform: translateY(0px);
   }
 }
+.btn-tline {
+  background-color: white !important;
+  border: 0.1rem rgb(230, 229, 229) solid !important;
+  font-weight: 600 !important;
+  transition: all 0.2s;
+}
+.btn-tline:hover {
+  border-color: black !important;
+}

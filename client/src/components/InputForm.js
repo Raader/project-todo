@@ -26,6 +26,7 @@ export function InputForm(props) {
         </Form.Group>
       ))}
       <Button
+        variant="tline"
         onClick={() => {
           props.onSubmit(createData());
         }}

@@ -12,7 +12,7 @@ export function Home() {
           free.
         </p>
         <p>
-          <Button variant="primary" onClick={() => history.push("/register")}>
+          <Button variant="tline" onClick={() => history.push("/register")}>
             Get Started
           </Button>
         </p>
