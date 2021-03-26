@@ -46,6 +46,27 @@ describe("Project Api", function () {
                 });
         });
     });
+
+    describe("adding a todo", function () {
+        it("should add a todo to the project", function () {
+            return request(app)
+                .post("/api/todo/add")
+                .set("Authorization", "Bearer " + token)
+                .send({
+                    project,
+                    todo: {
+                        name: "mahmutu bul ve öldür",
+                        description: "mahmutu pıçakla.",
+                    },
+                })
+                .then((res) => {
+                    console.log(res.body);
+                    expect(res).to.have.status(200);
+                });
+        });
+    });
+    describe("deleting a todo", function () {});
+    describe("completing a todo", function () {});
     describe("deleting a project", function () {
         it("should delete a project", function () {
             return request(app)
@@ -56,8 +77,5 @@ describe("Project Api", function () {
                 });
         });
     });
-    describe("adding a todo", function () {});
-    describe("deleting a todo", function () {});
-    describe("completing a todo", function () {});
     describe("fetching a project or projects", function () {});
 });
