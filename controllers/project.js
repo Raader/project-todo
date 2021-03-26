@@ -14,7 +14,7 @@ async function create(req, res) {
 async function remove(req, res) {
     const id = req.params.id;
     if (!id) throw new Error("no id given");
-    await projectService.deleteProject(id);
+    await projectService.deleteProject(id, req.userId);
     res.json({ msg: "succesfully deleted project" });
 }
 

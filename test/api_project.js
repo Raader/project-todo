@@ -60,7 +60,6 @@ describe("Project Api", function () {
                     },
                 })
                 .then((res) => {
-                    console.log(res.body);
                     expect(res).to.have.status(200);
                 });
         });

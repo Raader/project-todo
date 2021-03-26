@@ -10,10 +10,15 @@ async function createProject(name, userId) {
     return { name: project.name, created: project.created, id: project.id };
 }
 
-async function deleteProject(id) {
-    return projectModel
-        .findByIdAndRemove(id, { useFindAndModify: false })
+async function deleteProject(id, userId) {
+    const project = await projectModel
+        .findOneAndRemove(
+            { _id: id, owner: userId },
+            { useFindAndModify: false }
+        )
         .exec();
+    if (!project) throw new Error("project not found");
+    return;
 }
 
 async function listProjects(userId) {
