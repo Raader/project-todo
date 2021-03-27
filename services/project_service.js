@@ -1,6 +1,16 @@
 const projectModel = require("../models/Project");
 const mongoose = require("mongoose");
 
+async function getProject(projectId, userId) {
+    const project = await projectModel
+        .findOne({
+            _id: projectId,
+            owner: userId,
+        })
+        .exec();
+    if (!project) throw new Error("project not found");
+    return { name: project.name, created: project.created, id: project.id };
+}
 async function createProject(name, userId) {
     const doc = new projectModel({
         name,
@@ -27,4 +37,4 @@ async function listProjects(userId) {
         return { name: val.name, id: val.id };
     });
 }
-module.exports = { createProject, deleteProject, listProjects };
+module.exports = { getProject, createProject, deleteProject, listProjects };

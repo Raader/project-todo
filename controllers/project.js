@@ -1,7 +1,9 @@
 const projectService = require("../services/project_service");
 
 async function get(req, res) {
-    res.status(200);
+    const projectId = req.params.id;
+    const project = await projectService.getProject(projectId, req.userId);
+    res.json({ project, msg: "succesfully got project" });
 }
 
 async function create(req, res) {

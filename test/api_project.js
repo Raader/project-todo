@@ -45,6 +45,15 @@ describe("Project Api", function () {
                     expect(res.body).to.have.property("projects");
                 });
         });
+        it("should get project by id", function () {
+            return request(app)
+                .get("/api/project/get/" + project.id)
+                .set("Authorization", "Bearer " + token)
+                .then((res) => {
+                    console.log(res.body);
+                    expect(res).to.have.status(200);
+                });
+        });
     });
 
     describe("adding a todo", function () {
