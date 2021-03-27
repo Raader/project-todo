@@ -13,4 +13,12 @@ async function addTodo(projectId, todo) {
     };
 }
 
-module.exports = { addTodo };
+async function listTodos(projectId) {
+    const docs = await todoModel.find({ owner: projectId }).exec();
+    if (!docs) throw new Error("no todos found");
+    return docs.map((val) => {
+        return { name: val.name, description: val.description, id: val.id };
+    });
+}
+
+module.exports = { addTodo, listTodos };

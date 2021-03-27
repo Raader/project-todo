@@ -50,7 +50,6 @@ describe("Project Api", function () {
                 .get("/api/project/get/" + project.id)
                 .set("Authorization", "Bearer " + token)
                 .then((res) => {
-                    console.log(res.body);
                     expect(res).to.have.status(200);
                 });
         });
@@ -69,6 +68,19 @@ describe("Project Api", function () {
                     },
                 })
                 .then((res) => {
+                    expect(res).to.have.status(200);
+                });
+        });
+    });
+
+    describe("getting todos", function () {
+        it("should list todos", function () {
+            return request(app)
+                .post("/api/todo/list")
+                .set("Authorization", "Bearer " + token)
+                .send({ project })
+                .then((res) => {
+                    console.log(res.body);
                     expect(res).to.have.status(200);
                 });
         });

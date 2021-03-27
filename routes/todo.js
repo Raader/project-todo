@@ -9,6 +9,12 @@ router.post("/add", auth, select, function (req, res) {
     });
 });
 
+router.post("/list", auth, select, function (req, res) {
+    controller.list(req, res).catch((err) => {
+        res.status(400).json({ err: err.message });
+    });
+});
+
 router.post("/complete/:id", auth, select, function (req, res) {
     controller.complete(req, res).catch((err) => {
         res.status(400).json({ err: err.message });

@@ -13,4 +13,9 @@ async function edit(req, res) {}
 
 async function remove(req, res) {}
 
-module.exports = { add, complete, edit, remove };
+async function list(req, res) {
+    const todos = await todoService.listTodos(req.project.id);
+    res.json({ todos, msg: "succesfully listed todos" });
+}
+
+module.exports = { add, complete, edit, remove, list };
