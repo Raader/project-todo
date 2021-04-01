@@ -13,6 +13,9 @@ export function NavMenu() {
         <i class="fas fa-list-alt"></i> PROJECT-TODO
       </Navbar.Brand>
       <Navbar.Toggle></Navbar.Toggle>
+      <Nav className="mr-auto">
+        <Nav.Link onClick={() => history.push("/main")}>Main</Nav.Link>
+      </Nav>
       <Navbar.Collapse className="justify-content-end">
         {user && user.name ? (
           <Navbar.Text className="username">{user.name}</Navbar.Text>
