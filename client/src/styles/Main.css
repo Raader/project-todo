@@ -3,14 +3,13 @@
   background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 0.5rem;
-  height: 90vh;
+  height: 88vh;
   margin: 0.45rem;
   text-align: left;
   font-family: "Open Sans", sans-serif;
   border: 0.1rem rgb(224, 224, 224) solid;
 }
-.main-cont{
-
+.main-cont {
 }
 .section-title {
   font-weight: 700;
@@ -27,6 +26,9 @@
   font-weight: 600 !important;
 }
 
+.btn-nice:hover {
+  background-color: rgb(241, 241, 241) !important;
+}
 .project-name {
   margin-top: 0.75rem;
   text-align: left;

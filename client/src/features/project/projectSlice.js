@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const projectSlice = createSlice({
   name: "project",
   initialState: {
-    name: "",
+    name: "project",
     id: "",
     todos: [],
   },
@@ -32,11 +32,11 @@ export const createProject = (project) => (dispatch, getState) => {
   fetch("/api/project/create", options)
     .then((res) => res.json())
     .then((project) => {
-      console.log(project);
       dispatch(setProject(project.project));
     });
 };
 
+export const listProjects = () => (dispatch, getState) => {};
 export const selectProject = (state) => state.project;
 
 export default projectSlice.reducer;

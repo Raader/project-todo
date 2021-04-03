@@ -8,9 +8,7 @@ import { ProjectSection } from "../ProjectSection";
 import { TodoSection } from "../TodoSection";
 export function Main() {
   const dispacth = useDispatch();
-  useEffect(() => {
-    dispacth(createProject({ name: "hello" }));
-  });
+  useEffect(() => {});
   return (
     <div>
       <Container fluid className="main-cont">
