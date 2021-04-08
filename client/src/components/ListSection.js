@@ -13,16 +13,16 @@ export function ListSection(props) {
     setTodos(list);
   }, []);
   return (
-    <div>
+    <div className="todo-main">
       <Section>
-        <div className="section-title">
+        <div className="todo-top">
           <InputGroup className="todo-input">
             <InputGroup.Prepend>
               <InputGroup.Text>Todo</InputGroup.Text>
             </InputGroup.Prepend>
             <FormControl />
             <InputGroup.Append>
-              <Button variant="tline">Add</Button>
+              <Button variant="nice">Add</Button>
             </InputGroup.Append>
           </InputGroup>
         </div>

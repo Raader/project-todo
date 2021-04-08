@@ -1,41 +1,23 @@
-.project-list {
-  text-align: left;
-  overflow-y: scroll;
-  height: 80%;
-  margin-bottom: 1rem;
-  font-size: large;
-  font-weight: 600;
-}
-.project-list .list-item {
-  background-color: white;
-  cursor: pointer;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  transition: all 0.2s;
-  margin-top: 0.75rem;
-}
-.project-list .list-item .item-footer {
-  font-weight: 400;
-  font-size: medium;
-}
-.project-list .list-item:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
 .project-footer {
   padding-top: 1rem;
   margin-top: 0.5rem;
+  height: 30vh;
+  border: 0.5rem;
 }
 .project-footer .btn {
   text-align: left;
   font-size: 1.4rem;
   font-weight: 400 !important;
-  color: rgb(119, 119, 119) !important;
+  width: 15rem !important;
+  background-color: transparent !important;
+  color: black !important;
+  border-bottom: solid #c79c78 0.1rem !important;
 }
 .project-name {
   font-weight: 600;
-  padding-bottom: 0.5rem;
-  border-bottom: solid rgb(223, 223, 223) 0.1rem;
+  padding: 0.5rem;
+  border-bottom: solid #c79c78 0.1rem;
+  color: black;
 }
 
 .project-description {
@@ -44,7 +26,7 @@
   color: rgb(75, 75, 75);
   text-align: left;
   margin-bottom: 0.5rem;
-  border-bottom: solid rgb(223, 223, 223) 0.1rem;
+  border-bottom: solid #c79c78 0.1rem;
 }
 
 .project-stats {
@@ -52,29 +34,39 @@
   font-weight: 600;
   margin-top: 0.5rem;
   text-align: center;
+
+  padding: 0.25rem;
 }
 
 .project-date {
   font-weight: 500;
   text-align: left;
   margin: 0.2rem;
-  color: rgb(77, 76, 76);
+  color: black !important;
 }
 .project-stat {
   padding: 0.25rem;
 }
 .project-main {
-  background-color: white;
-  border: rgb(223, 223, 223) solid 0.1rem;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  height: 95%;
+  background-color: #e8ae68;
+  padding: 0.75rem;
+  padding-top: 0rem;
+  padding-bottom: 0;
+  border-right: solid #d49f5e 0.1rem !important;
 }
 
+.project-base {
+}
+
+.project-cont {
+  background-color: #ffd480;
+  border-bottom: 0.1rem#c79c78 solid;
+  border-radius: 0.5rem;
+}
 .project-portrait {
   font-size: 8rem;
   text-align: center;
-  color: rgb(88, 88, 88);
+  color: #ffe5b1;
 }
 
 .project-portrait i {
@@ -84,20 +76,20 @@
   margin-top: 1rem;
 }
 #delete-btn {
-  color: red !important;
+  color: #db5a42 !important;
 }
 
 #completed {
-  color: rgb(148, 148, 148);
-  border-top: rgb(223, 223, 223) solid 0.1rem;
+  color: #000000;
+  border-top: #c79c78 solid 0.1rem;
 }
 
 #remaining {
-  color: rgb(107, 107, 107);
-  border-top: rgb(223, 223, 223) solid 0.1rem;
+  color: #383838;
+  border-top: #c79c78 solid 0.1rem;
 }
 
 #total-count {
-  border-top: solid rgb(223, 223, 223) 0.1rem;
+  border-top: solid #a57f60 0.1rem;
   margin-top: 0.5rem;
 }

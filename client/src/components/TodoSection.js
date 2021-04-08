@@ -1,8 +1,8 @@
 import { Section } from "./Section";
-
+import "../styles/TodoColumn.css";
 export function TodoSection(props) {
   return (
-    <div>
+    <div className="inspect-main">
       <Section>
         <h3>TODO</h3>
       </Section>

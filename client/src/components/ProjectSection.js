@@ -4,6 +4,7 @@ import { Section } from "./Section";
 import "../styles/ProjectColumn.css";
 import { useSelector } from "react-redux";
 import { selectProject } from "../features/project/projectSlice";
+import { ChangeProjectButton } from "./ChangeProjectButton";
 
 export function ProjectSection(props) {
   const project = useSelector(selectProject);
@@ -16,16 +17,12 @@ export function ProjectSection(props) {
     setProjects(list);
   }, []);
   return (
-    <Section>
-      <div className="project-main">
-        <div className="project-portrait">
-          <i class="fas fa-project-diagram"></i>
-        </div>
-        <div>
+    <div className="project-main">
+      <Section>
+        <div className="project-cont">
           <h3 className="project-name">
             <i class="fas fa-bars"></i> {project.name}
           </h3>
-
           <div className="project-stats">
             <Container>
               <Row>
@@ -68,21 +65,19 @@ export function ProjectSection(props) {
               </Row>
             </Container>
           </div>
+          <div className="project-footer">
+            <ButtonGroup vertical>
+              <ChangeProjectButton variant="nice"></ChangeProjectButton>
+              <Button variant="nice">
+                <i class="fas fa-edit"></i> Edit Project
+              </Button>
+              <Button variant="nice" id="delete-btn">
+                <i class="fas fa-trash"></i> Delete Project
+              </Button>
+            </ButtonGroup>
+          </div>
         </div>
-        <div className="project-footer">
-          <ButtonGroup vertical>
-            <Button variant="nice">
-              <i class="fas fa-exchange-alt"></i> Change Project
-            </Button>
-            <Button variant="nice">
-              <i class="fas fa-edit"></i> Edit Project
-            </Button>
-            <Button variant="nice" id="delete-btn">
-              <i class="fas fa-trash"></i> Delete Project
-            </Button>
-          </ButtonGroup>
-        </div>
-      </div>
-    </Section>
+      </Section>
+    </div>
   );
 }

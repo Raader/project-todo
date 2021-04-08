@@ -42,11 +42,13 @@
   }
 }
 .btn-tline {
-  background-color: white !important;
-  border: 0.1rem rgb(230, 229, 229) solid !important;
+  background-color: transparent !important;
+  color: #a57f60 !important;
+  border: 0.1rem #a57f60 solid !important;
   font-weight: 600 !important;
   transition: all 0.2s;
 }
 .btn-tline:hover {
-  border-color: black !important;
+  background-color: #a57f60 !important;
+  color: black !important;
 }

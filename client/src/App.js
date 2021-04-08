@@ -11,7 +11,7 @@ import { Route, Switch } from "react-router";
 import { Main } from "./components/pages/Main";
 function App() {
   useEffect(() => {
-    document.body.style.background = "#C5D9E2";
+    document.body.style.background = "#FFD275";
   }, []);
   return (
     <div className="App">

@@ -1,13 +1,10 @@
 .white-section {
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 0.5rem;
-  height: 88vh;
-  margin: 0.45rem;
+  height: 100vh;
   text-align: left;
   font-family: "Open Sans", sans-serif;
-  border: 0.1rem rgb(224, 224, 224) solid;
+  overflow: hidden;
 }
 .main-cont {
 }
@@ -20,14 +17,14 @@
 }
 
 .btn-nice {
-  background-color: white !important;
-  color: black !important;
+  background-color: #cf9f65 !important;
+  color: #fcd382 !important;
   border: none !important;
   font-weight: 600 !important;
 }
 
 .btn-nice:hover {
-  background-color: rgb(241, 241, 241) !important;
+  background-color: #ecb674 !important;
 }
 .project-name {
   margin-top: 0.75rem;
