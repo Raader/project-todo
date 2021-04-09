@@ -8,9 +8,7 @@ async function addTodo(projectId, todo) {
     });
     const ndoc = await doc.save();
 
-    return {
-        todo: { name: ndoc.name, description: ndoc.description, id: ndoc.id },
-    };
+    return { name: ndoc.name, description: ndoc.description, id: ndoc.id };
 }
 
 async function listTodos(projectId) {
