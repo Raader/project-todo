@@ -1,11 +1,12 @@
 import "../styles/Navbar.css";
 import { Nav, Navbar } from "react-bootstrap";
 import { useHistory } from "react-router";
-import { useSelector } from "react-redux";
-import { selectUser } from "../features/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser, selectUser } from "../features/user/userSlice";
 
 export function NavMenu() {
   const history = useHistory();
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
   return (
     <Navbar sticky="top">
@@ -18,7 +19,12 @@ export function NavMenu() {
       </Nav>
       <Navbar.Collapse className="justify-content-end">
         {user && user.name ? (
-          <Navbar.Text className="username">{user.name}</Navbar.Text>
+          <Navbar.Text className="username">
+            {user.name}{" "}
+            <span className="logout" onClick={() => dispatch(logoutUser())}>
+              Logout
+            </span>
+          </Navbar.Text>
         ) : (
           <Navbar.Text className="user-ops">
             <span className="login-link" onClick={() => history.push("/login")}>

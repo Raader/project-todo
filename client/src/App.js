@@ -9,10 +9,18 @@ import { Home } from "./components/pages/Home";
 import { NavMenu } from "./components/NavMenu";
 import { Route, Switch } from "react-router";
 import { Main } from "./components/pages/Main";
+import { useDispatch } from "react-redux";
+import { getUser } from "./features/user/userSlice";
 function App() {
+  const dispatch = useDispatch();
   useEffect(() => {
     document.body.style.background = "#FFD275";
   }, []);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+    dispatch(getUser(token)).catch((err) => console.error(err));
+  }, [dispatch]);
   return (
     <div className="App">
       <NavMenu></NavMenu>

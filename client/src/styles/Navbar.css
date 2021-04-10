@@ -33,6 +33,13 @@
   color: black !important;
 }
 
+.logout {
+  color: red;
+  font-size: medium;
+  cursor: pointer;
+  border-left: black 0.1rem solid;
+  padding: 0.25rem;
+}
 .main-title {
   cursor: pointer;
 }

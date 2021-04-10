@@ -48,6 +48,7 @@ export const registerUser = (user) => (dispatch) => {
       const user = data.user;
       user.token = data.token;
       dispatch(setUser(user));
+      localStorage.setItem("token", data.token);
     });
 };
 
@@ -68,7 +69,40 @@ export const loginUser = (user) => (dispatch) => {
       const user = data.user;
       user.token = data.token;
       dispatch(setUser(user));
+      console.log(data.token);
+      localStorage.setItem("token", data.token);
     });
+};
+
+export const getUser = (token) => (dispatch) => {
+  const options = {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+  };
+  return fetch("/api/user", options)
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.err) throw data.err;
+      const user = data.user;
+      user.token = token;
+      dispatch(setUser(user));
+    });
+};
+
+export const logoutUser = () => (dispatch) => {
+  dispatch(
+    setUser({
+      name: "",
+      email: "",
+      id: "",
+      token: "",
+    })
+  );
+  localStorage.setItem("token", "");
 };
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

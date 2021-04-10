@@ -8,6 +8,7 @@ import {
   selectProjectList,
   setProject,
 } from "../features/project/projectSlice";
+import { selectUser } from "../features/user/userSlice";
 import "../styles/ChangeProject.css";
 
 export function ChangeProjectButton(props) {
@@ -15,16 +16,12 @@ export function ChangeProjectButton(props) {
   const handleShow = () => setShow(true);
   const handleHide = () => setShow(false);
   const [projects, setProjects] = useState([]);
+  const user = useSelector(selectUser);
   const ps = useSelector(selectProjectList);
   const dispatch = useDispatch();
   useEffect(() => {
-    const list = [];
-    for (let i = 0; i < 100; i++) {
-      list.push({ name: "project-TODO", count: "5" });
-    }
     dispatch(listProjects());
-    setProjects(list);
-  }, [dispatch]);
+  }, [dispatch, user]);
   return (
     <div>
       <Modal show={show} onHide={handleHide}>
