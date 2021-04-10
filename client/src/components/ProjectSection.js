@@ -5,17 +5,16 @@ import "../styles/ProjectColumn.css";
 import { useSelector } from "react-redux";
 import { selectProject } from "../features/project/projectSlice";
 import { ChangeProjectButton } from "./ChangeProjectButton";
+import { useHistory } from "react-router";
 
 export function ProjectSection(props) {
   const project = useSelector(selectProject);
-  const [projects, setProjects] = useState([]);
+  const history = useHistory();
   useEffect(() => {
-    const list = [];
-    for (let i = 0; i < 100; i++) {
-      list.push({ name: "project-TODO", count: "5" });
+    if (!project.id) {
+      history.push("/select");
     }
-    setProjects(list);
-  }, []);
+  }, [project, history]);
   return (
     <div className="project-main">
       <Section>
@@ -29,7 +28,7 @@ export function ProjectSection(props) {
                 <Col className="no-padding">
                   <div className="project-date">
                     <i class="fas fa-hourglass-start"></i> Last Edited:{" "}
-                    <span style={{ fontWeight: 600 }}>20.05.21</span>
+                    <span style={{ fontWeight: 600 }}>20/05/21</span>
                   </div>
                 </Col>
               </Row>
@@ -37,7 +36,7 @@ export function ProjectSection(props) {
                 <Col className="no-padding">
                   <div className="project-date">
                     <i class="fas fa-hourglass-end"></i> Last Completed:{" "}
-                    <span style={{ fontWeight: 600 }}>20.05.21</span>
+                    <span style={{ fontWeight: 600 }}>20/05/21</span>
                   </div>
                 </Col>
               </Row>
@@ -45,7 +44,13 @@ export function ProjectSection(props) {
                 <Col className="no-padding">
                   <div className="project-date">
                     <i class="fas fa-calendar-week"></i> Created:{" "}
-                    <span style={{ fontWeight: 600 }}>20.05.21</span>
+                    <span style={{ fontWeight: 600 }}>
+                      {new Date(project.created).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit",
+                      })}
+                    </span>
                   </div>
                 </Col>
               </Row>
@@ -67,7 +72,9 @@ export function ProjectSection(props) {
           </div>
           <div className="project-footer">
             <ButtonGroup vertical>
-              <ChangeProjectButton variant="nice"></ChangeProjectButton>
+              <Button variant="nice" onClick={() => history.push("/select")}>
+                <i class="fas fa-exchange-alt"></i> Change Project
+              </Button>
               <Button variant="nice">
                 <i class="fas fa-edit"></i> Edit Project
               </Button>

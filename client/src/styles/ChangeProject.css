@@ -10,12 +10,39 @@
   border: 0 !important;
   border-top: solid #c79c78 0.1rem !important;
 }
-.project-list {
+.plist-cont {
+  margin-top: 2rem;
+  background-color: #e8ae68;
+  border-radius: 0.5rem;
+  border: solid #d49f5e 0.1rem !important;
+  font-family: "Open Sans", sans-serif;
+}
+.plist {
   overflow: scroll;
   height: 50vh;
+  border-right: solid #d49f5e 0.1rem !important;
+  border-left: solid #d49f5e 0.1rem !important;
+  padding: 0.5rem;
+  padding-top: 0;
 }
 
-.list-project {
+.plist-header {
+  color: #fdd88d;
+  font-weight: 600 !important;
+  border-bottom: solid #d49f5e 0.1rem !important;
+  padding-top: 0.5rem;
+}
+
+.plist-create {
+  font-size: 1.5rem !important;
+  margin: 1rem;
+}
+
+.plist-footer {
+  border-top: solid #d49f5e 0.1rem !important;
+}
+
+.project {
   background-color: #ffd480;
   border-bottom: solid #c79c78 0.1rem;
   border-radius: 0.25rem;
@@ -23,8 +50,12 @@
   font-weight: 500;
   cursor: pointer;
   margin-bottom: 0.25rem;
+  text-align: left;
+  font-size: 1rem;
 }
-
+.project .date {
+  float: right;
+}
 .list-project:hover {
   border-color: black;
 }

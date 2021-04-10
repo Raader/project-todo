@@ -34,7 +34,7 @@ async function deleteProject(id, userId) {
 async function listProjects(userId) {
     const projects = await projectModel.find({ owner: userId }).exec();
     return projects.map((val) => {
-        return { name: val.name, id: val.id };
+        return { name: val.name, id: val.id, created: val.created };
     });
 }
 module.exports = { getProject, createProject, deleteProject, listProjects };

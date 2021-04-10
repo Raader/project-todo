@@ -11,6 +11,7 @@ import { Route, Switch } from "react-router";
 import { Main } from "./components/pages/Main";
 import { useDispatch } from "react-redux";
 import { getUser } from "./features/user/userSlice";
+import { SelectProject } from "./components/pages/SelectProject";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -30,6 +31,9 @@ function App() {
         </Route>
         <Route path="/register">
           <Register></Register>
+        </Route>
+        <Route path="/select">
+          <SelectProject></SelectProject>
         </Route>
         <Route path="/main">
           <Main></Main>
