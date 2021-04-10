@@ -11,19 +11,19 @@
   border-top: solid #c79c78 0.1rem !important;
 }
 .plist-cont {
-  margin-top: 2rem;
   background-color: #e8ae68;
-  border-radius: 0.5rem;
   border: solid #d49f5e 0.1rem !important;
+  border-top: 0 !important;
   font-family: "Open Sans", sans-serif;
+  height: 100vh;
 }
 .plist {
   overflow: scroll;
-  height: 50vh;
+  height: 70vh;
   border-right: solid #d49f5e 0.1rem !important;
   border-left: solid #d49f5e 0.1rem !important;
   padding: 0.5rem;
-  padding-top: 0;
+  background-color: #e6aa62;
 }
 
 .plist-header {
@@ -31,6 +31,7 @@
   font-weight: 600 !important;
   border-bottom: solid #d49f5e 0.1rem !important;
   padding-top: 0.5rem;
+  font-size: 2rem;
 }
 
 .plist-create {
@@ -47,11 +48,14 @@
   border-bottom: solid #c79c78 0.1rem;
   border-radius: 0.25rem;
   padding: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   margin-bottom: 0.25rem;
   text-align: left;
   font-size: 1rem;
+}
+.project:hover {
+  background-color: #fdda94;
 }
 .project .date {
   float: right;

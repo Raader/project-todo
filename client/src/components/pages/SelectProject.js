@@ -21,11 +21,9 @@ export function SelectProject(props) {
   }, [dispatch, user]);
   return (
     <div>
-      <Container className="plist-cont">
+      <Container className="plist-cont" fluid>
         <Row>
-          <Col className="plist-header">
-            <h2 className="">Select Project</h2>
-          </Col>
+          <Col className="plist-header">Select Project</Col>
         </Row>
         <Row>
           <Col className="mx-auto" lg="8" xs="11">

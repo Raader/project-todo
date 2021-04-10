@@ -1,17 +1,23 @@
 .project-footer {
   padding-top: 1rem;
-  margin-top: 0.5rem;
-  height: 30vh;
+  margin-top: 2rem;
+  height: 25vh;
   border: 0.5rem;
 }
 .project-footer .btn {
   text-align: left;
   font-size: 1.4rem;
   font-weight: 400 !important;
-  width: 15rem !important;
+
   background-color: transparent !important;
   color: black !important;
   border-bottom: solid #c79c78 0.1rem !important;
+}
+.project-footer .btn:hover {
+  border-color: black !important;
+}
+.project-footer .btn-group-vertical {
+  width: 100% !important;
 }
 .project-name {
   font-weight: 600;
