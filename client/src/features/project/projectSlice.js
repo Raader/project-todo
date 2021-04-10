@@ -3,27 +3,26 @@ import { createSlice } from "@reduxjs/toolkit";
 export const projectSlice = createSlice({
   name: "project",
   initialState: {
-    name: "project",
-    id: "",
-    todos: [],
+    current: { name: "", id: "", todos: [] },
     list: [],
   },
   reducers: {
     setProject(state, action) {
-      state.name = action.payload.name;
-      state.id = action.payload.id;
+      state.current = action.payload;
     },
     setList(state, action) {
       state.list = action.payload;
     },
     setTodos(state, action) {
-      state.todos = action.payload;
+      state.current.todos = action.payload;
     },
     addTodoList(state, action) {
-      state.todos.push(action.payload);
+      state.current.todos.push(action.payload);
     },
     editTodo(state, action) {
-      const todo = state.todos.find((val) => val.id === action.payload.id);
+      const todo = state.current.todos.find(
+        (val) => val.id === action.payload.id
+      );
       todo.name = action.payload.name;
       todo.id = action.payload.id;
       todo.completed = action.payload.completed;
@@ -106,7 +105,7 @@ export const addTodo = (todo) => (dispatch, getState) => {
       "Content-Type": "application/json",
       Authorization: "Bearer " + state.user.token,
     },
-    body: JSON.stringify({ todo, project: state.project }),
+    body: JSON.stringify({ todo, project: state.project.current }),
   };
   return fetch("/api/todo/add", options)
     .then((res) => res.json())
@@ -125,7 +124,7 @@ export const completeTodo = (todo) => (dispatch, getState) => {
       "Content-Type": "application/json",
       Authorization: "Bearer " + state.user.token,
     },
-    body: JSON.stringify({ todo, project: state.project }),
+    body: JSON.stringify({ todo, project: state.project.current }),
   };
   return fetch("/api/todo/complete", options)
     .then((res) => res.json())
@@ -134,7 +133,7 @@ export const completeTodo = (todo) => (dispatch, getState) => {
       dispatch(editTodo(data.todo));
     });
 };
-export const selectProject = (state) => state.project;
+export const selectProject = (state) => state.project.current;
 export const selectProjectList = (state) => state.project.list;
 
 export default projectSlice.reducer;
