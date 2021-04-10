@@ -22,6 +22,12 @@ export const projectSlice = createSlice({
     addTodoList(state, action) {
       state.todos.push(action.payload);
     },
+    editTodo(state, action) {
+      const todo = state.todos.find((val) => val.id === action.payload.id);
+      todo.name = action.payload.name;
+      todo.id = action.payload.id;
+      todo.completed = action.payload.completed;
+    },
   },
 });
 
@@ -30,6 +36,7 @@ export const {
   setList,
   setTodos,
   addTodoList,
+  editTodo,
 } = projectSlice.actions;
 
 export const createProject = (project) => (dispatch, getState) => {
@@ -106,6 +113,25 @@ export const addTodo = (todo) => (dispatch, getState) => {
     .then((data) => {
       if (!data.todo) return;
       dispatch(addTodoList(data.todo));
+    });
+};
+
+export const completeTodo = (todo) => (dispatch, getState) => {
+  const state = getState();
+  const options = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + state.user.token,
+    },
+    body: JSON.stringify({ todo, project: state.project }),
+  };
+  return fetch("/api/todo/complete", options)
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data.todo) return;
+      dispatch(editTodo(data.todo));
     });
 };
 export const selectProject = (state) => state.project;
