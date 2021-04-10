@@ -7,7 +7,12 @@ async function add(req, res) {
     res.json({ todo: todoDoc, msg: "succesfully added todo to the project" });
 }
 
-async function complete(req, res) {}
+async function complete(req, res) {
+    const todo = req.body.todo;
+    if (!todo) throw new Error("no todo found");
+    const todoDoc = await todoService.completeTodo(todo.id);
+    res.json({ todo: todoDoc, msg: "succesfull completed todo" });
+}
 
 async function edit(req, res) {}
 

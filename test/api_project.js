@@ -72,7 +72,7 @@ describe("Project Api", function () {
                 });
         });
     });
-
+    let todos = [];
     describe("getting todos", function () {
         it("should list todos", function () {
             return request(app)
@@ -82,11 +82,23 @@ describe("Project Api", function () {
                 .then((res) => {
                     console.log(res.body);
                     expect(res).to.have.status(200);
+                    todos = res.body.todos;
                 });
         });
     });
     describe("deleting a todo", function () {});
-    describe("completing a todo", function () {});
+    describe("completing a todo", function () {
+        it("should complete the todo", function () {
+            return request(app)
+                .post("/api/todo/complete")
+                .set("Authorization", "Bearer " + token)
+                .send({ todo: todos[0], project })
+                .then((res) => {
+                    console.log(res.body);
+                    expect(res).to.have.status(200);
+                });
+        });
+    });
     describe("deleting a project", function () {
         it("should delete a project", function () {
             return request(app)
