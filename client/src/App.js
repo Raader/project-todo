@@ -15,7 +15,7 @@ import { SelectProject } from "./components/pages/SelectProject";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    document.body.style.background = "#FFD275";
+    document.body.style.background = "#F0F8FE";
   }, []);
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -24,7 +24,6 @@ function App() {
   }, [dispatch]);
   return (
     <div className="App">
-      <NavMenu></NavMenu>
       <Switch>
         <Route path="/login">
           <Login></Login>
@@ -39,6 +38,7 @@ function App() {
           <Main></Main>
         </Route>
         <Route path="/">
+          <NavMenu></NavMenu>
           <Home></Home>
         </Route>
       </Switch>

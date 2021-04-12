@@ -1,10 +1,10 @@
 .navbar {
-  background-color: #e8ae68;
+  background-color: #094d92;
   color: black;
-  border-bottom: solid #d49f5e 0.1rem !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .navbar-brand {
-  color: #ffe5b1 !important;
+  color: white !important;
   font-family: "Akaya Telivigala", cursive;
   font-weight: 600;
 }

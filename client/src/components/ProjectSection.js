@@ -6,9 +6,11 @@ import { useSelector } from "react-redux";
 import { selectProject } from "../features/project/projectSlice";
 import { ChangeProjectButton } from "./ChangeProjectButton";
 import { useHistory } from "react-router";
+import { selectUser } from "../features/user/userSlice";
 
 export function ProjectSection(props) {
   const project = useSelector(selectProject);
+  const user = useSelector(selectUser);
   const history = useHistory();
   useEffect(() => {
     if (!project.id) {
@@ -20,70 +22,77 @@ export function ProjectSection(props) {
       <Section>
         <div>
           <div className="project-cont">
-            <h3 className="project-name">
-              <i class="fas fa-bars"></i> {project.name}
-            </h3>
+            <div className="user-port">
+              <span className="user-portrait">
+                <i class="fas fa-user-circle"></i>
+              </span>{" "}
+              {user.name}{" "}
+              <span className="user-menu">
+                <i class="fas fa-home"></i> <i class="fas fa-cog"></i>{" "}
+                <i class="fas fa-sign-out-alt"></i>
+              </span>
+            </div>
             <div className="project-stats">
-              <Container>
-                <Row>
-                  <Col className="no-padding">
-                    <div className="project-date">
-                      <i class="fas fa-hourglass-start"></i> Last Edited:{" "}
-                      <span style={{ fontWeight: 600 }}>20/05/21</span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="no-padding">
-                    <div className="project-date">
-                      <i class="fas fa-hourglass-end"></i> Last Completed:{" "}
-                      <span style={{ fontWeight: 600 }}>20/05/21</span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="no-padding">
-                    <div className="project-date">
-                      <i class="fas fa-calendar-week"></i> Created:{" "}
-                      <span style={{ fontWeight: 600 }}>
-                        {new Date(project.created).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "2-digit",
-                          day: "2-digit",
-                        })}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="project-todos">
-                  <Col>
-                    <div id="completed" className="project-stat">
-                      5 <i class="fas fa-check-square"></i>
-                      <br></br>completed
-                    </div>
-                  </Col>
-                  <Col>
-                    <div id="remaining" className="project-stat">
-                      5 <i class="far fa-check-square"></i>
-                      <br></br>remaining
-                    </div>
-                  </Col>
-                </Row>
-              </Container>
+              <div className="pnav-item">
+                <span className="pnav-i">
+                  <i class="fas fa-home"></i>
+                </span>{" "}
+                Home
+              </div>
+
+              <div id="completed" className="pnav-item">
+                <span className="pnav-i">
+                  <i class="fas fa-question-circle"></i>
+                </span>{" "}
+                About
+              </div>
+              <div id="completed" className="pnav-item">
+                <span className="pnav-i">
+                  <i class="fab fa-github"></i>
+                </span>{" "}
+                Github
+              </div>
+
+              <div id="completed" className="pnav-item">
+                <span className="pnav-i">
+                  <i class="fas fa-stream"></i>
+                </span>{" "}
+                Projects
+              </div>
+              <div id="completed" className="pnav-item">
+                <span className="pnav-i">
+                  <i class="fas fa-cog"></i>
+                </span>{" "}
+                Settings
+              </div>
             </div>
-            <div className="project-footer">
-              <ButtonGroup vertical>
-                <Button variant="nice" onClick={() => history.push("/select")}>
-                  <i class="fas fa-exchange-alt"></i> Change Project
-                </Button>
-                <Button variant="nice">
-                  <i class="fas fa-edit"></i> Edit Project
-                </Button>
-                <Button variant="nice" id="delete-btn">
-                  <i class="fas fa-trash"></i> Delete Project
-                </Button>
-              </ButtonGroup>
+            <div className="project-info">
+              <div className="title">Project Info</div>
+              <div id="completed" className="pnav-item">
+                <span className="pnav-i">
+                  <i class="fas fa-calendar-week"></i>
+                </span>{" "}
+                Created:{" "}
+                {new Date(project.created).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "2-digit",
+                  day: "2-digit",
+                })}
+              </div>
+              <div id="completed" className="pnav-item">
+                <span className="pnav-i">
+                  <i class="fas fa-check-square"></i>
+                </span>{" "}
+                Completed
+              </div>
+              <div id="completed" className="pnav-item">
+                <span className="pnav-i">
+                  <i class="far fa-square"></i>
+                </span>{" "}
+                Remaining
+              </div>
             </div>
+            <div className="project-footer"></div>
           </div>
         </div>
       </Section>
