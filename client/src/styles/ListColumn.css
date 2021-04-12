@@ -76,7 +76,6 @@
 }
 
 .todo-input .stat-drop {
-  display: none;
 }
 
 .input-group-text {
@@ -115,11 +114,34 @@
   margin-right: 1rem;
   text-align: center;
   padding: 0.25rem;
+  margin-top: 0.5rem !important;
+  font-size: 1rem;
 }
 .stat-drop i {
-  width: 1.75rem !important;
+  width: 1.5rem !important;
 }
-.stat-drop :hover,
-.stat-drop :focus {
-  color: black !important;
+.drop,
+.text {
+  font-size: 1rem !important;
+  background-color: transparent !important;
+}
+.drop i {
+  width: auto !important;
+  margin-right: 0.1rem;
+}
+
+.drop:hover,
+.text:hover {
+  background-color: transparent !important;
+}
+
+.drop span {
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: black;
+}
+
+.drop span:hover {
+  background-color: rgba(139, 139, 139, 0.212) !important;
 }

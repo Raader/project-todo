@@ -5,6 +5,7 @@ async function addTodo(projectId, todo) {
         owner: projectId,
         name: todo.name,
         description: todo.description,
+        stats: todo.stats,
     });
     const ndoc = await doc.save();
 
@@ -13,6 +14,7 @@ async function addTodo(projectId, todo) {
         description: ndoc.description,
         id: ndoc.id,
         completed: ndoc.completed,
+        stats: ndoc.stats,
     };
 }
 
@@ -25,6 +27,7 @@ async function listTodos(projectId) {
             description: val.description,
             id: val.id,
             completed: val.completed,
+            stats: val.stats,
         };
     });
 }
@@ -39,6 +42,7 @@ async function completeTodo(todoId) {
         description: ndoc.description,
         id: ndoc.id,
         completed: ndoc.completed,
+        stats: ndoc.stats,
     };
 }
 
