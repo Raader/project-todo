@@ -5,27 +5,31 @@ export const projectSlice = createSlice({
   initialState: {
     current: { name: "", id: "", todos: [] },
     list: [],
+    selected: { name: "", description: "", id: "" },
   },
   reducers: {
-    setProject(state, action) {
+    setProject: (state, action) => {
       state.current = action.payload;
     },
-    setList(state, action) {
+    setList: (state, action) => {
       state.list = action.payload;
     },
-    setTodos(state, action) {
+    setTodos: (state, action) => {
       state.current.todos = action.payload;
     },
-    addTodoList(state, action) {
+    addTodoList: (state, action) => {
       state.current.todos.push(action.payload);
     },
-    editTodo(state, action) {
+    editTodo: (state, action) => {
       const todo = state.current.todos.find(
         (val) => val.id === action.payload.id
       );
       todo.name = action.payload.name;
       todo.id = action.payload.id;
       todo.completed = action.payload.completed;
+    },
+    setSelectedTodo: (state, action) => {
+      state.selected = action.payload;
     },
   },
 });
@@ -36,6 +40,7 @@ export const {
   setTodos,
   addTodoList,
   editTodo,
+  setSelectedTodo,
 } = projectSlice.actions;
 
 export const createProject = (project) => (dispatch, getState) => {
@@ -136,5 +141,7 @@ export const completeTodo = (todo) => (dispatch, getState) => {
 };
 export const selectProject = (state) => state.project.current;
 export const selectProjectList = (state) => state.project.list;
+
+export const selectCurrentTodo = (state) => state.project.selected;
 
 export default projectSlice.reducer;

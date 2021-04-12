@@ -1,2 +1,42 @@
 .inspect-main {
+  color: rgb(71, 71, 71);
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.inspect-menu {
+  padding-top: 1rem;
+  font-size: 1.3rem;
+}
+.inspect-menu .main {
+  border-right: 0.1rem #e0e0e0 solid;
+  padding-right: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.inspect-menu .append {
+  float: right;
+}
+.inspect-menu .append i {
+  margin-right: 0.5rem;
+  cursor: pointer;
+  width: 1.5rem !important;
+}
+
+.inspect-menu .append i:hover {
+  color: black;
+}
+
+.inspect-header {
+  border-top: 0.1rem #e0e0e0 solid;
+  margin-top: 1.25rem;
+}
+
+.inspect-header .form-control {
+  font-size: 1.5rem !important;
+  padding: 0 !important;
+}
+
+.inspect-body {
+  margin-top: 1rem;
 }

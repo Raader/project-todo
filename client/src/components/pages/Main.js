@@ -19,7 +19,7 @@ export function Main() {
           <Col className="no-padding">
             <ListSection></ListSection>
           </Col>
-          <Col className="no-padding" md="5">
+          <Col className="no-padding" md="4">
             <TodoSection></TodoSection>
           </Col>
         </Row>

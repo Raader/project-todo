@@ -3,7 +3,11 @@ import "../styles/ListColumn.css";
 import { useEffect, useState } from "react";
 import { Button, InputGroup, FormControl, Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { completeTodo, selectProject } from "../features/project/projectSlice";
+import {
+  completeTodo,
+  selectProject,
+  setSelectedTodo,
+} from "../features/project/projectSlice";
 import { TodoBar } from "./TodoBar";
 
 export function ListSection(props) {
@@ -43,9 +47,12 @@ export function ListSection(props) {
               !todo.completed ? (
                 <div
                   className="list-item"
-                  onClick={() => dispatch(completeTodo(todo))}
+                  onClick={() => dispatch(setSelectedTodo(todo))}
                 >
-                  <span className="todo-box">
+                  <span
+                    className="todo-box"
+                    onClick={() => dispatch(completeTodo(todo))}
+                  >
                     <i class="far fa-square"></i>
                   </span>{" "}
                   {todo.name}
