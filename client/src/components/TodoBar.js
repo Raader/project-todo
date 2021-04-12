@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { InputGroup, FormControl, Button } from "react-bootstrap";
+import {
+  InputGroup,
+  FormControl,
+  Button,
+  DropdownButton,
+} from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../features/project/projectSlice";
 
@@ -9,22 +14,28 @@ export function TodoBar(props) {
   return (
     <div>
       <InputGroup className="todo-input">
-        <InputGroup.Prepend>
-          <InputGroup.Text>Todo</InputGroup.Text>
-        </InputGroup.Prepend>
-        <FormControl value={todo} onChange={(e) => setTodo(e.target.value)} />
+        <FormControl
+          value={todo}
+          placeholder="Add todo to project, press Enter to save."
+          onChange={(e) => setTodo(e.target.value)}
+        />
         <InputGroup.Append>
-          <Button
-            variant="nice"
-            onClick={() => {
-              if (todo) {
-                dispatch(addTodo({ name: todo, description: "d" }));
-                setTodo("");
-              }
-            }}
-          >
-            Add
-          </Button>
+          <DropdownButton
+            className="stat-drop"
+            variant="nobtn"
+            title={<i class="fas fa-exclamation"></i>}
+          ></DropdownButton>
+          <DropdownButton
+            className="stat-drop"
+            variant="nobtn"
+            title={<i class="fas fa-hourglass"></i>}
+          ></DropdownButton>
+
+          <DropdownButton
+            className="stat-drop"
+            variant="nobtn"
+            title={<i class="fas fa-plus-circle"></i>}
+          ></DropdownButton>
         </InputGroup.Append>
       </InputGroup>
     </div>

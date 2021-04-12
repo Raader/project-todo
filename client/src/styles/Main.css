@@ -17,9 +17,9 @@
 }
 
 .btn-nice {
-  background-color: #cf9f65 !important;
-  color: #fcd382 !important;
-  border: none !important;
+  background-color: transparent !important;
+  color: black !important;
+  border: 0.1rem #e0e0e0 solid !important;
   font-weight: 600 !important;
 }
 

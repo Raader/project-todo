@@ -1,7 +1,7 @@
 import { Section } from "./Section";
 import "../styles/ListColumn.css";
 import { useEffect, useState } from "react";
-import { Button, InputGroup, FormControl } from "react-bootstrap";
+import { Button, InputGroup, FormControl, Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { completeTodo, selectProject } from "../features/project/projectSlice";
 import { TodoBar } from "./TodoBar";
@@ -19,6 +19,21 @@ export function ListSection(props) {
   return (
     <div className="todo-main">
       <Section>
+        <div className="todo-top-menu">
+          <Dropdown>
+            <Dropdown.Toggle variant="nobtn" id="dropdown-basic">
+              <i class="fas fa-bars"></i> {ts.name}
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
+          <span className=""></span>
+        </div>
         <div className="todo-top">
           <TodoBar></TodoBar>
         </div>

@@ -1,7 +1,8 @@
 .todo-main {
-  padding: 0.5rem;
+  padding: 0.75rem;
   padding-bottom: 0;
   padding-top: 0;
+  border-right: solid #e0e0e0 0.15rem;
 }
 
 .todo-list {
@@ -19,20 +20,28 @@
   margin-top: 0.75rem;
 }
 
+.todo-top-menu {
+  font-size: 1.25rem !important;
+  padding: 0.75rem;
+  font-weight: 600;
+}
+.todo-top-menu .dropdown-menu {
+  font-size: 1.25rem !important;
+  background-color: #f0f8fe;
+}
+
 .todo-list .list-item {
   cursor: pointer;
   padding: 0.5rem;
-  border-radius: 0.25rem;
-  background-color: #ffd480;
   margin: 0.6rem;
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;
   transition: all 0.2s;
-  border-bottom: 0.1rem#c79c78 solid;
+  border-bottom: 0.1rem #e0e0e0 solid;
 }
 
 .completed {
-  color: rgb(49, 49, 49) !important;
+  color: rgba(10, 10, 10, 0.514) !important;
   background-color: transparent !important;
   border: 0 !important;
 }
@@ -44,27 +53,73 @@
 }
 
 .todo-list .list-item:hover {
-  background-color: #fdda94;
+  border-radius: 0.5rem;
+  background-color: rgba(41, 41, 41, 0.1);
 }
 
 .todo-input {
   margin-bottom: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border: 0.1rem #e0e0e0 solid !important;
+  border-radius: 0.5rem !important;
   font-size: 1rem !important;
+  border-bottom: 0.1rem #e0e0e0 solid !important;
+  transition: all 0.2s;
 }
-.input-group {
+
+.todo-input:hover .stat-drop {
+  display: inherit;
 }
+
+.todo-input:hover {
+  border-color: rgb(150, 148, 148) !important;
+}
+
+.todo-input .stat-drop {
+  display: none;
+}
+
 .input-group-text {
-  background-color: #cf9f65 !important;
+  background-color: transparent !important;
   font-weight: 600 !important;
-  border: 0.1rem #e0ac6d solid !important;
-  color: #fcd382 !important;
+  border: 0.1rem transparent solid !important;
+  color: black !important;
 }
 
 .form-control {
-  background-color: #e0ac6d !important;
-  color: #fcd382 !important;
-  border: 0.1rem #e0ac6d solid !important;
+  color: black !important;
+  background-color: transparent !important;
+  border: 0 !important;
   font-weight: 600 !important;
   outline: 0 !important;
   text-decoration: 0 !important;
+}
+
+.form-control:focus {
+  outline: 0 !important;
+  border-color: black !important;
+  box-shadow: none !important;
+}
+
+.btn-nobtn {
+  background-color: transparent !important;
+  border: none !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  padding: 0 !important;
+  color: inherit !important;
+}
+
+.stat-drop {
+  color: rgb(94, 94, 94) !important;
+  margin-right: 1rem;
+  text-align: center;
+  padding: 0.25rem;
+}
+.stat-drop i {
+  width: 1.75rem !important;
+}
+.stat-drop :hover,
+.stat-drop :focus {
+  color: black !important;
 }
