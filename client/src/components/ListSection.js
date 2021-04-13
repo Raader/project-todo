@@ -95,7 +95,7 @@ export function ListSection(props) {
                   >
                     <i class="far fa-square"></i>
                   </span>{" "}
-                  {todo.name}
+                  <span className="main">{todo.name}</span>
                   <span className="todo-append">{todoStats(todo.stats)}</span>
                 </div>
               ) : (
@@ -106,7 +106,7 @@ export function ListSection(props) {
                   <span className="todo-box">
                     <i class="fas fa-square"></i>
                   </span>{" "}
-                  {todo.name}
+                  <span className="main">{todo.name}</span>
                 </div>
               )
             )
