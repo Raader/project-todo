@@ -28,7 +28,6 @@
 }
 .todo-top-menu .dropdown-menu {
   font-size: 1.25rem !important;
-  background-color: #f0f8fe;
 }
 
 .todo-list .list-item {
@@ -42,6 +41,7 @@
 }
 .todo-list .list-item .main {
   width: 24rem;
+  white-space: nowrap;
   display: inline-block;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -163,9 +163,10 @@
 }
 .stat {
   width: 4rem;
-  margin-right: 0.5rem;
+
   border-right: 0.1rem #e0e0e0 solid !important;
   display: inline-block;
+  text-align: center;
 }
 
 .stat.cont {
@@ -175,4 +176,11 @@
   overflow: hidden;
   margin-right: 0.1rem;
   color: inherit !important;
+}
+
+#delete:hover {
+  color: #ff4e62;
+}
+
+#first {
 }

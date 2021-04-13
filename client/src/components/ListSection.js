@@ -9,11 +9,13 @@ import {
   setSelectedTodo,
 } from "../features/project/projectSlice";
 import { TodoBar } from "./TodoBar";
+import { useHistory } from "react-router";
 
 export function ListSection(props) {
   const [todos, setTodos] = useState([]);
   const ts = useSelector(selectProject);
   const dispatch = useDispatch();
+  const history = useHistory();
   useEffect(() => {
     if (!ts.todos) return;
     const list = ts.todos.map((val) => val);
@@ -36,26 +38,38 @@ export function ListSection(props) {
     for (let i = 0; i < stats.difficulty; i++) {
       diff.push(<i class="fas fa-plus-circle"></i>);
     }
-    console.log(clrs);
     return (
       <div className="stat-cont">
         <span
           className="stat"
-          style={imp.length > 0 ? { color: clrs[imp.length - 1] } : {}}
+          id="first"
+          style={
+            imp.length > 0
+              ? { color: clrs[imp.length - 1] }
+              : { color: "transparent" }
+          }
         >
-          {imp}
+          {imp.length > 0 ? imp : "a"}
         </span>{" "}
         <span
           className="stat"
-          style={time.length > 0 ? { color: clrs[time.length - 1] } : {}}
+          style={
+            time.length > 0
+              ? { color: clrs[time.length - 1] }
+              : { color: "transparent" }
+          }
         >
-          {time}
+          {time.length > 0 ? time : "a"}
         </span>{" "}
         <span
           className="stat"
-          style={diff.length > 0 ? { color: clrs[diff.length - 1] } : {}}
+          style={
+            diff.length > 0
+              ? { color: clrs[diff.length - 1] }
+              : { color: "transparent" }
+          }
         >
-          {diff}
+          {diff.length > 0 ? diff : "a"}
         </span>
       </div>
     );
@@ -70,9 +84,15 @@ export function ListSection(props) {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              <Dropdown.Item onClick={() => history.push("/select")}>
+                <i class="fas fa-exchange-alt"></i> Change Project
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <i class="fas fa-edit"></i> Edit Project
+              </Dropdown.Item>
+              <Dropdown.Item id="delete">
+                <i class="fas fa-trash"></i> Delete Project
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
 
