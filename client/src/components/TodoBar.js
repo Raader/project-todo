@@ -33,6 +33,9 @@ export function TodoBar(props) {
                   stats: { importance: imp, time: time, difficulty: diff },
                 })
               );
+              setDiff(0);
+              setImp(0);
+              setTime(0);
               setTodo("");
             }
           }}

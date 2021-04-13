@@ -145,3 +145,22 @@
 .drop span:hover {
   background-color: rgba(139, 139, 139, 0.212) !important;
 }
+
+.todo-append {
+  float: right;
+}
+.stat {
+  width: 4rem;
+  margin-right: 0.5rem;
+  border-right: 0.1rem #e0e0e0 solid !important;
+  display: inline-block;
+}
+
+.stat.cont {
+  width: 8rem;
+}
+.todo-append .stat i {
+  overflow: hidden;
+  margin-right: 0.1rem;
+  color: inherit !important;
+}
