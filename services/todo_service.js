@@ -15,6 +15,7 @@ async function addTodo(projectId, todo) {
         id: ndoc.id,
         completed: ndoc.completed,
         stats: ndoc.stats,
+        created: ndoc.created,
     };
 }
 
@@ -28,6 +29,7 @@ async function listTodos(projectId) {
             id: val.id,
             completed: val.completed,
             stats: val.stats,
+            created: val.created,
         };
     });
 }
@@ -43,6 +45,7 @@ async function completeTodo(todoId) {
         id: ndoc.id,
         completed: ndoc.completed,
         stats: ndoc.stats,
+        created: ndoc.created,
     };
 }
 
