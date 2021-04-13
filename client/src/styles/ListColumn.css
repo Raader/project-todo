@@ -178,6 +178,26 @@
   color: inherit !important;
 }
 
+.order-cont {
+  float: right;
+}
+
+.order-bar {
+  border-left: 0.1rem #e0e0e0 solid !important;
+}
+
+.order-btn {
+  display: inline-block;
+  width: 3rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.order-btn:hover {
+  background-color: rgba(53, 53, 53, 0.1);
+}
 #delete:hover {
   color: #ff4e62;
 }

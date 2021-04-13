@@ -10,6 +10,7 @@ import {
 } from "../features/project/projectSlice";
 import { TodoBar } from "./TodoBar";
 import { useHistory } from "react-router";
+import { OrderBar } from "./OrderBar";
 
 export function ListSection(props) {
   const [todos, setTodos] = useState([]);
@@ -22,6 +23,19 @@ export function ListSection(props) {
     list.sort((a, b) => (a.completed ? 1 : 0) - (b.completed ? 1 : 0));
     setTodos(list);
   }, [ts]);
+
+  const setSort = (name, val) => {
+    console.log(val);
+    const list = todos.map((val) => val);
+
+    if (val === 1) {
+      list.sort((a, b) => b.stats[name] - a.stats[name]);
+    } else if (val === 2) {
+      list.sort((a, b) => a.stats[name] - b.stats[name]);
+    }
+    list.sort((a, b) => (a.completed ? 1 : 0) - (b.completed ? 1 : 0));
+    setTodos(list);
+  };
 
   const todoStats = (stats) => {
     const clrs = ["#2ECFCA", "#F8DF77", "#FF4E62"];
@@ -94,9 +108,11 @@ export function ListSection(props) {
                 <i class="fas fa-trash"></i> Delete Project
               </Dropdown.Item>
             </Dropdown.Menu>
-          </Dropdown>
 
-          <span className=""></span>
+            <span className="order-cont">
+              <OrderBar set={setSort}></OrderBar>
+            </span>
+          </Dropdown>
         </div>
         <div className="todo-top">
           <TodoBar></TodoBar>
