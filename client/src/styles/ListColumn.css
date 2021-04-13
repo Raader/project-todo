@@ -184,15 +184,16 @@
 
 .order-bar {
   border-left: 0.1rem #e0e0e0 solid !important;
+  margin-right: 0.4rem;
 }
 
 .order-btn {
   display: inline-block;
-  width: 3rem;
-  border-radius: 0.5rem;
+  width: 4rem;
   text-align: center;
   cursor: pointer;
   user-select: none;
+  border-right: 0.1rem #e0e0e0 solid !important;
 }
 
 .order-btn:hover {

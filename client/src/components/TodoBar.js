@@ -50,7 +50,7 @@ export function TodoBar(props) {
               <i class="fas fa-ellipsis-v"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item className="text">Importance</Dropdown.Item>
+              <Dropdown.Header>Importance</Dropdown.Header>
               <Dropdown.Item className="drop">
                 <span
                   onClick={() => setImp(imp !== 1 ? 1 : 0)}
@@ -75,8 +75,7 @@ export function TodoBar(props) {
                 </span>
               </Dropdown.Item>
               <Dropdown.Divider />
-
-              <Dropdown.Item className="text">Time</Dropdown.Item>
+              <Dropdown.Header>Time</Dropdown.Header>
               <Dropdown.Item className="drop">
                 <span
                   onClick={() => setTime(time !== 1 ? 1 : 0)}
@@ -101,8 +100,7 @@ export function TodoBar(props) {
                 </span>
               </Dropdown.Item>
               <Dropdown.Divider />
-
-              <Dropdown.Item className="text">Diffuculty</Dropdown.Item>
+              <Dropdown.Header>Difficulty</Dropdown.Header>
               <Dropdown.Item className="drop">
                 <span
                   onClick={() => setDiff(diff !== 1 ? 1 : 0)}
