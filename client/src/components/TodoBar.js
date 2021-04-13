@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import {
   InputGroup,
   FormControl,
@@ -47,9 +47,7 @@ export function TodoBar(props) {
               variant="nobtn"
               onClick={() => setShow(!show)}
             >
-              <i class="fas fa-exclamation"></i>{" "}
-              <i class="fas fa-hourglass"></i>{" "}
-              <i class="fas fa-plus-circle"></i>
+              <i class="fas fa-ellipsis-v"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item className="text">Importance</Dropdown.Item>
