@@ -3,7 +3,12 @@ import "../styles/TodoColumn.css";
 import { useDispatch, useSelector } from "react-redux";
 import { SelectProject } from "./pages/SelectProject";
 import { FormControl, InputGroup } from "react-bootstrap";
-import { editTodo, selectCurrentTodo } from "../features/project/projectSlice";
+import {
+  completeTodo,
+  editTodo,
+  selectCurrentTodo,
+  setSelectedTodo,
+} from "../features/project/projectSlice";
 import { useEffect, useState } from "react";
 export function TodoSection(props) {
   const todo = useSelector(selectCurrentTodo);
@@ -16,7 +21,14 @@ export function TodoSection(props) {
     <div className="inspect-main">
       <Section>
         <div className="inspect-menu">
-          <span className="main">
+          <span
+            className="main"
+            onClick={() =>
+              dispatch(completeTodo(todo)).then(() =>
+                dispatch(setSelectedTodo({ name: "", description: "" }))
+              )
+            }
+          >
             <i class="far fa-square"></i>
           </span>
           <i class="fas fa-calendar-week"></i>{" "}

@@ -144,7 +144,11 @@ export function ListSection(props) {
                 >
                   <span
                     className="todo-box"
-                    onClick={() => dispatch(completeTodo(todo))}
+                    onClick={() =>
+                      dispatch(completeTodo(todo)).then(() =>
+                        dispatch(setSelectedTodo({ name: "", description: "" }))
+                      )
+                    }
                   >
                     <i class="far fa-square"></i>
                   </span>{" "}
