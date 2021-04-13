@@ -19,7 +19,8 @@ export function TodoSection(props) {
           <span className="main">
             <i class="far fa-square"></i>
           </span>
-          <i class="fas fa-calendar-week"></i> 15/05/2021
+          <i class="fas fa-calendar-week"></i>{" "}
+          {todo.created ? new Date(todo.created).toLocaleString() : ""}
           <span className="append">
             <i class="fas fa-exclamation"></i>
             <i class="fas fa-hourglass"></i>
