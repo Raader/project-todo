@@ -131,3 +131,9 @@
   border-top: solid #a57f60 0.1rem;
   margin-top: 0.5rem;
 }
+
+@media screen and (max-width: 573px) {
+  .project-main {
+    display: none;
+  }
+}
