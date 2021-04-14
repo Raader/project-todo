@@ -31,12 +31,12 @@ export function TodoSection(props) {
           >
             <i class="far fa-square"></i>
           </span>
-          <i class="fas fa-calendar-week"></i>{" "}
-          {todo.created ? new Date(todo.created).toLocaleString() : ""}
+          <span className="content">
+            <i class="fas fa-calendar-week"></i>{" "}
+            {todo.created ? new Date(todo.created).toLocaleString() : ""}
+          </span>
           <span className="append">
-            <i class="fas fa-exclamation"></i>
-            <i class="fas fa-hourglass"></i>
-            <i class="fas fa-plus-circle"></i>
+            <i class="fas fa-ellipsis-v"></i>
           </span>
         </div>
         <div className="inspect-header">

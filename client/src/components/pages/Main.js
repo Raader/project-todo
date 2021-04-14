@@ -16,10 +16,10 @@ export function Main() {
           <Col className="no-padding" md="auto">
             <ProjectSection></ProjectSection>
           </Col>
-          <Col className="no-padding">
+          <Col className="no-padding" sm lg="5" xl="6">
             <ListSection></ListSection>
           </Col>
-          <Col className="no-padding" md="4">
+          <Col className="no-padding" sm>
             <TodoSection></TodoSection>
           </Col>
         </Row>

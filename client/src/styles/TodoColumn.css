@@ -5,13 +5,17 @@
 }
 .inspect-menu {
   padding-top: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  white-space: pre;
 }
 .inspect-menu .main {
   border-right: 0.1rem #e0e0e0 solid;
   padding-right: 0.5rem;
   margin-right: 1rem;
   cursor: pointer;
+}
+
+.inspect-menu .content {
 }
 
 .inspect-menu .append {
