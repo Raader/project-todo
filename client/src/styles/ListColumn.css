@@ -187,7 +187,6 @@
 }
 
 .order-bar {
-  margin-right: 0.4rem;
 }
 
 .order-btn {
@@ -197,7 +196,9 @@
   cursor: pointer;
   user-select: none;
   border-right: 0.1rem #e0e0e0 solid !important;
-  font-size: 0.75rem !important;
+  font-size: 0.8rem !important;
+  padding: 0.2rem;
+  margin-right: 0.1rem;
 }
 
 .order-btn:hover {
