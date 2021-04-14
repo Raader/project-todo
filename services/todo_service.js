@@ -49,4 +49,25 @@ async function completeTodo(todoId) {
     };
 }
 
-module.exports = { addTodo, listTodos, completeTodo };
+async function editTodo(todo) {
+    const doc = await todoModel.findById(todo.id).exec();
+    if (!doc) throw new Error("todo not found");
+    if (todo.name) doc.name = todo.name;
+    if (todo.description) doc.description = todo.description;
+    if (todo.stats) {
+        if (todo.stats.importance) doc.stats.importance = todo.stats.importance;
+        if (todo.stats.time) doc.stats.time = todo.stats.time;
+        if (todo.stats.difficulty) doc.stats.difficulty = todo.stats.difficulty;
+    }
+    const ndoc = await doc.save();
+    return {
+        name: ndoc.name,
+        description: ndoc.description,
+        id: ndoc.id,
+        completed: ndoc.completed,
+        stats: ndoc.stats,
+        created: ndoc.created,
+    };
+}
+
+module.exports = { addTodo, listTodos, completeTodo, editTodo };

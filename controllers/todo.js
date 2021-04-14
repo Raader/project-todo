@@ -14,7 +14,12 @@ async function complete(req, res) {
     res.json({ todo: todoDoc, msg: "succesfull completed todo" });
 }
 
-async function edit(req, res) {}
+async function edit(req, res) {
+    const todo = req.body.todo;
+    if (!todo) throw new Error("no todo found");
+    const todoDoc = await todoService.editTodo(todo);
+    res.json({ todo: todoDoc, msg: "succesfull edited todo" });
+}
 
 async function remove(req, res) {}
 

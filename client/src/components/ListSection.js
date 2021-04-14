@@ -161,7 +161,7 @@ export function ListSection(props) {
                   onClick={() => dispatch(completeTodo(todo))}
                 >
                   <span className="todo-box">
-                    <i class="fas fa-square"></i>
+                    <i class="fas fa-check-square"></i>
                   </span>{" "}
                   <span className="main">{todo.name}</span>
                 </div>

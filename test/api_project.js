@@ -54,7 +54,7 @@ describe("Project Api", function () {
                 });
         });
     });
-
+    let todo;
     describe("adding a todo", function () {
         it("should add a todo to the project", function () {
             return request(app)
@@ -68,10 +68,30 @@ describe("Project Api", function () {
                     },
                 })
                 .then((res) => {
+                    todo = res.body.todo;
                     expect(res).to.have.status(200);
                 });
         });
     });
+    describe("edit a todo", function () {
+        it("should edit the todo", function () {
+            todo.name = "mahmut";
+            todo.description = "helak";
+            todo.stats.importance = 2;
+            return request(app)
+                .post("/api/todo/edit")
+                .set("Authorization", "Bearer " + token)
+                .send({
+                    project,
+                    todo,
+                })
+                .then((res) => {
+                    console.log(res.body);
+                    expect(res).to.have.status(200);
+                });
+        });
+    });
+
     let todos = [];
     describe("getting todos", function () {
         it("should list todos", function () {

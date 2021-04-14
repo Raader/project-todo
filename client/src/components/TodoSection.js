@@ -6,6 +6,7 @@ import { FormControl, InputGroup } from "react-bootstrap";
 import {
   completeTodo,
   editTodo,
+  editTodoCloud,
   selectCurrentTodo,
   setSelectedTodo,
 } from "../features/project/projectSlice";
@@ -48,12 +49,12 @@ export function TodoSection(props) {
               }}
               onKeyUp={(e) => {
                 if (e.key === "Enter") {
-                  dispatch(editTodo({ id: todo.id, name }));
+                  dispatch(editTodoCloud({ id: todo.id, name }));
                 }
                 return false;
               }}
               onBlur={() => {
-                dispatch(editTodo({ id: todo.id, name }));
+                dispatch(editTodoCloud({ id: todo.id, name }));
               }}
             ></FormControl>
           </InputGroup>

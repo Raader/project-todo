@@ -139,6 +139,26 @@ export const completeTodo = (todo) => (dispatch, getState) => {
       dispatch(editTodo(data.todo));
     });
 };
+
+export const editTodoCloud = (todo) => (dispatch, getState) => {
+  const state = getState();
+  const options = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + state.user.token,
+    },
+    body: JSON.stringify({ todo, project: state.project.current }),
+  };
+  dispatch(editTodo(todo));
+  return fetch("/api/todo/edit", options)
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data.todo) return;
+      dispatch(editTodo(data.todo));
+    });
+};
 export const selectProject = (state) => state.project.current;
 export const selectProjectList = (state) => state.project.list;
 
