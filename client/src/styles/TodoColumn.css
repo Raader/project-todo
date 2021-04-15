@@ -43,4 +43,19 @@
 
 .inspect-body {
   margin-top: 1rem;
+  color: rgb(63, 63, 63);
+}
+
+.inspect-body textarea {
+  background-color: transparent;
+  border: 0 !important;
+  outline: 0 !important;
+  width: 100%;
+  height: 80vh;
+  resize: none;
+}
+
+.inspect-body textarea::selection {
+  border: 0 !important;
+  outline: 0 !important;
 }

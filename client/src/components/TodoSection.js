@@ -15,8 +15,10 @@ export function TodoSection(props) {
   const todo = useSelector(selectCurrentTodo);
   const dispatch = useDispatch();
   const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   useEffect(() => {
     setName(todo.name);
+    setDescription(todo.description);
   }, [todo]);
   return (
     <div className="inspect-main">
@@ -49,18 +51,29 @@ export function TodoSection(props) {
               }}
               onKeyUp={(e) => {
                 if (e.key === "Enter") {
-                  dispatch(editTodoCloud({ id: todo.id, name }));
+                  dispatch(editTodoCloud({ id: todo.id, name, description }));
                 }
                 return false;
               }}
               onBlur={() => {
-                dispatch(editTodoCloud({ id: todo.id, name }));
+                dispatch(editTodoCloud({ id: todo.id, name, description }));
               }}
             ></FormControl>
           </InputGroup>
         </div>
 
-        <div className="inspect-body">{todo.description}</div>
+        <div className="inspect-body">
+          <textarea
+            type="text-area"
+            value={description}
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+            onBlur={() => {
+              dispatch(editTodoCloud({ id: todo.id, name, description }));
+            }}
+          ></textarea>
+        </div>
       </Section>
     </div>
   );
