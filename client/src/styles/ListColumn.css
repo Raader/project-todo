@@ -39,9 +39,11 @@
   transition: all 0.2s;
   border-bottom: 0.1rem #e0e0e0 solid;
   white-space: nowrap;
+  clear: right;
+  font-size: 0.85rem;
 }
 .todo-list .list-item .main {
-  width: 24rem;
+  width: 30vw;
   white-space: nowrap;
   display: inline-block;
   overflow-x: hidden;
