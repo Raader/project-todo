@@ -13,45 +13,40 @@ import { useHistory } from "react-router";
 import { OrderBar } from "./OrderBar";
 
 export function ListSection(props) {
+  const createdSorter = (a, b) => {
+    const d1 = new Date(a.created);
+    const d2 = new Date(b.created);
+    if (d1 > d2) {
+      return 1;
+    } else if (d1 < d2) {
+      return -1;
+    } else {
+      return 0;
+    }
+  };
+
   const [todos, setTodos] = useState([]);
+  const [sorter, setSorter] = useState(() => createdSorter);
   const ts = useSelector(selectProject);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const sortByCreated = (list) => {
-    list.sort((a, b) => {
-      const d1 = new Date(a.created);
-      const d2 = new Date(b.created);
-      if (d1 > d2) {
-        return 1;
-      } else if (d1 < d2) {
-        return -1;
-      } else {
-        return 0;
-      }
-    });
-  };
   useEffect(() => {
     if (!ts.todos) return;
     const list = ts.todos.map((val) => val);
-    sortByCreated(list);
+    list.sort(sorter);
     list.sort((a, b) => (a.completed ? 1 : 0) - (b.completed ? 1 : 0));
     setTodos(list);
-  }, [ts]);
+  }, [ts, sorter]);
 
   const setSort = (name, val) => {
-    console.log(val);
-    const list = todos.map((val) => val);
-
     if (val === 1) {
-      list.sort((a, b) => b.stats[name] - a.stats[name]);
+      setSorter(() => (a, b) => b.stats[name] - a.stats[name]);
     } else if (val === 2) {
-      list.sort((a, b) => a.stats[name] - b.stats[name]);
+      setSorter(() => (a, b) => a.stats[name] - b.stats[name]);
     } else if (val === 0) {
-      sortByCreated(list);
+      setSorter(() => createdSorter);
     }
-    list.sort((a, b) => (a.completed ? 1 : 0) - (b.completed ? 1 : 0));
-    setTodos(list);
   };
 
   const todoStats = (stats) => {
