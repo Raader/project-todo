@@ -218,6 +218,6 @@
   }
   .todo-list .list-item .main {
     font-size: 0.75rem !important;
-    width: 10rem;
+    width: 25vw;
   }
 }

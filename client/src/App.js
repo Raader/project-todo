@@ -12,6 +12,16 @@ import { Main } from "./components/pages/Main";
 import { useDispatch } from "react-redux";
 import { getUser } from "./features/user/userSlice";
 import { SelectProject } from "./components/pages/SelectProject";
+import { Col, Container, Row } from "react-bootstrap";
+import { ProjectSection } from "./components/ProjectSection";
+
+const routes = [
+  { path: "/login", body: <Login></Login>, sidebar: false },
+  { path: "/register", body: <Register></Register>, sidebar: false },
+  { path: "/select", body: <SelectProject></SelectProject>, sidebar: true },
+  { path: "/main", body: <Main></Main>, sidebar: true },
+  { path: "/", body: <Home></Home>, sidebar: false },
+];
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -25,22 +35,22 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path="/login">
-          <Login></Login>
-        </Route>
-        <Route path="/register">
-          <Register></Register>
-        </Route>
-        <Route path="/select">
-          <SelectProject></SelectProject>
-        </Route>
-        <Route path="/main">
-          <Main></Main>
-        </Route>
-        <Route path="/">
-          <NavMenu></NavMenu>
-          <Home></Home>
-        </Route>
+        {routes.map((route) => (
+          <Route path={route.path}>
+            {route.sidebar ? (
+              <Container fluid>
+                <Row>
+                  <Col className="no-padding" md="auto">
+                    <ProjectSection></ProjectSection>
+                  </Col>
+                  <Col className="no-padding">{route.body}</Col>
+                </Row>
+              </Container>
+            ) : (
+              route.body
+            )}
+          </Route>
+        ))}
       </Switch>
     </div>
   );

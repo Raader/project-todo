@@ -12,11 +12,7 @@ export function ProjectSection(props) {
   const project = useSelector(selectProject);
   const user = useSelector(selectUser);
   const history = useHistory();
-  useEffect(() => {
-    if (!project.id) {
-      history.push("/select");
-    }
-  }, [project, history]);
+  useEffect(() => {}, [project, history, user]);
   return (
     <div className="project-main">
       <Section>
@@ -33,7 +29,7 @@ export function ProjectSection(props) {
               </span>
             </div>
             <div className="project-stats">
-              <div className="pnav-item">
+              <div className="pnav-item" onClick={() => history.push("/")}>
                 <span className="pnav-i">
                   <i class="fas fa-home"></i>
                 </span>{" "}
