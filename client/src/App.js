@@ -16,11 +16,21 @@ import { Col, Container, Row } from "react-bootstrap";
 import { ProjectSection } from "./components/ProjectSection";
 
 const routes = [
-  { path: "/login", body: <Login></Login>, sidebar: false },
-  { path: "/register", body: <Register></Register>, sidebar: false },
-  { path: "/select", body: <SelectProject></SelectProject>, sidebar: true },
-  { path: "/main", body: <Main></Main>, sidebar: true },
-  { path: "/", body: <Home></Home>, sidebar: false },
+  { path: "/login", body: <Login></Login>, sidebar: false, alias: "login" },
+  {
+    path: "/register",
+    body: <Register></Register>,
+    sidebar: false,
+    alias: "register",
+  },
+  {
+    path: "/select",
+    body: <SelectProject></SelectProject>,
+    sidebar: true,
+    alias: "select",
+  },
+  { path: "/main", body: <Main></Main>, sidebar: true, alias: "main" },
+  { path: "/", body: <Home></Home>, sidebar: false, alias: "home" },
 ];
 function App() {
   const dispatch = useDispatch();
@@ -41,7 +51,7 @@ function App() {
               <Container fluid>
                 <Row>
                   <Col className="no-padding" md="auto">
-                    <ProjectSection></ProjectSection>
+                    <ProjectSection path={route.alias}></ProjectSection>
                   </Col>
                   <Col className="no-padding">{route.body}</Col>
                 </Row>

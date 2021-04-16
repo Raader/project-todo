@@ -21,8 +21,8 @@
 }
 
 .project-stats {
-  font-size: 1.25rem;
-  color: white;
+  padding: 0.5rem;
+  padding-left: 0;
 }
 .project-info {
   border-top: solid #384857 0.2rem;
@@ -51,10 +51,11 @@
   border-radius: 0.5rem;
   padding-left: 0.5rem;
   cursor: pointer;
-
+  color: rgb(207, 207, 207);
   font-weight: 500;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
+  font-size: 1.25rem;
 }
 .pnav-i {
   width: 1.75rem !important;
@@ -67,7 +68,7 @@
 
 .pnav-item:hover {
   color: white;
-  background-color: rgba(255, 255, 255, 0.336);
+  background-color: rgba(161, 166, 172, 0.336);
 }
 .project-main {
   background-color: #405364;

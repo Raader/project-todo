@@ -29,13 +29,26 @@ export function ProjectSection(props) {
               </span>
             </div>
             <div className="project-stats">
-              <div className="pnav-item" onClick={() => history.push("/")}>
+              <div
+                className="pnav-item"
+                style={props.path === "main" ? { color: "white" } : {}}
+                onClick={() => history.push("/main")}
+              >
                 <span className="pnav-i">
-                  <i class="fas fa-home"></i>
+                  <i class="fas fa-columns"></i>
                 </span>{" "}
-                Home
+                Main
               </div>
-
+              <div
+                className="pnav-item"
+                style={props.path === "select" ? { color: "white" } : {}}
+                onClick={() => history.push("/select")}
+              >
+                <span className="pnav-i">
+                  <i class="fas fa-stream"></i>
+                </span>{" "}
+                Projects
+              </div>
               <div id="completed" className="pnav-item">
                 <span className="pnav-i">
                   <i class="fas fa-question-circle"></i>
@@ -49,12 +62,6 @@ export function ProjectSection(props) {
                 Github
               </div>
 
-              <div id="completed" className="pnav-item">
-                <span className="pnav-i">
-                  <i class="fas fa-stream"></i>
-                </span>{" "}
-                Projects
-              </div>
               <div id="completed" className="pnav-item">
                 <span className="pnav-i">
                   <i class="fas fa-cog"></i>
