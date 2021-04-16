@@ -30,7 +30,11 @@ export function ListSection(props) {
   const ts = useSelector(selectProject);
   const dispatch = useDispatch();
   const history = useHistory();
-
+  useEffect(() => {
+    if (!ts.id) {
+      history.push("/select");
+    }
+  }, [ts, history]);
   useEffect(() => {
     if (!ts.todos) return;
     const list = ts.todos.map((val) => val);

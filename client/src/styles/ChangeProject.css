@@ -1,17 +1,20 @@
 .modal-content {
-  background-color: #e8ae68 !important;
+  background-color: white !important;
 }
 .modal-header {
   border: 0 !important;
-  border-bottom: solid #c79c78 0.1rem !important;
-  color: #ffd480;
+  border-bottom: 0.1rem #e0e0e0 solid !important;
+  color: black;
 }
 .modal-footer {
   border: 0 !important;
-  border-top: solid #c79c78 0.1rem !important;
+  border-top: 0.1rem #e0e0e0 solid !important;
+}
+
+.modal .form-control {
+  border: 0.1rem #e0e0e0 solid !important;
 }
 .plist-cont {
-  background-color: #e8ae68;
   border: solid #d49f5e 0.1rem !important;
   border-top: 0 !important;
   font-family: "Open Sans", sans-serif;
@@ -20,16 +23,15 @@
 .plist {
   overflow: scroll;
   height: 70vh;
-  border-right: solid #d49f5e 0.1rem !important;
-  border-left: solid #d49f5e 0.1rem !important;
   padding: 0.5rem;
-  background-color: #e6aa62;
+  border-left: 0.1rem #e0e0e0 solid;
+  border-right: 0.1rem #e0e0e0 solid;
 }
 
 .plist-header {
-  color: #fdd88d;
+  color: black;
+  border-bottom: 0.1rem #e0e0e0 solid;
   font-weight: 600 !important;
-  border-bottom: solid #d49f5e 0.1rem !important;
   padding-top: 0.5rem;
   font-size: 2rem;
 }
@@ -37,15 +39,18 @@
 .plist-create {
   font-size: 1.5rem !important;
   margin: 1rem;
+  background-color: transparent !important;
+}
+.plist-create:hover {
+  background-color: white !important;
 }
 
 .plist-footer {
-  border-top: solid #d49f5e 0.1rem !important;
+  border-top: 0.1rem #e0e0e0 solid;
 }
 
 .project {
-  background-color: #ffd480;
-  border-bottom: solid #c79c78 0.1rem;
+  border-bottom: 0.1rem #e0e0e0 solid;
   border-radius: 0.25rem;
   padding: 0.75rem;
   font-weight: 600;
@@ -55,7 +60,8 @@
   font-size: 1rem;
 }
 .project:hover {
-  background-color: #fdda94;
+  border-radius: 0.5rem;
+  background-color: rgba(53, 53, 53, 0.1);
 }
 .project .date {
   float: right;
