@@ -24,10 +24,11 @@ export const projectSlice = createSlice({
       const todo = state.current.todos.find(
         (val) => val.id === action.payload.id
       );
-      todo.name = action.payload.name;
-      todo.id = action.payload.id;
-      todo.completed = action.payload.completed;
-      todo.description = action.payload.description;
+      if (action.payload.name) todo.name = action.payload.name;
+      if (action.payload.id) todo.id = action.payload.id;
+      if (action.payload.completed) todo.completed = action.payload.completed;
+      if (action.payload.description)
+        todo.description = action.payload.description;
     },
     setSelectedTodo: (state, action) => {
       state.selected = action.payload;
