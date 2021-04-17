@@ -12,7 +12,27 @@ export function ProjectSection(props) {
   const project = useSelector(selectProject);
   const user = useSelector(selectUser);
   const history = useHistory();
-  useEffect(() => {}, [project, history, user]);
+  const [counts, setCounts] = useState({ completed: 0, remaining: 0 });
+  useEffect(() => {
+    if (!project.todos) {
+      return;
+    }
+    let c = 0;
+    let r = 0;
+    for (let todo of project.todos) {
+      if (todo.completed) {
+        c += 1;
+      } else {
+        r += 1;
+      }
+    }
+    const n = {
+      completed: c,
+      remaining: r,
+    };
+    console.log(n);
+    setCounts(n);
+  }, [project]);
   return (
     <div className="project-main">
       <Section>
@@ -40,6 +60,29 @@ export function ProjectSection(props) {
                 Main
               </div>
               <div
+                className="pnav-drop"
+                style={props.path === "main" ? {} : { display: "none" }}
+              >
+                <div className="pnav-drop-item" id="drop-header">
+                  <i class="fas fa-bars"></i> {project.name}
+                </div>
+                <div className="pnav-drop-item">
+                  <i class="fas fa-calendar-week"></i> Created:{" "}
+                  {new Date(project.created).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                  })}
+                </div>
+                <div className="pnav-drop-item">
+                  <i class="fas fa-check-square"></i> Completed:{" "}
+                  {counts.completed}
+                </div>
+                <div className="pnav-drop-item">
+                  <i class="far fa-square"></i> Remaining: {counts.remaining}
+                </div>
+              </div>
+              <div
                 className="pnav-item"
                 style={props.path === "select" ? { color: "white" } : {}}
                 onClick={() => history.push("/select")}
@@ -51,25 +94,18 @@ export function ProjectSection(props) {
               </div>
               <div id="completed" className="pnav-item">
                 <span className="pnav-i">
-                  <i class="fas fa-question-circle"></i>
-                </span>{" "}
-                About
-              </div>
-              <div id="completed" className="pnav-item">
-                <span className="pnav-i">
-                  <i class="fab fa-github"></i>
-                </span>{" "}
-                Github
-              </div>
-
-              <div id="completed" className="pnav-item">
-                <span className="pnav-i">
                   <i class="fas fa-cog"></i>
                 </span>{" "}
                 Settings
               </div>
+              <div id="completed" className="pnav-item">
+                <span className="pnav-i">
+                  <i class="fas fa-question-circle"></i>
+                </span>{" "}
+                About
+              </div>
             </div>
-            <div className="project-info">
+            <div className="project-info" style={{ display: "none" }}>
               <div className="title">Project Info</div>
               <div id="completed" className="pnav-item">
                 <span className="pnav-i">
@@ -95,7 +131,17 @@ export function ProjectSection(props) {
                 Remaining
               </div>
             </div>
-            <div className="project-footer"></div>
+            <div className="project-footer">
+              <div className="inav" id="github">
+                <i class="fab fa-github"></i>
+              </div>
+              <div className="inav" id="twitter">
+                <i class="fab fa-twitter-square"></i>
+              </div>
+              <div className="inav" id="stack">
+                <i class="fab fa-stack-overflow"></i>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
