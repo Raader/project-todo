@@ -70,4 +70,9 @@ async function editTodo(todo) {
     };
 }
 
-module.exports = { addTodo, listTodos, completeTodo, editTodo };
+async function deleteTodo(id) {
+    const doc = await todoModel.findOneAndDelete({ _id: id }).exec();
+    return;
+}
+
+module.exports = { addTodo, listTodos, completeTodo, editTodo, deleteTodo };

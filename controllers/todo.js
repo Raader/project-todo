@@ -21,7 +21,12 @@ async function edit(req, res) {
     res.json({ todo: todoDoc, msg: "succesfull edited todo" });
 }
 
-async function remove(req, res) {}
+async function remove(req, res) {
+    const todo = req.body.todo;
+    if (!todo && !todo.id) throw new Error("no todo found");
+    await todoService.deleteTodo(todo.id);
+    res.json({ msg: "succesfully deleted todo" });
+}
 
 async function list(req, res) {
     const todos = await todoService.listTodos(req.project.id);

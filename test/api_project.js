@@ -106,13 +106,27 @@ describe("Project Api", function () {
                 });
         });
     });
-    describe("deleting a todo", function () {});
     describe("completing a todo", function () {
         it("should complete the todo", function () {
             return request(app)
                 .post("/api/todo/complete")
                 .set("Authorization", "Bearer " + token)
                 .send({ todo: todos[0], project })
+                .then((res) => {
+                    console.log(res.body);
+                    expect(res).to.have.status(200);
+                });
+        });
+    });
+    describe("deleting a todo", function () {
+        it("should delete the todo", function () {
+            return request(app)
+                .post("/api/todo/remove")
+                .set("Authorization", "Bearer " + token)
+                .send({
+                    project,
+                    todo,
+                })
                 .then((res) => {
                     console.log(res.body);
                     expect(res).to.have.status(200);

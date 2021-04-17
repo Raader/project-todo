@@ -27,8 +27,8 @@ router.post("/edit/", auth, select, function (req, res) {
     });
 });
 
-router.post("/remove/:id", auth, select, function (req, res) {
-    controller.complete(req, res).catch((err) => {
+router.post("/remove", auth, select, function (req, res) {
+    controller.remove(req, res).catch((err) => {
         res.status(400).json({ err: err.message });
     });
 });
