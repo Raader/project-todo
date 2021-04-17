@@ -68,11 +68,7 @@ export function ProjectSection(props) {
                 </div>
                 <div className="pnav-drop-item">
                   <i class="fas fa-calendar-week"></i> Created:{" "}
-                  {new Date(project.created).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "2-digit",
-                    day: "2-digit",
-                  })}
+                  {new Date(project.created).toLocaleDateString()}
                 </div>
                 <div className="pnav-drop-item">
                   <i class="fas fa-check-square"></i> Completed:{" "}
