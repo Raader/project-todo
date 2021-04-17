@@ -51,11 +51,40 @@
   border: 0 !important;
   outline: 0 !important;
   width: 100%;
-  height: 80vh;
+  height: 60vh;
   resize: none;
 }
 
 .inspect-body textarea::selection {
   border: 0 !important;
   outline: 0 !important;
+}
+
+.inspect-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 1rem;
+  padding: 1rem;
+  padding-top: 0.5rem;
+  border-top: 0.1rem #e0e0e0 solid;
+}
+.stat-col {
+  text-align: center;
+  border-right: 0.1rem #e0e0e0 solid;
+  cursor: pointer;
+  padding: 0 !important;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s;
+}
+.stat-col:hover {
+  background-color: rgba(53, 53, 53, 0.1);
+}
+.stat-row {
+  border-bottom: 0.1rem #e0e0e0 solid;
+}
+.stat-sep {
+  color: rgb(98, 102, 105);
+  margin-bottom: 0.5rem;
 }
