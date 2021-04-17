@@ -22,23 +22,30 @@ import { useEffect, useState } from "react";
 export function TodoSection(props) {
   const todo = useSelector(selectCurrentTodo);
   const dispatch = useDispatch();
-  const [id, setId] = useState("");
+  const [t, setT] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [imp, setImp] = useState(0);
   const [time, setTime] = useState(0);
   const [diff, setDiff] = useState(0);
   useEffect(() => {
-    if (id) {
-      console.log(id);
-      dispatch(
-        editTodoCloud({
-          id,
-          stats: { importance: imp, time, difficulty: diff },
-        })
-      );
+    if (t.id) {
+      if (
+        !(
+          imp === t.stats.importance &&
+          time === t.stats.time &&
+          diff === t.stats.difficulty
+        )
+      ) {
+        dispatch(
+          editTodoCloud({
+            id: t.id,
+            stats: { importance: imp, time, difficulty: diff },
+          })
+        );
+      }
     }
-    if (todo.id) setId(todo.id);
+    if (todo.id) setT(todo);
     if (todo.stats) {
       setImp(todo.stats.importance);
       setTime(todo.stats.time);

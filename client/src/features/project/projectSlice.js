@@ -27,7 +27,8 @@ export const projectSlice = createSlice({
       if (!todo) return;
       if (action.payload.name) todo.name = action.payload.name;
       if (action.payload.id) todo.id = action.payload.id;
-      todo.completed = action.payload.completed;
+      if (action.payload.completed !== undefined)
+        todo.completed = action.payload.completed;
       if (action.payload.description)
         todo.description = action.payload.description;
       if (action.payload.stats) {
