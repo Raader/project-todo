@@ -2,9 +2,17 @@ import { Section } from "./Section";
 import "../styles/TodoColumn.css";
 import { useDispatch, useSelector } from "react-redux";
 import { SelectProject } from "./pages/SelectProject";
-import { Col, Container, FormControl, InputGroup, Row } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  FormControl,
+  InputGroup,
+  Row,
+  Dropdown,
+} from "react-bootstrap";
 import {
   completeTodo,
+  deleteTodo,
   editTodo,
   editTodoCloud,
   selectCurrentTodo,
@@ -58,8 +66,25 @@ export function TodoSection(props) {
             {todo.created ? new Date(todo.created).toLocaleDateString() : ""}
           </span>
           <span className="append">
-            <i class="fas fa-trash" id="delete"></i>
-            <i class="fas fa-ellipsis-v"></i>
+            <Dropdown>
+              <Dropdown.Toggle
+                variant="no-btn"
+                id="dropdown-basic"
+                style={{ padding: "0" }}
+                className="toggle"
+              >
+                <i class="fas fa-ellipsis-v"></i>
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item
+                  id="delete"
+                  onClick={() => dispatch(deleteTodo(todo))}
+                >
+                  <i class="fas fa-trash"></i> Delete
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </span>
         </div>
         <div className="inspect-header">

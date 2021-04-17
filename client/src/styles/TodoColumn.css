@@ -21,19 +21,18 @@
 .inspect-menu .append {
   float: right;
 }
-.inspect-menu .append i {
-  margin-right: 0.5rem;
+.toggle i {
   cursor: pointer;
   width: 1.5rem !important;
 }
 
-.inspect-menu .append i:hover {
+.toggle i:hover {
   color: black;
 }
 
 .inspect-header {
   border-top: 0.1rem #e0e0e0 solid;
-  margin-top: 1.25rem;
+  margin-top: 1rem;
 }
 
 .inspect-header .form-control {

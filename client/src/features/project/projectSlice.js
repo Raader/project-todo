@@ -24,9 +24,10 @@ export const projectSlice = createSlice({
       const todo = state.current.todos.find(
         (val) => val.id === action.payload.id
       );
+      if (!todo) return;
       if (action.payload.name) todo.name = action.payload.name;
       if (action.payload.id) todo.id = action.payload.id;
-      if (action.payload.completed) todo.completed = action.payload.completed;
+      todo.completed = action.payload.completed;
       if (action.payload.description)
         todo.description = action.payload.description;
       if (action.payload.stats) {
@@ -38,6 +39,13 @@ export const projectSlice = createSlice({
     setSelectedTodo: (state, action) => {
       state.selected = action.payload;
     },
+    removeTodo: (state, action) => {
+      const todo = state.current.todos.find(
+        (val) => val.id === action.payload.id
+      );
+      if (!todo) return;
+      state.current.todos.splice(state.current.todos.indexOf(todo), 1);
+    },
   },
 });
 
@@ -48,6 +56,7 @@ export const {
   addTodoList,
   editTodo,
   setSelectedTodo,
+  removeTodo,
 } = projectSlice.actions;
 
 export const createProject = (project) => (dispatch, getState) => {
@@ -164,6 +173,25 @@ export const editTodoCloud = (todo) => (dispatch, getState) => {
     .then((data) => {
       if (!data.todo) return;
       dispatch(editTodo(data.todo));
+    });
+};
+
+export const deleteTodo = (todo) => (dispatch, getState) => {
+  const state = getState();
+  const options = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + state.user.token,
+    },
+    body: JSON.stringify({ todo, project: state.project.current }),
+  };
+  dispatch(setSelectedTodo({ name: "", description: "" }));
+  return fetch("/api/todo/remove", options)
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch(removeTodo(todo));
     });
 };
 export const selectProject = (state) => state.project.current;
