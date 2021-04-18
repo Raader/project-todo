@@ -149,6 +149,8 @@ export const completeTodo = (todo) => (dispatch, getState) => {
     },
     body: JSON.stringify({ todo, project: state.project.current }),
   };
+  const c = !todo.completed;
+  dispatch(editTodo({ id: todo.id, completed: c }));
   return fetch("/api/todo/complete", options)
     .then((res) => res.json())
     .then((data) => {
