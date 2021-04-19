@@ -14,30 +14,33 @@
 .modal .form-control {
   border: 0.1rem #e0e0e0 solid !important;
 }
+.plist {
+  padding: 0.5rem;
+}
 .plist-cont {
-  border: solid #d49f5e 0.1rem !important;
   border-top: 0 !important;
   font-family: "Open Sans", sans-serif;
   height: 100vh;
+  color: rgb(65, 64, 64);
 }
-.plist {
+.plist-body {
   overflow: scroll;
-  height: 70vh;
+  height: 80vh;
   padding: 0.5rem;
-  border-left: 0.1rem #e0e0e0 solid;
-  border-right: 0.1rem #e0e0e0 solid;
 }
 
 .plist-header {
   color: black;
   border-bottom: 0.1rem #e0e0e0 solid;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   padding-top: 0.5rem;
-  font-size: 2rem;
+  font-size: 1.75rem;
+  text-align: left;
+  padding-left: 1rem;
 }
 
 .plist-create {
-  font-size: 1.5rem !important;
+  font-size: 1.25rem !important;
   margin: 1rem;
   background-color: transparent !important;
 }
@@ -58,6 +61,7 @@
   margin-bottom: 0.25rem;
   text-align: left;
   font-size: 1rem;
+  transition: all 0.2s;
 }
 .project:hover {
   border-radius: 0.5rem;
@@ -68,4 +72,25 @@
 }
 .list-project:hover {
   border-color: black;
+}
+
+.project-inspect {
+  padding: 0.5rem;
+  padding-top: 0.75rem;
+  border-left: 0.1rem #e0e0e0 solid !important;
+  height: 100vh;
+}
+
+.project-inspect-header {
+  padding: 0.25rem;
+  font-size: 1.5rem;
+  text-align: left;
+  border-bottom: 0.1rem #e0e0e0 solid;
+}
+
+.project-inspect-body {
+  height: 80vh;
+}
+.project-select {
+  text-align: left;
 }

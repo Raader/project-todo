@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -15,6 +15,7 @@ export function SelectProject(props) {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const projects = useSelector(selectProjectList);
+  const [selected, setSelected] = useState();
   const history = useHistory();
   useEffect(() => {
     dispatch(listProjects());
@@ -23,40 +24,71 @@ export function SelectProject(props) {
     <div>
       <Container className="plist-cont" fluid>
         <Row>
-          <Col className="plist-header">Select Project</Col>
-        </Row>
-        <Row>
-          <Col className="mx-auto" lg="8" xs="11">
+          <Col xs="8" className="no-padding">
             <div className="plist">
-              {projects.map((project) => (
-                <div
-                  className="project"
-                  onClick={() => {
-                    dispatch(getProject(project)).then(() =>
-                      history.push("/main")
-                    );
-                  }}
-                >
-                  <i class="fas fa-bars"></i> {project.name}{" "}
-                  <span className="date">
-                    <i class="fas fa-calendar-week"></i>{" "}
-                    {new Date(project.created).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "2-digit",
-                      day: "2-digit",
-                    })}
-                  </span>
-                </div>
-              ))}
+              <div className="plist-header">
+                <i class="fas fa-stream"></i> Projects
+              </div>
+              <div className="plist-body">
+                {projects.map((project) => (
+                  <div
+                    className="project"
+                    onDoubleClick={() =>
+                      dispatch(getProject(selected)).then(() =>
+                        history.push("/main")
+                      )
+                    }
+                    onClick={() => {
+                      setSelected(project);
+                    }}
+                    style={
+                      selected && selected.id === project.id
+                        ? { backgroundColor: "rgba(53, 53, 53, 0.1)" }
+                        : {}
+                    }
+                  >
+                    <i class="fas fa-bars"></i> {project.name}{" "}
+                    <span className="date">
+                      <i class="fas fa-calendar-week"></i>{" "}
+                      {new Date(project.created).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit",
+                      })}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="plist-footer">
+                <CreateProject
+                  variant="nice"
+                  className="plist-create"
+                ></CreateProject>
+              </div>
             </div>
           </Col>
-        </Row>
-        <Row className="plist-footer">
-          <Col className="mx-auto" xs="auto">
-            <CreateProject
-              variant="nice"
-              className="plist-create"
-            ></CreateProject>
+          <Col className="no-padding">
+            <div className="project-inspect">
+              <div className="project-inspect-header">
+                <i class="fas fa-bars"></i> {selected?.name}
+              </div>
+              <div className="project-inspect-body"></div>
+              <div className="project-inspect-footer">
+                <div className="project-select">
+                  <Button
+                    variant="nice"
+                    onClick={() =>
+                      dispatch(getProject(selected)).then(() =>
+                        history.push("/main")
+                      )
+                    }
+                  >
+                    <i class="fas fa-check"></i> Select Project
+                  </Button>
+                </div>
+              </div>
+            </div>
           </Col>
         </Row>
       </Container>
