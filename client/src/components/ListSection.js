@@ -5,6 +5,7 @@ import { Button, InputGroup, FormControl, Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
   completeTodo,
+  selectCurrentTodo,
   selectProject,
   setSelectedTodo,
 } from "../features/project/projectSlice";
@@ -30,6 +31,7 @@ export function ListSection(props) {
   const ts = useSelector(selectProject);
   const dispatch = useDispatch();
   const history = useHistory();
+  const current = useSelector(selectCurrentTodo);
   useEffect(() => {
     if (!ts.id) {
       history.push("/select");
@@ -140,6 +142,11 @@ export function ListSection(props) {
                 <div
                   className="list-item"
                   onClick={() => dispatch(setSelectedTodo(todo))}
+                  style={
+                    current.id === todo.id
+                      ? { backgroundColor: "rgba(102, 102, 102, 0.1)" }
+                      : {}
+                  }
                 >
                   <span
                     className="todo-box"
