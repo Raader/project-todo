@@ -36,6 +36,9 @@ export const projectSlice = createSlice({
         todo.stats.time = action.payload.stats.time;
         todo.stats.difficulty = action.payload.stats.difficulty;
       }
+      if (action.payload.completed_date) {
+        todo.completed_date = action.payload.completed_date;
+      }
     },
     setSelectedTodo: (state, action) => {
       state.selected = action.payload;

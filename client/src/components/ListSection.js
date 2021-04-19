@@ -170,6 +170,11 @@ export function ListSection(props) {
                     <i class="fas fa-check-square"></i>
                   </span>{" "}
                   <span className="main">{todo.name}</span>
+                  <span className="todo-append">
+                    {todo.completed_date
+                      ? new Date(todo.completed_date).toLocaleString()
+                      : ""}
+                  </span>
                 </div>
               )
             )

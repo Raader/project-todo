@@ -1,5 +1,17 @@
 const todoModel = require("../models/Todo");
 
+function formatTodoDoc(ndoc) {
+    return {
+        name: ndoc.name,
+        description: ndoc.description,
+        id: ndoc.id,
+        completed: ndoc.completed,
+        stats: ndoc.stats,
+        created: ndoc.created,
+        completed_date: ndoc.completed_date,
+    };
+}
+
 async function addTodo(projectId, todo) {
     const doc = new todoModel({
         owner: projectId,
@@ -9,28 +21,14 @@ async function addTodo(projectId, todo) {
     });
     const ndoc = await doc.save();
 
-    return {
-        name: ndoc.name,
-        description: ndoc.description,
-        id: ndoc.id,
-        completed: ndoc.completed,
-        stats: ndoc.stats,
-        created: ndoc.created,
-    };
+    return formatTodoDoc(ndoc);
 }
 
 async function listTodos(projectId) {
     const docs = await todoModel.find({ owner: projectId }).exec();
     if (!docs) throw new Error("no todos found");
     return docs.map((val) => {
-        return {
-            name: val.name,
-            description: val.description,
-            id: val.id,
-            completed: val.completed,
-            stats: val.stats,
-            created: val.created,
-        };
+        return formatTodoDoc(val);
     });
 }
 
@@ -38,15 +36,9 @@ async function completeTodo(todoId) {
     const doc = await todoModel.findById(todoId).exec();
     if (!doc) throw new Error("todo not found");
     doc.completed = !doc.completed;
+    doc.completed_date = Date.now();
     const ndoc = await doc.save();
-    return {
-        name: ndoc.name,
-        description: ndoc.description,
-        id: ndoc.id,
-        completed: ndoc.completed,
-        stats: ndoc.stats,
-        created: ndoc.created,
-    };
+    return formatTodoDoc(ndoc);
 }
 
 async function editTodo(todo) {
@@ -60,14 +52,7 @@ async function editTodo(todo) {
         if (todo.stats.difficulty) doc.stats.difficulty = todo.stats.difficulty;
     }
     const ndoc = await doc.save();
-    return {
-        name: ndoc.name,
-        description: ndoc.description,
-        id: ndoc.id,
-        completed: ndoc.completed,
-        stats: ndoc.stats,
-        created: ndoc.created,
-    };
+    return formatTodoDoc(ndoc);
 }
 
 async function deleteTodo(id) {

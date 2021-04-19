@@ -11,6 +11,7 @@ const todoSchema = mongoose.Schema({
         importance: { type: Number, default: 0 },
     },
     created: { type: Date, default: Date.now },
+    completed_date: Date,
 });
 
 const todoModel = mongoose.model("Todo", todoSchema);
