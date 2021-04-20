@@ -87,7 +87,6 @@
 .pnav-i {
   width: 1.75rem !important;
   display: inline-block;
-  overflow: hidden;
   text-align: center !important;
 }
 .pnav-item i {

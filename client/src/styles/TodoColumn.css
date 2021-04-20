@@ -21,6 +21,9 @@
 .inspect-menu .append {
   float: right;
 }
+.toggle {
+  box-shadow: none !important;
+}
 .toggle i {
   cursor: pointer;
   width: 1.5rem !important;
@@ -78,12 +81,12 @@
   transition: all 0.2s;
 }
 .stat-col:hover {
-  background-color: rgba(53, 53, 53, 0.1);
+  background-color: #e6edf3;
+  border-radius: 0.5rem;
 }
 .stat-row {
-  border-bottom: 0.1rem #e0e0e0 solid;
 }
 .stat-sep {
   color: rgb(98, 102, 105);
-  margin-bottom: 0.5rem;
+  padding: 0.25rem;
 }

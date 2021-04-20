@@ -24,11 +24,14 @@
   color: rgb(65, 64, 64);
 }
 .plist-body {
-  overflow: scroll;
+  overflow-y: scroll;
   height: 80vh;
   padding: 0.5rem;
 }
 
+.plist-body::-webkit-scrollbar {
+  display: none;
+}
 .plist-header {
   color: black;
   border-bottom: 0.1rem #e0e0e0 solid;

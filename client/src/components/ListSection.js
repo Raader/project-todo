@@ -143,9 +143,7 @@ export function ListSection(props) {
                   className="list-item"
                   onClick={() => dispatch(setSelectedTodo(todo))}
                   style={
-                    current.id === todo.id
-                      ? { backgroundColor: "rgba(102, 102, 102, 0.1)" }
-                      : {}
+                    current.id === todo.id ? { backgroundColor: "#e6edf3" } : {}
                   }
                 >
                   <span
