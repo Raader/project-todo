@@ -5,6 +5,7 @@ export const projectSlice = createSlice({
   initialState: {
     current: { name: "", id: "", todos: [] },
     list: [],
+    syncing: false,
     selected: { name: "", description: "", id: "" },
   },
   reducers: {
@@ -19,6 +20,9 @@ export const projectSlice = createSlice({
     },
     addTodoList: (state, action) => {
       state.current.todos.push(action.payload);
+    },
+    setSyncing: (state, action) => {
+      state.syncing = action.payload;
     },
     editTodo: (state, action) => {
       const todo = state.current.todos.find(
@@ -61,6 +65,7 @@ export const {
   editTodo,
   setSelectedTodo,
   removeTodo,
+  setSyncing,
 } = projectSlice.actions;
 
 export const createProject = (project) => (dispatch, getState) => {
@@ -133,11 +138,13 @@ export const addTodo = (todo) => (dispatch, getState) => {
     },
     body: JSON.stringify({ todo, project: state.project.current }),
   };
+  dispatch(setSyncing(true));
   return fetch("/api/todo/add", options)
     .then((res) => res.json())
     .then((data) => {
       if (!data.todo) return;
       dispatch(addTodoList(data.todo));
+      dispatch(setSyncing(false));
     });
 };
 
@@ -153,12 +160,14 @@ export const completeTodo = (todo) => (dispatch, getState) => {
     body: JSON.stringify({ todo, project: state.project.current }),
   };
   const c = !todo.completed;
+  dispatch(setSyncing(true));
   dispatch(editTodo({ id: todo.id, completed: c }));
   return fetch("/api/todo/complete", options)
     .then((res) => res.json())
     .then((data) => {
       if (!data.todo) return;
       dispatch(editTodo(data.todo));
+      dispatch(setSyncing(false));
     });
 };
 
@@ -173,12 +182,14 @@ export const editTodoCloud = (todo) => (dispatch, getState) => {
     },
     body: JSON.stringify({ todo, project: state.project.current }),
   };
+  dispatch(setSyncing(true));
   dispatch(editTodo(todo));
   return fetch("/api/todo/edit", options)
     .then((res) => res.json())
     .then((data) => {
       if (!data.todo) return;
       dispatch(editTodo(data.todo));
+      dispatch(setSyncing(false));
     });
 };
 
@@ -193,16 +204,18 @@ export const deleteTodo = (todo) => (dispatch, getState) => {
     },
     body: JSON.stringify({ todo, project: state.project.current }),
   };
+  dispatch(setSyncing(true));
   dispatch(setSelectedTodo({ name: "", description: "" }));
   return fetch("/api/todo/remove", options)
     .then((res) => res.json())
     .then((data) => {
       dispatch(removeTodo(todo));
+      dispatch(setSyncing(false));
     });
 };
 export const selectProject = (state) => state.project.current;
 export const selectProjectList = (state) => state.project.list;
-
+export const selectSyncing = (state) => state.project.syncing;
 export const selectCurrentTodo = (state) => state.project.selected;
 
 export default projectSlice.reducer;

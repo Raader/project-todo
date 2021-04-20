@@ -7,6 +7,7 @@ import {
   completeTodo,
   selectCurrentTodo,
   selectProject,
+  selectSyncing,
   setSelectedTodo,
 } from "../features/project/projectSlice";
 import { TodoBar } from "./TodoBar";
@@ -29,6 +30,7 @@ export function ListSection(props) {
   const [todos, setTodos] = useState([]);
   const [sorter, setSorter] = useState(() => createdSorter);
   const ts = useSelector(selectProject);
+  const syncing = useSelector(selectSyncing);
   const dispatch = useDispatch();
   const history = useHistory();
   const current = useSelector(selectCurrentTodo);
@@ -126,7 +128,13 @@ export function ListSection(props) {
                 <i class="fas fa-trash"></i> Delete Project
               </Dropdown.Item>
             </Dropdown.Menu>
-
+            {syncing ? (
+              <span className="syncing">
+                <i class="fas fa-sync-alt"></i> syncing...
+              </span>
+            ) : (
+              ""
+            )}
             <span className="order-cont">
               <OrderBar set={setSort}></OrderBar>
             </span>
