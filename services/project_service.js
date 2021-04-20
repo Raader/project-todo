@@ -1,6 +1,15 @@
 const projectModel = require("../models/Project");
 const mongoose = require("mongoose");
 
+function parseProjectDoc(doc) {
+    return {
+        name: doc.name,
+        description: doc.description,
+        created: doc.created,
+        id: doc.id,
+    };
+}
+
 async function getProject(projectId, userId) {
     const project = await projectModel
         .findOne({
@@ -9,15 +18,16 @@ async function getProject(projectId, userId) {
         })
         .exec();
     if (!project) throw new Error("project not found");
-    return { name: project.name, created: project.created, id: project.id };
+    return parseProjectDoc(project);
 }
-async function createProject(name, userId) {
+async function createProject(userId, project) {
     const doc = new projectModel({
-        name,
+        name: project.name,
+        description: project.description,
         owner: userId,
     });
-    const project = await doc.save();
-    return { name: project.name, created: project.created, id: project.id };
+    const ndoc = await doc.save();
+    return parseProjectDoc(ndoc);
 }
 
 async function deleteProject(id, userId) {
@@ -34,7 +44,7 @@ async function deleteProject(id, userId) {
 async function listProjects(userId) {
     const projects = await projectModel.find({ owner: userId }).exec();
     return projects.map((val) => {
-        return { name: val.name, id: val.id, created: val.created };
+        return parseProjectDoc(val);
     });
 }
 module.exports = { getProject, createProject, deleteProject, listProjects };

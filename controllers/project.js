@@ -7,9 +7,9 @@ async function get(req, res) {
 }
 
 async function create(req, res) {
-    const name = req.body.project.name;
-    if (!name) throw new Error("project has no name");
-    const project = await projectService.createProject(name, req.userId);
+    const p = req.body.project;
+    if (!p.name) throw new Error("project has no name");
+    const project = await projectService.createProject(req.userId, p);
     res.json({ project, msg: "successfully created project" });
 }
 

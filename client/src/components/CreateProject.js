@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Modal, InputGroup, FormControl } from "react-bootstrap";
+import { Button, Modal, InputGroup, FormControl, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { createProject } from "../features/project/projectSlice";
@@ -9,6 +9,7 @@ export function CreateProject(props) {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const handleHide = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
@@ -24,12 +25,21 @@ export function CreateProject(props) {
             </InputGroup.Prepend>
             <FormControl onInput={(e) => setName(e.target.value)} />
           </InputGroup>
+          <InputGroup>
+            <InputGroup.Prepend>
+              <InputGroup.Text>Project Description</InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              as="textarea"
+              onInput={(e) => setDescription(e.target.value)}
+            />
+          </InputGroup>
         </Modal.Body>
         <Modal.Footer>
           <Button
             variant="nice"
             onClick={() => {
-              dispatch(createProject({ name })).then(() => {
+              dispatch(createProject({ name, description })).then(() => {
                 history.push("/main");
               });
             }}

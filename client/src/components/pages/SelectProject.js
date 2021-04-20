@@ -73,7 +73,9 @@ export function SelectProject(props) {
               <div className="project-inspect-header">
                 <i class="fas fa-bars"></i> {selected?.name}
               </div>
-              <div className="project-inspect-body"></div>
+              <div className="project-inspect-body">
+                {selected?.description}
+              </div>
               <div className="project-inspect-footer">
                 <div className="project-select">
                   <Button

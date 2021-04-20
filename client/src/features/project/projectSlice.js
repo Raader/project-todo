@@ -78,7 +78,7 @@ export const createProject = (project) => (dispatch, getState) => {
   return fetch("/api/project/create", options)
     .then((res) => res.json())
     .then((project) => {
-      project.project.todos = [];
+      project.current.todos = [];
       dispatch(setProject(project.project));
     });
 };

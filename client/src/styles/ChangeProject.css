@@ -14,6 +14,7 @@
 .modal .form-control {
   border: 0.1rem #e0e0e0 solid !important;
 }
+
 .plist {
   padding: 0.5rem;
 }
@@ -82,6 +83,7 @@
   padding-top: 0.75rem;
   border-left: 0.1rem #e0e0e0 solid !important;
   height: 100vh;
+  text-align: left;
 }
 
 .project-inspect-header {
