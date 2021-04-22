@@ -53,7 +53,7 @@ export function CreateProject(props) {
         variant={props.variant}
         onClick={handleShow}
       >
-        Create a project
+        <i class="fas fa-plus-square"></i> Create a project
       </Button>
     </div>
   );

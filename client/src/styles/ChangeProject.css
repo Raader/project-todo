@@ -94,10 +94,12 @@
 }
 
 .project-inspect-body {
-  height: 80vh;
+  height: 60vh;
 }
 .project-select {
+  border-top: 0.1rem #e0e0e0 solid;
   text-align: left;
+  padding-top: 1rem;
 }
 
 .clean-input {
