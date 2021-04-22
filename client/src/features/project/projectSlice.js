@@ -15,6 +15,14 @@ export const projectSlice = createSlice({
     setList: (state, action) => {
       state.list = action.payload;
     },
+    editList: (state, action) => {
+      const project = action.payload;
+      if (!project) return;
+      const p = state.list.find((val) => val.id == project.id);
+      if (!p) return;
+      if (project.name) p.name = project.name;
+      if (project.description) p.description = project.description;
+    },
     setTodos: (state, action) => {
       state.current.todos = action.payload;
     },
@@ -60,6 +68,7 @@ export const projectSlice = createSlice({
 export const {
   setProject,
   setList,
+  editList,
   setTodos,
   addTodoList,
   editTodo,
@@ -124,6 +133,28 @@ export const getProject = (project) => (dispatch, getState) => {
     .then((data) => {
       dispatch(setProject(project));
       dispatch(setTodos(data.todos));
+    });
+};
+
+export const editProject = (project) => (dispatch, getState) => {
+  const state = getState();
+  const options = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + state.user.token,
+    },
+    body: JSON.stringify({ project }),
+  };
+  dispatch(setSyncing(true));
+  dispatch(editList(project));
+  return fetch("/api/project/edit", options)
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data.project) return;
+      dispatch(editList(data.project));
+      dispatch(setSyncing(false));
     });
 };
 

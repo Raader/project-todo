@@ -99,3 +99,15 @@
 .project-select {
   text-align: left;
 }
+
+.clean-input {
+  background-color: transparent;
+  border: none;
+}
+
+.clean-input:focus,
+.clean-input:hover {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}

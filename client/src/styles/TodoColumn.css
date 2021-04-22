@@ -48,7 +48,7 @@
   color: rgb(63, 63, 63);
 }
 
-.inspect-body textarea {
+.inspect-area {
   background-color: transparent;
   border: 0 !important;
   outline: 0 !important;
@@ -57,7 +57,7 @@
   resize: none;
 }
 
-.inspect-body textarea::selection {
+.inspect-area::selection {
   border: 0 !important;
   outline: 0 !important;
 }
