@@ -176,7 +176,7 @@
   margin-top: 0.5rem;
 }
 
-@media screen and (max-width: 573px) {
+@media screen and (max-width: 1200px) {
   .project-main {
     display: none;
   }

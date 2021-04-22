@@ -44,7 +44,8 @@
   font-size: 0.85rem;
 }
 .todo-list .list-item .main {
-  width: 30vw;
+  width: 70%;
+  max-width: 30rem;
   white-space: nowrap;
   display: inline-block;
   overflow-x: hidden;
@@ -215,12 +216,25 @@
 #first {
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 900px) {
+  .todo-append {
+    text-align: right;
+    width: 100%;
+    padding-top: 0.25rem;
+    padding-left: 1rem;
+  }
   .stat {
   }
   .todo-list .list-item .main {
-    font-size: 0.75rem !important;
-    width: 25vw;
+    width: 90%;
+    border-bottom: 0.1rem #e0e0e0 solid;
+    padding-bottom: 0.25rem;
+  }
+  .todo-list .list-item {
+    height: 4.5rem;
+  }
+  .btn-nobtn {
+    max-width: 45vw !important;
   }
 }
 

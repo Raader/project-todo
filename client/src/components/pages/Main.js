@@ -13,7 +13,7 @@ export function Main() {
     <div>
       <Container fluid className="main-cont">
         <Row>
-          <Col className="no-padding" sm>
+          <Col className="no-padding" sm lg>
             <ListSection></ListSection>
           </Col>
           <Col className="no-padding" sm lg="4" xl="4">
