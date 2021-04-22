@@ -5,6 +5,9 @@ export function Home() {
   const history = useHistory();
   return (
     <div>
+      <div className="header-brand">
+        <i class="fas fa-list-alt"></i> PROJECT-TODO
+      </div>
       <Jumbotron>
         <h1>The TODO app you were looking for</h1>
         <p>
@@ -12,7 +15,7 @@ export function Home() {
           free.
         </p>
         <p>
-          <Button variant="tline" onClick={() => history.push("/register")}>
+          <Button variant="nice" onClick={() => history.push("/register")}>
             Get Started
           </Button>
         </p>

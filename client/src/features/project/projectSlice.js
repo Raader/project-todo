@@ -152,9 +152,9 @@ export const editProject = (project) => (dispatch, getState) => {
   return fetch("/api/project/edit", options)
     .then((res) => res.json())
     .then((data) => {
+      dispatch(setSyncing(false));
       if (!data.project) return;
       dispatch(editList(data.project));
-      dispatch(setSyncing(false));
     });
 };
 
@@ -173,9 +173,9 @@ export const addTodo = (todo) => (dispatch, getState) => {
   return fetch("/api/todo/add", options)
     .then((res) => res.json())
     .then((data) => {
+      dispatch(setSyncing(false));
       if (!data.todo) return;
       dispatch(addTodoList(data.todo));
-      dispatch(setSyncing(false));
     });
 };
 
@@ -196,9 +196,9 @@ export const completeTodo = (todo) => (dispatch, getState) => {
   return fetch("/api/todo/complete", options)
     .then((res) => res.json())
     .then((data) => {
+      dispatch(setSyncing(false));
       if (!data.todo) return;
       dispatch(editTodo(data.todo));
-      dispatch(setSyncing(false));
     });
 };
 
@@ -218,9 +218,9 @@ export const editTodoCloud = (todo) => (dispatch, getState) => {
   return fetch("/api/todo/edit", options)
     .then((res) => res.json())
     .then((data) => {
+      dispatch(setSyncing(false));
       if (!data.todo) return;
       dispatch(editTodo(data.todo));
-      dispatch(setSyncing(false));
     });
 };
 
@@ -240,8 +240,8 @@ export const deleteTodo = (todo) => (dispatch, getState) => {
   return fetch("/api/todo/remove", options)
     .then((res) => res.json())
     .then((data) => {
-      dispatch(removeTodo(todo));
       dispatch(setSyncing(false));
+      dispatch(removeTodo(todo));
     });
 };
 export const selectProject = (state) => state.project.current;

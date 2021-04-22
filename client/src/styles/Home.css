@@ -10,10 +10,21 @@
 }
 
 .jumbotron {
-  background-color: #f8bc72 !important;
+  background-color: #475c6e !important ;
   backdrop-filter: blur(10px);
-  font-size: x-large;
+  font-size: 1.5rem;
+  border-radius: 0 !important;
+  color: white;
+}
+.jumbotron .btn-nice {
+  color: white !important;
 }
 .paragraphs {
-  height: 60vh;
+  height: 50vh;
+}
+
+.header-brand {
+  background-color: #405364 !important;
+  color: white;
+  font-size: 5rem;
 }
