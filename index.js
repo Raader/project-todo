@@ -5,9 +5,6 @@ const path = require("path");
 
 //create express app
 const app = express();
-app.get("/", (req, res) => {
-    res.send("hello");
-});
 
 //use routes for all routes besides the main route
 const routes = require("./routes/routes");
