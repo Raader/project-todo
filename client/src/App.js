@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import logo from "./logo.svg";
 import { Counter } from "./features/counter/Counter";
 import "./App.css";
@@ -16,12 +16,19 @@ import { Col, Container, Row } from "react-bootstrap";
 import { ProjectSection } from "./components/ProjectSection";
 
 const routes = [
-  { path: "/login", body: <Login></Login>, sidebar: false, alias: "login" },
+  {
+    path: "/login",
+    body: <Login></Login>,
+    sidebar: false,
+    alias: "login",
+    title: true,
+  },
   {
     path: "/register",
     body: <Register></Register>,
     sidebar: false,
     alias: "register",
+    title: true,
   },
   {
     path: "/select",
@@ -47,6 +54,13 @@ function App() {
       <Switch>
         {routes.map((route) => (
           <Route path={route.path}>
+            {route.title ? (
+              <div className="header-brand">
+                <i class="fas fa-list-alt"></i> PROJECT-TODO
+              </div>
+            ) : (
+              <Fragment></Fragment>
+            )}
             {route.sidebar ? (
               <Container fluid>
                 <Row>
