@@ -14,6 +14,9 @@ export function ProjectSection(props) {
   const history = useHistory();
   const [counts, setCounts] = useState({ completed: 0, remaining: 0 });
   useEffect(() => {
+    window.location.href = "#";
+  }, []);
+  useEffect(() => {
     if (!project.todos) {
       return;
     }
