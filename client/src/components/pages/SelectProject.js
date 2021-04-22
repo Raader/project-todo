@@ -90,11 +90,13 @@ export function SelectProject(props) {
                     dispatch(editProject({ id: selected.id, name }));
                   }}
                 ></input>
-                <span
-                  className="returner"
-                  onClick={() => (window.location.href = "#")}
-                >
-                  <i class="fas fa-arrow-up"></i>
+                <span className="append">
+                  <span
+                    className="returner"
+                    onClick={() => (window.location.href = "#")}
+                  >
+                    <i class="fas fa-arrow-up"></i>
+                  </span>
                 </span>
               </div>
               <div className="project-inspect-body">

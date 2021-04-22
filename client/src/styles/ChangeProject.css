@@ -105,6 +105,7 @@
 .clean-input {
   background-color: transparent;
   border: none;
+  width: 16rem !important;
 }
 
 .clean-input:focus,
@@ -112,4 +113,8 @@
   outline: none !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+.append {
+  float: right;
 }
