@@ -52,3 +52,17 @@
   background-color: #a57f60 !important;
   color: black !important;
 }
+
+.about {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+.about h2 {
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem #e0e0e0 solid !important;
+  font-weight: 600;
+}
+.about p {
+  margin: 0;
+}

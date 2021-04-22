@@ -14,6 +14,7 @@ import { getUser } from "./features/user/userSlice";
 import { SelectProject } from "./components/pages/SelectProject";
 import { Col, Container, Row } from "react-bootstrap";
 import { ProjectSection } from "./components/ProjectSection";
+import { About } from "./components/pages/About";
 
 const routes = [
   {
@@ -36,6 +37,7 @@ const routes = [
     sidebar: true,
     alias: "select",
   },
+  { path: "/about", body: <About></About>, sidebar: true, alias: "about" },
   { path: "/main", body: <Main></Main>, sidebar: true, alias: "main" },
   { path: "/", body: <Home></Home>, sidebar: false, alias: "home" },
 ];
