@@ -149,7 +149,10 @@ export function ListSection(props) {
               !todo.completed ? (
                 <div
                   className="list-item"
-                  onClick={() => dispatch(setSelectedTodo(todo))}
+                  onClick={() => {
+                    dispatch(setSelectedTodo(todo));
+                    window.location.href = "#inspect";
+                  }}
                   style={
                     current.id === todo.id ? { backgroundColor: "#e6edf3" } : {}
                   }

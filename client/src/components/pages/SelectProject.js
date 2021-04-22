@@ -33,7 +33,7 @@ export function SelectProject(props) {
     <div>
       <Container className="plist-cont" fluid>
         <Row>
-          <Col xs="8" className="no-padding">
+          <Col sm lg="8" className="no-padding">
             <div className="plist">
               <div className="plist-header">
                 <i class="fas fa-stream"></i> Projects
@@ -48,6 +48,7 @@ export function SelectProject(props) {
                       )
                     }
                     onClick={() => {
+                      window.location.href = "#pinspect";
                       setSelected(project);
                     }}
                     style={
@@ -77,8 +78,8 @@ export function SelectProject(props) {
               </div>
             </div>
           </Col>
-          <Col className="no-padding">
-            <div className="project-inspect">
+          <Col sm className="no-padding">
+            <div className="project-inspect" id="pinspect">
               <div className="project-inspect-header">
                 <i class="fas fa-bars"></i>{" "}
                 <input
@@ -89,6 +90,12 @@ export function SelectProject(props) {
                     dispatch(editProject({ id: selected.id, name }));
                   }}
                 ></input>
+                <span
+                  className="returner"
+                  onClick={() => (window.location.href = "#")}
+                >
+                  <i class="fas fa-arrow-up"></i>
+                </span>
               </div>
               <div className="project-inspect-body">
                 <textarea

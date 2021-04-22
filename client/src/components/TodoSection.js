@@ -55,7 +55,7 @@ export function TodoSection(props) {
     setDescription(todo.description);
   }, [todo]);
   return (
-    <div className="inspect-main">
+    <div className="inspect-main" id="inspect">
       <Section>
         <div className="inspect-menu">
           <span
@@ -72,8 +72,15 @@ export function TodoSection(props) {
             <i class="fas fa-calendar-week"></i>{" "}
             {todo.created ? new Date(todo.created).toLocaleDateString() : ""}
           </span>
+
           <span className="append">
             <Dropdown>
+              <span
+                className="returner"
+                onClick={() => (window.location.href = "#")}
+              >
+                <i class="fas fa-arrow-up"></i>
+              </span>
               <Dropdown.Toggle
                 variant="no-btn"
                 id="dropdown-basic"
