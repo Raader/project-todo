@@ -1,8 +1,17 @@
 import { Button, Container, Row, Col, Jumbotron } from "react-bootstrap";
 import "../../styles/Home.css";
 import { useHistory } from "react-router";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/user/userSlice";
 export function Home() {
   const history = useHistory();
+  const user = useSelector(selectUser);
+  useEffect(() => {
+    if (user.token) {
+      history.push("/main");
+    }
+  }, [user]);
   return (
     <div>
       <div className="header-brand">
