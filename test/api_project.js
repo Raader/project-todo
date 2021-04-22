@@ -35,6 +35,20 @@ describe("Project Api", function () {
                 });
         });
     });
+    describe("editing a project", function () {
+        it("should edit the project", function () {
+            project.name = "marukun projesi";
+            project.description = "açıklama";
+            return request(app)
+                .post("/api/project/edit")
+                .set("Authorization", "Bearer " + token)
+                .send({ project })
+                .then((res) => {
+                    console.log(res.body);
+                    expect(res).to.have.status(200);
+                });
+        });
+    });
     describe("fetching a project or projects", function () {
         it("should get project names and ids", function () {
             return request(app)

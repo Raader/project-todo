@@ -24,4 +24,11 @@ async function list(req, res) {
     const projects = await projectService.listProjects(req.userId);
     res.json({ projects, msg: "succeesfully listed projects" });
 }
-module.exports = { get, create, remove, list };
+
+async function edit(req, res) {
+    const project = req.body.project;
+    if (!project || !project.id) throw new Error("no project given");
+    const np = await projectService.editProject(project, req.userId);
+    res.json({ project: np, msg: "succesfully edited project" });
+}
+module.exports = { get, create, remove, list, edit };

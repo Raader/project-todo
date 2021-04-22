@@ -47,4 +47,19 @@ async function listProjects(userId) {
         return parseProjectDoc(val);
     });
 }
-module.exports = { getProject, createProject, deleteProject, listProjects };
+
+async function editProject(project, owner) {
+    const doc = await projectModel.findOne({ _id: project.id, owner }).exec();
+    if (!doc) throw new Error("project not found");
+    if (project.name) doc.name = project.name;
+    if (project.description) doc.description = project.description;
+    const ndoc = await doc.save();
+    return parseProjectDoc(ndoc);
+}
+module.exports = {
+    getProject,
+    createProject,
+    deleteProject,
+    listProjects,
+    editProject,
+};
