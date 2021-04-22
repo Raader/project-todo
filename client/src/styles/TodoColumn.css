@@ -90,3 +90,12 @@
   color: rgb(98, 102, 105);
   padding: 0.25rem;
 }
+
+@media screen and (max-width: 900px) {
+  .inspect-footer {
+    margin-bottom: 5rem;
+  }
+  .inspect-area {
+    height: 40vh;
+  }
+}

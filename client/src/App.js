@@ -15,6 +15,7 @@ import { SelectProject } from "./components/pages/SelectProject";
 import { Col, Container, Row } from "react-bootstrap";
 import { ProjectSection } from "./components/ProjectSection";
 import { About } from "./components/pages/About";
+import { MiniNavbar } from "./components/MiniNavbar";
 
 const routes = [
   {
@@ -70,6 +71,9 @@ function App() {
                     <ProjectSection path={route.alias}></ProjectSection>
                   </Col>
                   <Col className="no-padding">{route.body}</Col>
+                </Row>
+                <Row>
+                  <MiniNavbar path={route.alias}></MiniNavbar>
                 </Row>
               </Container>
             ) : (
