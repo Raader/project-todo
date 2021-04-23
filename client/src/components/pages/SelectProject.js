@@ -112,7 +112,10 @@ export function SelectProject(props) {
                   }}
                 ></textarea>
               </div>
-              <div className="project-inspect-footer">
+              <div
+                className="project-inspect-footer"
+                style={selected ? {} : { display: "none" }}
+              >
                 <div className="project-select">
                   <Button
                     variant="nice"

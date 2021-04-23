@@ -117,3 +117,12 @@
 .append {
   float: right;
 }
+
+@media screen and (max-width: 1200px) {
+  .plist-body {
+    height: 60vh;
+  }
+  .plist-footer {
+    margin-bottom: 10rem;
+  }
+}
