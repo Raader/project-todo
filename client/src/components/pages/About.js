@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import { Container } from "react-bootstrap";
 
 export function About(props) {
+  useEffect(() => {
+    window.location.href = "#";
+  }, []);
   return (
     <div className="about" style={{ textAlign: "left" }}>
       <Container>

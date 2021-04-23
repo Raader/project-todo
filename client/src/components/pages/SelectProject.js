@@ -21,6 +21,9 @@ export function SelectProject(props) {
   const [description, setDescription] = useState("");
   const history = useHistory();
   useEffect(() => {
+    window.location.href = "#";
+  }, []);
+  useEffect(() => {
     dispatch(listProjects());
   }, [dispatch, user]);
   useEffect(() => {

@@ -35,9 +35,6 @@ export function ListSection(props) {
   const history = useHistory();
   const current = useSelector(selectCurrentTodo);
   useEffect(() => {
-    window.location.href = "#";
-  }, []);
-  useEffect(() => {
     if (!ts.id) {
       history.push("/select");
     }

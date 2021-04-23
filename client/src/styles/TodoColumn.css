@@ -93,9 +93,10 @@
 
 @media screen and (max-width: 900px) {
   .inspect-footer {
-    margin-bottom: 5rem;
+    position: relative;
+    border-bottom: 0.1rem #e0e0e0 solid;
   }
   .inspect-area {
-    height: 40vh;
+    height: 30vh;
   }
 }
