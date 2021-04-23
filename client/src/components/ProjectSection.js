@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import { Button, ButtonGroup, Col, Container, Row } from "react-bootstrap";
 import { Section } from "./Section";
 import "../styles/ProjectColumn.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectProject } from "../features/project/projectSlice";
 import { ChangeProjectButton } from "./ChangeProjectButton";
 import { useHistory } from "react-router";
-import { selectUser } from "../features/user/userSlice";
+import { logoutUser, selectUser } from "../features/user/userSlice";
 
 export function ProjectSection(props) {
   const project = useSelector(selectProject);
   const user = useSelector(selectUser);
+  const dispacth = useDispatch();
   const history = useHistory();
   const [counts, setCounts] = useState({ completed: 0, remaining: 0 });
   useEffect(() => {
@@ -44,7 +45,13 @@ export function ProjectSection(props) {
               </span>{" "}
               <span className="main">{user.name}</span>{" "}
               <span className="user-menu">
-                <i class="fas fa-sign-out-alt"></i>
+                <i
+                  class="fas fa-sign-out-alt"
+                  onClick={() => {
+                    dispacth(logoutUser());
+                    history.push("/");
+                  }}
+                ></i>
               </span>
             </div>
             <div className="project-stats">

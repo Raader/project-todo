@@ -87,6 +87,7 @@ export const getUser = (token) => (dispatch) => {
     .then((res) => res.json())
     .then((data) => {
       if (data.err) throw data.err;
+      if (!data.user) return;
       const user = data.user;
       user.token = token;
       dispatch(setUser(user));
