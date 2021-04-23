@@ -183,15 +183,15 @@
   left: 0;
   width: 100%;
   background-color: #405364;
-  height: 5rem;
+  height: 3.5rem;
   color: rgb(185, 185, 185);
 }
 .mini-navbar .col {
   text-align: center !important;
 }
 .mini-navbar .pnav-item {
-  height: 5rem;
-  font-size: 2.5rem;
+  height: 3.5rem;
+  font-size: 2rem;
   text-align: center;
 }
 @media screen and (max-width: 1200px) {

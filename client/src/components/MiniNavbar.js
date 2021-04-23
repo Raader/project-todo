@@ -42,6 +42,15 @@ export function MiniNavbar(props) {
               <i class="fas fa-question-circle"></i>
             </div>
           </Col>
+          <Col
+            className="no-padding"
+            style={props.path === "user" ? { color: "white" } : {}}
+            onClick={() => history.push("/about")}
+          >
+            <div className="pnav-item">
+              <i class="fas fa-user-circle"></i>
+            </div>
+          </Col>
         </Row>
       </Container>
     </div>
