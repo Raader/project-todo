@@ -9,6 +9,9 @@ import { TodoSection } from "../TodoSection";
 export function Main() {
   const dispacth = useDispatch();
   useEffect(() => {});
+  useEffect(() => {
+    window.location.href = "#";
+  }, []);
   return (
     <div>
       <Container fluid className="main-cont">

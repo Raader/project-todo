@@ -13,7 +13,11 @@ export function ProjectSection(props) {
   const user = useSelector(selectUser);
   const dispacth = useDispatch();
   const history = useHistory();
-  const [counts, setCounts] = useState({ completed: 0, remaining: 0 });
+  const [counts, setCounts] = useState({
+    total: 0,
+    completed: 0,
+    remaining: 0,
+  });
   useEffect(() => {
     if (!project.todos) {
       return;
@@ -30,6 +34,7 @@ export function ProjectSection(props) {
     const n = {
       completed: c,
       remaining: r,
+      total: c + r,
     };
     console.log(n);
     setCounts(n);
