@@ -14,9 +14,6 @@ export function ProjectSection(props) {
   const history = useHistory();
   const [counts, setCounts] = useState({ completed: 0, remaining: 0 });
   useEffect(() => {
-    window.location.href = "#";
-  }, []);
-  useEffect(() => {
     if (!project.todos) {
       return;
     }
@@ -45,9 +42,8 @@ export function ProjectSection(props) {
               <span className="user-portrait">
                 <i class="fas fa-user-circle"></i>
               </span>{" "}
-              {user.name}{" "}
+              <span className="main">{user.name}</span>{" "}
               <span className="user-menu">
-                <i class="fas fa-home"></i> <i class="fas fa-cog"></i>{" "}
                 <i class="fas fa-sign-out-alt"></i>
               </span>
             </div>
