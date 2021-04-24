@@ -29,7 +29,6 @@ export function TodoBar(props) {
               dispatch(
                 addTodo({
                   name: todo,
-                  description: "description",
                   stats: { importance: imp, time: time, difficulty: diff },
                 })
               );

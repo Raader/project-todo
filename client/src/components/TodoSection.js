@@ -124,7 +124,8 @@ export function TodoSection(props) {
         <div className="inspect-body">
           <textarea
             type="text-area"
-            value={description}
+            placeholder="description"
+            value={description ? description : ""}
             className="inspect-area"
             onChange={(e) => {
               setDescription(e.target.value);
