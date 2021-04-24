@@ -16,6 +16,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { ProjectSection } from "./components/ProjectSection";
 import { About } from "./components/pages/About";
 import { MiniNavbar } from "./components/MiniNavbar";
+import { BrandBar } from "./components/BrandBar";
 
 const routes = [
   {
@@ -57,13 +58,7 @@ function App() {
       <Switch>
         {routes.map((route) => (
           <Route path={route.path}>
-            {route.title ? (
-              <div className="header-brand">
-                <i class="fas fa-list-alt"></i> PROJECT-TODO
-              </div>
-            ) : (
-              <Fragment></Fragment>
-            )}
+            {route.title ? <BrandBar></BrandBar> : <Fragment></Fragment>}
             {route.sidebar ? (
               <Container fluid>
                 <Row>
