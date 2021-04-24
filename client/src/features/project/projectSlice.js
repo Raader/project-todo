@@ -23,6 +23,11 @@ export const projectSlice = createSlice({
       if (project.name) p.name = project.name;
       if (project.description) p.description = project.description;
     },
+    removeFromList: (state, action) => {
+      const project = action.payload;
+      if (!project) return;
+      state.list.splice(state.list.indexOf(project), 1);
+    },
     setTodos: (state, action) => {
       state.current.todos = action.payload;
     },
@@ -69,6 +74,7 @@ export const {
   setProject,
   setList,
   editList,
+  removeFromList,
   setTodos,
   addTodoList,
   editTodo,
@@ -156,6 +162,26 @@ export const editProject = (project) => (dispatch, getState) => {
       dispatch(setSyncing(false));
       if (!data.project) return;
       dispatch(editList(data.project));
+    });
+};
+
+export const deleteProject = (project) => (dispatch, getState) => {
+  const state = getState();
+  const options = {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + state.user.token,
+    },
+  };
+  dispatch(setSyncing(true));
+  return fetch("/api/project/remove/" + project.id, options)
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.err) return;
+      dispatch(removeFromList(project));
+      dispatch(setSyncing(false));
     });
 };
 

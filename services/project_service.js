@@ -1,4 +1,5 @@
 const projectModel = require("../models/Project");
+const todoModel = require("../models/Todo");
 const mongoose = require("mongoose");
 
 function parseProjectDoc(doc) {
@@ -37,6 +38,7 @@ async function deleteProject(id, userId) {
             { useFindAndModify: false }
         )
         .exec();
+    await todoModel.remove({ owner: id });
     if (!project) throw new Error("project not found");
     return;
 }

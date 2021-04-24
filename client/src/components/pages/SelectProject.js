@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deleteProject,
   editProject,
   getProject,
   listProjects,
@@ -126,6 +127,15 @@ export function SelectProject(props) {
                     }
                   >
                     <i class="fas fa-check"></i> Select Project
+                  </Button>
+                  <Button
+                    variant="nice"
+                    onClick={() => {
+                      dispatch(deleteProject(selected));
+                      setSelected({ name: "", description: "" });
+                    }}
+                  >
+                    <i class="fas fa-trash"></i> Delete Project
                   </Button>
                 </div>
               </div>
