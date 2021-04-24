@@ -19,9 +19,21 @@ export function ListSection(props) {
     const d1 = new Date(a.created);
     const d2 = new Date(b.created);
     if (d1 > d2) {
-      return 1;
-    } else if (d1 < d2) {
       return -1;
+    } else if (d1 < d2) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
+
+  const completedSorter = (a, b) => {
+    const d1 = new Date(a.completed_date);
+    const d2 = new Date(b.completed_date);
+    if (d1 > d2) {
+      return -1;
+    } else if (d1 < d2) {
+      return 1;
     } else {
       return 0;
     }
@@ -41,9 +53,18 @@ export function ListSection(props) {
   }, [ts, history]);
   useEffect(() => {
     if (!ts.todos) return;
-    const list = ts.todos.map((val) => val);
-    list.sort(sorter);
-    list.sort((a, b) => (a.completed ? 1 : 0) - (b.completed ? 1 : 0));
+    const remaining = [];
+    const completed = [];
+    for (let todo of ts.todos) {
+      if (todo.completed) {
+        completed.push(todo);
+      } else {
+        remaining.push(todo);
+      }
+    }
+    remaining.sort(sorter);
+    completed.sort(completedSorter);
+    const list = remaining.concat(completed);
     setTodos(list);
   }, [ts, sorter]);
 
