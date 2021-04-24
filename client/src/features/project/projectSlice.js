@@ -6,6 +6,7 @@ export const projectSlice = createSlice({
     current: { name: "", id: "", todos: [] },
     list: [],
     syncing: false,
+    loading: true,
     selected: { name: "", description: "", id: "" },
   },
   reducers: {
@@ -36,6 +37,9 @@ export const projectSlice = createSlice({
     },
     setSyncing: (state, action) => {
       state.syncing = action.payload;
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
     },
     editTodo: (state, action) => {
       const todo = state.current.todos.find(
@@ -81,6 +85,7 @@ export const {
   setSelectedTodo,
   removeTodo,
   setSyncing,
+  setLoading,
 } = projectSlice.actions;
 
 export const createProject = (project) => (dispatch, getState) => {
@@ -135,9 +140,11 @@ export const getProject = (project) => (dispatch, getState) => {
     },
     body: JSON.stringify({ project }),
   };
+  dispatch(setLoading(true));
   return fetch("/api/todo/list", options)
     .then((res) => res.json())
     .then((data) => {
+      dispatch(setLoading(false));
       dispatch(setProject(project));
       dispatch(setTodos(data.todos));
     });
@@ -274,6 +281,7 @@ export const deleteTodo = (todo) => (dispatch, getState) => {
 export const selectProject = (state) => state.project.current;
 export const selectProjectList = (state) => state.project.list;
 export const selectSyncing = (state) => state.project.syncing;
+export const selectLoading = (state) => state.project.loading;
 export const selectCurrentTodo = (state) => state.project.selected;
 
 export default projectSlice.reducer;

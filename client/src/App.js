@@ -17,6 +17,7 @@ import { ProjectSection } from "./components/ProjectSection";
 import { About } from "./components/pages/About";
 import { MiniNavbar } from "./components/MiniNavbar";
 import { BrandBar } from "./components/BrandBar";
+import { Loading } from "./components/pages/Loading";
 
 const routes = [
   {
@@ -41,6 +42,7 @@ const routes = [
   },
   { path: "/about", body: <About></About>, sidebar: true, alias: "about" },
   { path: "/main", body: <Main></Main>, sidebar: true, alias: "main" },
+  { path: "/loading/:page", body: <Loading></Loading>, alias: "loading" },
   { path: "/", body: <Home></Home>, sidebar: false, alias: "home" },
 ];
 function App() {

@@ -82,7 +82,23 @@
   border-radius: 0.5rem;
 }
 
+.load-logo {
+  font-size: 5rem;
+  margin-top: 10rem;
+}
+.load-body {
+  font-size: 5rem;
+  padding: 1rem;
+  animation-name: spin;
+  animation-duration: 1.25s;
+  animation-iteration-count: infinite;
+}
+
 @media screen and (max-width: 573px) {
+  .load-body,
+  .load-logo {
+    font-size: 3rem;
+  }
   .returner {
     display: inline;
   }

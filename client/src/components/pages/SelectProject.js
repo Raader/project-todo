@@ -46,11 +46,10 @@ export function SelectProject(props) {
                 {projects.map((project) => (
                   <div
                     className="project"
-                    onDoubleClick={() =>
-                      dispatch(getProject(selected)).then(() =>
-                        history.push("/main")
-                      )
-                    }
+                    onDoubleClick={() => {
+                      dispatch(getProject(selected));
+                      history.push("/loading/main");
+                    }}
                     onClick={() => {
                       window.location.href = "#pinspect";
                       setSelected(project);
@@ -120,11 +119,10 @@ export function SelectProject(props) {
                 <div className="project-select">
                   <Button
                     variant="nice"
-                    onClick={() =>
-                      dispatch(getProject(selected)).then(() =>
-                        history.push("/main")
-                      )
-                    }
+                    onClick={() => {
+                      dispatch(getProject(selected));
+                      history.push("/loading/main");
+                    }}
                   >
                     <i class="fas fa-check"></i> Select Project
                   </Button>
