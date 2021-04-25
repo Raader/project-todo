@@ -32,14 +32,14 @@
 }
 
 .settings-inspect {
-  height: 80vh;
+  height: 90vh;
 }
 
 .us-cont {
 }
 
 .us-portrait {
-  font-size: 6rem;
+  font-size: 10rem;
 }
 .us-name {
   font-size: 2rem;
@@ -49,7 +49,7 @@
   color: rgb(85, 85, 85);
 }
 .us-options {
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .us-stats {

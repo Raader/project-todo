@@ -7,6 +7,9 @@ export function UserSettings() {
   const user = useSelector(selectUser);
   return (
     <div className="us-cont">
+      <span className="returner" onClick={() => (window.location.href = "#")}>
+        <i class="fas fa-arrow-up"></i>
+      </span>
       <div className="us-portrait">
         <i className="fas fa-user-circle"></i>
       </div>

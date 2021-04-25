@@ -25,6 +25,10 @@ export function Settings(props) {
               <div
                 className="settings-nav"
                 style={page === "user" ? { color: "black" } : {}}
+                onClick={() => {
+                  setPage("user");
+                  window.location.href = "#s-inspect";
+                }}
               >
                 User
               </div>
@@ -36,7 +40,7 @@ export function Settings(props) {
               </div>
             </div>
           </Col>
-          <Col sm>
+          <Col sm id="s-inspect">
             <div className="settings-inspect">
               {pages.find((val) => val.name === page).body}
             </div>
