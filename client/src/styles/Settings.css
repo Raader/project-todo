@@ -1,0 +1,31 @@
+.settings-cont {
+  font-family: "Open Sans", sans-serif;
+  padding-top: 1rem;
+}
+
+.settings-header {
+  font-size: 1.75rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.settings-navbar {
+  border-right: 0.1rem #e0e0e0 solid;
+  height: 70vh;
+  padding: 1rem;
+}
+
+.settings-nav {
+  font-size: 1.25rem;
+  border-bottom: 0.1rem #e0e0e0 solid;
+  padding: 0.5rem;
+  font-weight: 500;
+  text-align: left;
+  color: rgb(94, 94, 94);
+  cursor: pointer;
+}
+
+.settings-nav:hover {
+  color: black;
+  background-color: rgba(99, 99, 99, 0.1);
+}

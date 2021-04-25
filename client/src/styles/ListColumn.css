@@ -18,12 +18,12 @@
 }
 
 .todo-top {
-  margin-top: 0.75rem;
 }
 
 .todo-top-menu {
   font-size: 1.25rem !important;
   padding: 0.75rem;
+  padding-top: 1rem;
   font-weight: 600;
   color: black;
 }

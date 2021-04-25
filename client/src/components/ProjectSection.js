@@ -99,7 +99,11 @@ export function ProjectSection(props) {
                 </span>{" "}
                 Projects
               </div>
-              <div id="completed" className="pnav-item">
+              <div
+                className="pnav-item"
+                style={props.path === "settings" ? { color: "white" } : {}}
+                onClick={() => history.push("/settings")}
+              >
                 <span className="pnav-i">
                   <i class="fas fa-cog"></i>
                 </span>{" "}
