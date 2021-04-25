@@ -35,6 +35,17 @@ export const projectSlice = createSlice({
     addTodoList: (state, action) => {
       state.current.todos.push(action.payload);
     },
+    addSide: (state, action) => {
+      state.selected.sides.push(action.payload);
+    },
+    editSide: (state, action) => {
+      const side = action.payload;
+      if (!side || !side.id) return;
+      const n = state.selected.sides.find((val) => val.id === side.id);
+      if (!n) return;
+      if (side.name) n.name = side.name;
+      if (side.completed !== undefined) n.completed = side.completed;
+    },
     setSyncing: (state, action) => {
       state.syncing = action.payload;
     },
@@ -78,6 +89,8 @@ export const {
   setProject,
   setList,
   editList,
+  addSide,
+  editSide,
   removeFromList,
   setTodos,
   addTodoList,
@@ -278,10 +291,50 @@ export const deleteTodo = (todo) => (dispatch, getState) => {
       dispatch(removeTodo(todo));
     });
 };
+
+export const selectTodoCloud = (todo) => (dispatch, getState) => {
+  dispatch(setSelectedTodo(todo));
+  const state = getState();
+  const options = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + state.user.token,
+    },
+    body: JSON.stringify({ todo, project: state.project.current }),
+  };
+  return fetch("/api/side/list", options)
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data.sides) return;
+      dispatch(setSelectedTodo({ sides: data.sides, ...todo }));
+    });
+};
+
+export const addSideTask = (todo, side) => (dispatch, getState) => {
+  const state = getState();
+  const options = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + state.user.token,
+    },
+    body: JSON.stringify({ todo, project: state.project.current, side }),
+  };
+  return fetch("/api/side/add", options)
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data.side) return;
+      dispatch(addSide(data.side));
+    });
+};
 export const selectProject = (state) => state.project.current;
 export const selectProjectList = (state) => state.project.list;
 export const selectSyncing = (state) => state.project.syncing;
 export const selectLoading = (state) => state.project.loading;
 export const selectCurrentTodo = (state) => state.project.selected;
+export const selectSideTasks = (state) => state.seleceted.sides;
 
 export default projectSlice.reducer;

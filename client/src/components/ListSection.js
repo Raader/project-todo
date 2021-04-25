@@ -8,6 +8,7 @@ import {
   selectCurrentTodo,
   selectProject,
   selectSyncing,
+  selectTodoCloud,
   setSelectedTodo,
 } from "../features/project/projectSlice";
 import { TodoBar } from "./TodoBar";
@@ -171,7 +172,7 @@ export function ListSection(props) {
                 <div
                   className="list-item"
                   onClick={() => {
-                    dispatch(setSelectedTodo(todo));
+                    dispatch(selectTodoCloud(todo));
                     window.location.href = "#inspect";
                   }}
                   style={

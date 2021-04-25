@@ -19,6 +19,7 @@ import {
   setSelectedTodo,
 } from "../features/project/projectSlice";
 import { useEffect, useState } from "react";
+import { SideTasks } from "./SideTasks";
 export function TodoSection(props) {
   const todo = useSelector(selectCurrentTodo);
   const dispatch = useDispatch();
@@ -140,6 +141,7 @@ export function TodoSection(props) {
           className="inspect-footer"
           style={todo.id ? {} : { display: "none" }}
         >
+          <SideTasks></SideTasks>
           <Container fluid>
             <Row className="stat-sep">Importance</Row>
             <Row className="stat-row">
