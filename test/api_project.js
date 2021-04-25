@@ -106,6 +106,41 @@ describe("Project Api", function () {
         });
     });
 
+    describe("adding side tasks to todo", function () {
+        it("should add side task to todo", function () {
+            return request(app)
+                .post("/api/side/add")
+                .set("Authorization", "Bearer " + token)
+                .send({
+                    project,
+                    todo,
+                    side: { name: "do it yourself nigga" },
+                })
+                .then((res) => {
+                    console.log(res.body);
+                    expect(res).to.have.status(200);
+                });
+        });
+    });
+
+    describe("editing side tasks of todo", function () {});
+
+    describe("getting side tasks of todo", function () {
+        it("should list side tasks of todo", function () {
+            return request(app)
+                .post("/api/side/list")
+                .set("Authorization", "Bearer " + token)
+                .send({
+                    project,
+                    todo,
+                })
+                .then((res) => {
+                    console.log(res.body);
+                    expect(res).to.have.status(200);
+                });
+        });
+    });
+
     let todos = [];
     describe("getting todos", function () {
         it("should list todos", function () {

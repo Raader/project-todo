@@ -21,7 +21,7 @@ router.post("/complete", auth, select, function (req, res) {
     });
 });
 
-router.post("/edit/", auth, select, function (req, res) {
+router.post("/edit", auth, select, function (req, res) {
     controller.edit(req, res).catch((err) => {
         res.status(400).json({ err: err.message });
     });
@@ -32,4 +32,5 @@ router.post("/remove", auth, select, function (req, res) {
         res.status(400).json({ err: err.message });
     });
 });
+
 module.exports = router;
