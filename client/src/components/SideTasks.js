@@ -21,7 +21,7 @@ export function SideTasks(props) {
       </div>
       <div className="side-body">
         {todo?.sides?.map((val) => (
-          <SideTask name={val.name}></SideTask>
+          <SideTask todo={todo} side={val}></SideTask>
         ))}
       </div>
     </div>

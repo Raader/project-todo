@@ -40,7 +40,7 @@ export const projectSlice = createSlice({
     },
     editSide: (state, action) => {
       const side = action.payload;
-      if (!side || !side.id) return;
+      if (!side || !side.id || !state.selected.sides) return;
       const n = state.selected.sides.find((val) => val.id === side.id);
       if (!n) return;
       if (side.name) n.name = side.name;
@@ -330,6 +330,28 @@ export const addSideTask = (todo, side) => (dispatch, getState) => {
       dispatch(addSide(data.side));
     });
 };
+
+export const editSideTask = (todo, side) => (dispatch, getState) => {
+  const state = getState();
+  const options = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + state.user.token,
+    },
+    body: JSON.stringify({ todo, project: state.project.current, side }),
+  };
+  dispatch(setSyncing(true));
+  return fetch("/api/side/edit", options)
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch(setSyncing(false));
+      if (!data.side) return;
+      dispatch(editSide(data.side));
+    });
+};
+
 export const selectProject = (state) => state.project.current;
 export const selectProjectList = (state) => state.project.list;
 export const selectSyncing = (state) => state.project.syncing;

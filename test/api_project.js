@@ -106,6 +106,7 @@ describe("Project Api", function () {
         });
     });
 
+    let side;
     describe("adding side tasks to todo", function () {
         it("should add side task to todo", function () {
             return request(app)
@@ -118,12 +119,29 @@ describe("Project Api", function () {
                 })
                 .then((res) => {
                     console.log(res.body);
+                    side = res.body.side;
                     expect(res).to.have.status(200);
                 });
         });
     });
 
-    describe("editing side tasks of todo", function () {});
+    describe("editing side tasks of todo", function () {
+        it("should edit side task to todo", function () {
+            side.name = "noooo";
+            return request(app)
+                .post("/api/side/edit")
+                .set("Authorization", "Bearer " + token)
+                .send({
+                    project,
+                    todo,
+                    side,
+                })
+                .then((res) => {
+                    console.log(res.body);
+                    expect(res).to.have.status(200);
+                });
+        });
+    });
 
     describe("getting side tasks of todo", function () {
         it("should list side tasks of todo", function () {
