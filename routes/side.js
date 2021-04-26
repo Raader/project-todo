@@ -37,7 +37,7 @@ router.post("/complete", auth, select, async function (req, res) {
         const todo = req.body.todo;
         const side = req.body.side;
         if (!todo || !todo.id || !side) throw new Error("not enough creds");
-        const doc = await todoService.completeTodo(side);
+        const doc = await todoService.completeTodo(side.id);
         res.json({
             side: doc,
             msg: "sucscesfully compelted todo",
@@ -62,6 +62,18 @@ router.post("/edit", auth, select, async function (req, res) {
     }
 });
 
-router.post("/remove", auth, select, function (req, res) {});
+router.post("/remove", auth, select, async function (req, res) {
+    try {
+        const todo = req.body.todo;
+        const side = req.body.side;
+        if (!todo || !todo.id || !side) throw new Error("not enough creds");
+        const doc = await todoService.deleteTodo(side.id);
+        res.json({
+            msg: "succesfully deleted side task",
+        });
+    } catch (err) {
+        res.status(400).json({ err: err.message });
+    }
+});
 
 module.exports = router;

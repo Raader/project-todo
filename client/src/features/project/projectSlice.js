@@ -46,6 +46,13 @@ export const projectSlice = createSlice({
       if (side.name) n.name = side.name;
       if (side.completed !== undefined) n.completed = side.completed;
     },
+    removeSide: (state, action) => {
+      const side = action.payload;
+      if (!side || !side.id || !state.selected.sides) return;
+      const n = state.selected.sides.find((val) => val.id === side.id);
+      if (!n) return;
+      state.selected.sides.splice(state.selected.sides.indexOf(n), 1);
+    },
     setSyncing: (state, action) => {
       state.syncing = action.payload;
     },
@@ -91,6 +98,7 @@ export const {
   editList,
   addSide,
   editSide,
+  removeSide,
   removeFromList,
   setTodos,
   addTodoList,
@@ -352,6 +360,46 @@ export const editSideTask = (todo, side) => (dispatch, getState) => {
     });
 };
 
+export const completeSideTask = (todo, side) => (dispatch, getState) => {
+  const state = getState();
+  const options = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + state.user.token,
+    },
+    body: JSON.stringify({ todo, project: state.project.current, side }),
+  };
+  dispatch(setSyncing(true));
+  return fetch("/api/side/complete", options)
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch(setSyncing(false));
+      if (!data.side) return;
+      dispatch(editSide(data.side));
+    });
+};
+
+export const removeSideTask = (todo, side) => (dispatch, getState) => {
+  const state = getState();
+  const options = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + state.user.token,
+    },
+    body: JSON.stringify({ todo, project: state.project.current, side }),
+  };
+  dispatch(setSyncing(true));
+  return fetch("/api/side/remove", options)
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch(setSyncing(false));
+      dispatch(removeSide(side));
+    });
+};
 export const selectProject = (state) => state.project.current;
 export const selectProjectList = (state) => state.project.list;
 export const selectSyncing = (state) => state.project.syncing;
