@@ -101,6 +101,7 @@ export function SelectProject(props) {
                 <textarea
                   onChange={(e) => setDescription(e.target.value)}
                   value={description}
+                  placeholder="description"
                   className="inspect-area"
                   onBlur={() => {
                     dispatch(editProject({ id: selected.id, description }));
@@ -123,7 +124,6 @@ export function SelectProject(props) {
                   </Button>
                   <DeleteButton
                     variant="nice"
-                    id="delete"
                     onClick={() => {
                       dispatch(deleteProject(selected));
                       setSelected({ name: "", description: "" });

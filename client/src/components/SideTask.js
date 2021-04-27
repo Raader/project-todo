@@ -54,6 +54,14 @@ export function SideTask(props) {
               return;
             dispatch(editSideTask(props.todo, { name, id: props.side.id }));
           }}
+          onKeyUp={(e) => {
+            if (e.key === "Enter") {
+              if (!props.todo.id || !props.side.id || props.side.name === name)
+                return;
+              e.target.blur();
+              dispatch(editSideTask(props.todo, { name, id: props.side.id }));
+            }
+          }}
         ></input>
         <span
           className="append"
