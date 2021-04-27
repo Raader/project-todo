@@ -1,9 +1,11 @@
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import { logoutUser, selectUser } from "../features/user/userSlice";
 
 export function UserSettings() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const user = useSelector(selectUser);
   return (
     <div className="us-cont">
@@ -21,7 +23,13 @@ export function UserSettings() {
         </div>
       </div>
       <div className="us-options">
-        <Button variant="nice" onClick={() => dispatch(logoutUser())}>
+        <Button
+          variant="nice"
+          onClick={() => {
+            dispatch(logoutUser());
+            history.push("/");
+          }}
+        >
           Logout
         </Button>
       </div>
