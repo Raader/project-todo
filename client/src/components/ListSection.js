@@ -172,6 +172,7 @@ export function ListSection(props) {
                 <div
                   className="list-item"
                   onClick={() => {
+                    if (todo.completed) return;
                     dispatch(selectTodoCloud(todo));
                     window.location.href = "#inspect";
                   }}
@@ -181,11 +182,14 @@ export function ListSection(props) {
                 >
                   <span
                     className="todo-box"
-                    onClick={() =>
-                      dispatch(completeTodo(todo)).then(() =>
-                        dispatch(setSelectedTodo({ name: "", description: "" }))
-                      )
-                    }
+                    onClick={() => {
+                      dispatch(completeTodo(todo)).then(() => {
+                        dispatch(
+                          setSelectedTodo({ name: "", description: "" })
+                        );
+                        window.location.href = "#";
+                      });
+                    }}
                   >
                     <i class="far fa-square"></i>
                   </span>{" "}
