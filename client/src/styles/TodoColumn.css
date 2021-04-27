@@ -168,6 +168,10 @@
     padding: 0;
   }
   .inspect-area {
+    height: 10vh;
+  }
+
+  .side-cont {
     height: 20vh;
   }
 }
