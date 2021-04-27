@@ -222,7 +222,7 @@ export const addTodo = (todo) => (dispatch, getState) => {
       "Content-Type": "application/json",
       Authorization: "Bearer " + state.user.token,
     },
-    body: JSON.stringify({ todo, project: state.project.current }),
+    body: JSON.stringify({ todo, project: { id: state.project.current.id } }),
   };
   dispatch(setSyncing(true));
   return fetch("/api/todo/add", options)
@@ -243,7 +243,7 @@ export const completeTodo = (todo) => (dispatch, getState) => {
       "Content-Type": "application/json",
       Authorization: "Bearer " + state.user.token,
     },
-    body: JSON.stringify({ todo, project: state.project.current }),
+    body: JSON.stringify({ todo, project: { id: state.project.current.id } }),
   };
   const c = !todo.completed;
   dispatch(setSyncing(true));
@@ -266,7 +266,7 @@ export const editTodoCloud = (todo) => (dispatch, getState) => {
       "Content-Type": "application/json",
       Authorization: "Bearer " + state.user.token,
     },
-    body: JSON.stringify({ todo, project: state.project.current }),
+    body: JSON.stringify({ todo, project: { id: state.project.current.id } }),
   };
   dispatch(setSyncing(true));
   dispatch(editTodo(todo));
@@ -288,7 +288,7 @@ export const deleteTodo = (todo) => (dispatch, getState) => {
       "Content-Type": "application/json",
       Authorization: "Bearer " + state.user.token,
     },
-    body: JSON.stringify({ todo, project: state.project.current }),
+    body: JSON.stringify({ todo, project: { id: state.project.current.id } }),
   };
   dispatch(setSyncing(true));
   dispatch(setSelectedTodo({ name: "", description: "" }));
@@ -310,7 +310,7 @@ export const selectTodoCloud = (todo) => (dispatch, getState) => {
       "Content-Type": "application/json",
       Authorization: "Bearer " + state.user.token,
     },
-    body: JSON.stringify({ todo, project: state.project.current }),
+    body: JSON.stringify({ todo, project: { id: state.project.current.id } }),
   };
   return fetch("/api/side/list", options)
     .then((res) => res.json())
@@ -329,7 +329,11 @@ export const addSideTask = (todo, side) => (dispatch, getState) => {
       "Content-Type": "application/json",
       Authorization: "Bearer " + state.user.token,
     },
-    body: JSON.stringify({ todo, project: state.project.current, side }),
+    body: JSON.stringify({
+      todo,
+      project: { id: state.project.current.id },
+      side,
+    }),
   };
   return fetch("/api/side/add", options)
     .then((res) => res.json())
@@ -348,7 +352,11 @@ export const editSideTask = (todo, side) => (dispatch, getState) => {
       "Content-Type": "application/json",
       Authorization: "Bearer " + state.user.token,
     },
-    body: JSON.stringify({ todo, project: state.project.current, side }),
+    body: JSON.stringify({
+      todo,
+      project: { id: state.project.current.id },
+      side,
+    }),
   };
   dispatch(setSyncing(true));
   return fetch("/api/side/edit", options)
@@ -369,7 +377,11 @@ export const completeSideTask = (todo, side) => (dispatch, getState) => {
       "Content-Type": "application/json",
       Authorization: "Bearer " + state.user.token,
     },
-    body: JSON.stringify({ todo, project: state.project.current, side }),
+    body: JSON.stringify({
+      todo,
+      project: { id: state.project.current.id },
+      side,
+    }),
   };
   dispatch(setSyncing(true));
   return fetch("/api/side/complete", options)
@@ -390,7 +402,11 @@ export const removeSideTask = (todo, side) => (dispatch, getState) => {
       "Content-Type": "application/json",
       Authorization: "Bearer " + state.user.token,
     },
-    body: JSON.stringify({ todo, project: state.project.current, side }),
+    body: JSON.stringify({
+      todo,
+      project: { id: state.project.current.id },
+      side,
+    }),
   };
   dispatch(setSyncing(true));
   return fetch("/api/side/remove", options)
