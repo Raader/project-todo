@@ -12,6 +12,7 @@ import { selectUser } from "../../features/user/userSlice";
 import "../../styles/ChangeProject.css";
 import { useHistory } from "react-router-dom";
 import { CreateProject } from "../CreateProject";
+import { Returner } from "../Returner";
 
 export function SelectProject(props) {
   const dispatch = useDispatch();
@@ -83,6 +84,7 @@ export function SelectProject(props) {
           </Col>
           <Col sm className="no-padding">
             <div className="project-inspect" id="pinspect">
+              <Returner></Returner>
               <div className="project-inspect-header">
                 <i class="fas fa-bars"></i>{" "}
                 <input
@@ -93,14 +95,6 @@ export function SelectProject(props) {
                     dispatch(editProject({ id: selected.id, name }));
                   }}
                 ></input>
-                <span className="append">
-                  <span
-                    className="returner"
-                    onClick={() => (window.location.href = "#")}
-                  >
-                    <i class="fas fa-arrow-up"></i>
-                  </span>
-                </span>
               </div>
               <div className="project-inspect-body">
                 <textarea

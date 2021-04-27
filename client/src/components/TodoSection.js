@@ -20,6 +20,7 @@ import {
 } from "../features/project/projectSlice";
 import { useEffect, useState } from "react";
 import { SideTasks } from "./SideTasks";
+import { Returner } from "./Returner";
 export function TodoSection(props) {
   const todo = useSelector(selectCurrentTodo);
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ export function TodoSection(props) {
   }, [todo]);
   return (
     <div className="inspect-main" id="inspect">
+      <Returner></Returner>
       <Section>
         <div className="inspect-menu">
           <span
@@ -76,12 +78,6 @@ export function TodoSection(props) {
 
           <span className="append">
             <Dropdown>
-              <span
-                className="returner"
-                onClick={() => (window.location.href = "#")}
-              >
-                <i class="fas fa-arrow-up"></i>
-              </span>
               <Dropdown.Toggle
                 variant="no-btn"
                 id="dropdown-basic"

@@ -2,6 +2,7 @@ import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { logoutUser, selectUser } from "../features/user/userSlice";
+import { Returner } from "./Returner";
 
 export function UserSettings() {
   const dispatch = useDispatch();
@@ -9,9 +10,7 @@ export function UserSettings() {
   const user = useSelector(selectUser);
   return (
     <div className="us-cont">
-      <span className="returner" onClick={() => (window.location.href = "#")}>
-        <i class="fas fa-arrow-up"></i>
-      </span>
+      <Returner></Returner>
       <div className="us-portrait">
         <i className="fas fa-user-circle"></i>
       </div>

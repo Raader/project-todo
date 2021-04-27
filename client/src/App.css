@@ -69,11 +69,10 @@
 
 .returner {
   display: none;
-  padding: 0.5rem;
   color: rgb(63, 63, 63);
   cursor: pointer;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .returner:hover {
@@ -100,6 +99,6 @@
     font-size: 3rem;
   }
   .returner {
-    display: inline;
+    display: block;
   }
 }
