@@ -94,7 +94,10 @@ export function TodoSection(props) {
               <Dropdown.Menu>
                 <Dropdown.Item
                   id="delete"
-                  onClick={() => dispatch(deleteTodo(todo))}
+                  onClick={() => {
+                    dispatch(deleteTodo(todo));
+                    window.location.href = "#";
+                  }}
                 >
                   <i class="fas fa-trash"></i> Delete
                 </Dropdown.Item>
