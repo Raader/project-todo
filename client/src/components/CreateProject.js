@@ -3,6 +3,7 @@ import { Button, Modal, InputGroup, FormControl, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { createProject } from "../features/project/projectSlice";
+import { InputForm } from "./InputForm";
 
 export function CreateProject(props) {
   const history = useHistory();
@@ -15,38 +16,32 @@ export function CreateProject(props) {
   return (
     <div>
       <Modal show={show} onHide={handleHide}>
-        <Modal.Header>
-          <h3>Create a project</h3>
-        </Modal.Header>
         <Modal.Body>
-          <InputGroup>
-            <InputGroup.Prepend>
-              <InputGroup.Text>Project Name</InputGroup.Text>
-            </InputGroup.Prepend>
-            <FormControl onInput={(e) => setName(e.target.value)} />
-          </InputGroup>
-          <InputGroup>
-            <InputGroup.Prepend>
-              <InputGroup.Text>Project Description</InputGroup.Text>
-            </InputGroup.Prepend>
-            <FormControl
-              as="textarea"
-              onInput={(e) => setDescription(e.target.value)}
-            />
-          </InputGroup>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button
-            variant="nice"
-            onClick={() => {
-              dispatch(createProject({ name, description })).then(() => {
+          <InputForm
+            title="Create a Project"
+            submitText="Create"
+            fields={[
+              {
+                name: "name",
+                label: "Project Name",
+                placeholder: "project name",
+                type: "text",
+              },
+              {
+                name: "description",
+                label: "Description",
+                placeholder: "project description",
+                type: "text",
+                as: "textarea",
+              },
+            ]}
+            onSubmit={(data) => {
+              dispatch(createProject(data)).then(() => {
                 history.push("/main");
               });
             }}
-          >
-            Create
-          </Button>
-        </Modal.Footer>
+          ></InputForm>
+        </Modal.Body>
       </Modal>
       <Button
         className={props.className}

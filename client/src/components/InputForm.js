@@ -29,6 +29,7 @@ export function InputForm(props) {
             ref={(ref) => {
               fields[field.name] = ref;
             }}
+            as={field?.as}
           ></Form.Control>
         </Form.Group>
       ))}
