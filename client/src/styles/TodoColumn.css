@@ -161,6 +161,12 @@
   outline: none;
 }
 
+.btn-big {
+  width: 100% !important;
+  display: block !important;
+  background-color: transparent !important;
+}
+
 @media screen and (max-width: 1200px) {
   .inspect-footer {
     position: relative;

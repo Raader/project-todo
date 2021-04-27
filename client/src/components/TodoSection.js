@@ -21,6 +21,7 @@ import {
 import { useEffect, useState } from "react";
 import { SideTasks } from "./SideTasks";
 import { Returner } from "./Returner";
+import { DeleteButton } from "./DeleteButton";
 export function TodoSection(props) {
   const todo = useSelector(selectCurrentTodo);
   const dispatch = useDispatch();
@@ -58,8 +59,8 @@ export function TodoSection(props) {
   }, [todo]);
   return (
     <div className="inspect-main" id="inspect">
-      <Returner></Returner>
       <Section>
+        <Returner></Returner>
         <div className="inspect-menu">
           <span
             className="main"
@@ -88,14 +89,16 @@ export function TodoSection(props) {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item
-                  id="delete"
-                  onClick={() => {
-                    dispatch(deleteTodo(todo));
-                    window.location.href = "#";
-                  }}
-                >
-                  <i class="fas fa-trash"></i> Delete
+                <Dropdown.Item className="no-padding">
+                  <DeleteButton
+                    variant="big"
+                    onClick={() => {
+                      dispatch(deleteTodo(todo));
+                      window.location.href = "#";
+                    }}
+                  >
+                    <i class="fas fa-trash"></i> Delete
+                  </DeleteButton>
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

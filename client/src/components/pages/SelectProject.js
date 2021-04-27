@@ -13,6 +13,7 @@ import "../../styles/ChangeProject.css";
 import { useHistory } from "react-router-dom";
 import { CreateProject } from "../CreateProject";
 import { Returner } from "../Returner";
+import { DeleteButton } from "../DeleteButton";
 
 export function SelectProject(props) {
   const dispatch = useDispatch();
@@ -120,15 +121,16 @@ export function SelectProject(props) {
                   >
                     <i class="fas fa-check"></i> Select Project
                   </Button>
-                  <Button
+                  <DeleteButton
                     variant="nice"
+                    id="delete"
                     onClick={() => {
                       dispatch(deleteProject(selected));
                       setSelected({ name: "", description: "" });
                     }}
                   >
                     <i class="fas fa-trash"></i> Delete Project
-                  </Button>
+                  </DeleteButton>
                 </div>
               </div>
             </div>

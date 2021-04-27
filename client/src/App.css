@@ -93,6 +93,10 @@
   animation-iteration-count: infinite;
 }
 
+.delete:hover {
+  color: red !important;
+}
+
 @media screen and (max-width: 573px) {
   .load-body,
   .load-logo {
