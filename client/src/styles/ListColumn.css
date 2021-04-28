@@ -71,7 +71,7 @@
 
 .todo-list .list-item:hover {
   border-radius: 0.5rem;
-  background-color: rgba(124, 124, 124, 0.1);
+  background-color: var(--primary-color-hover);
 }
 
 .todo-input {
@@ -161,7 +161,7 @@
 }
 
 .drop span:hover {
-  background-color: rgba(139, 139, 139, 0.212) !important;
+  background-color: var(--primary-color-hover) !important;
 }
 
 .todo-append {
@@ -207,7 +207,7 @@
 }
 
 .order-btn:hover {
-  background-color: rgba(53, 53, 53, 0.1);
+  background-color: var(--primary-color-hover);
 }
 #delete:hover {
   color: #ff4e62;
