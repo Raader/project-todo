@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { registerUser, selectUser } from "../../features/user/userSlice";
+import {
+  registerUser,
+  selectUser,
+  setError,
+} from "../../features/user/userSlice";
 import { Button, Container, Form, Row, Col } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { InputForm } from "../InputForm";
@@ -46,7 +50,7 @@ export function Register() {
             onSubmit={(data) => {
               dispatch(registerUser(data))
                 .then(() => history.push("/"))
-                .catch((err) => setMsg(err));
+                .catch((err) => dispatch(setError(err)));
             }}
           ></InputForm>
         </Col>

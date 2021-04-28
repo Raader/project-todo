@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { loginUser, selectUser } from "../../features/user/userSlice";
+import { loginUser, selectUser, setError } from "../../features/user/userSlice";
 import { Button, Container, Form, Row, Col } from "react-bootstrap";
 import { useHistory } from "react-router";
 import "../../styles/UserOps.css";
@@ -40,7 +40,7 @@ export function Login() {
             onSubmit={(data) => {
               dispatch(loginUser(data))
                 .then(() => history.push("/"))
-                .catch((err) => setMsg(err));
+                .catch((err) => dispatch(setError(err)));
             }}
           ></InputForm>
         </Col>
