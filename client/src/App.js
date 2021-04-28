@@ -19,6 +19,7 @@ import { MiniNavbar } from "./components/MiniNavbar";
 import { BrandBar } from "./components/BrandBar";
 import { Loading } from "./components/pages/Loading";
 import { Settings } from "./components/pages/Settings";
+import { ErrorToast } from "./components/ErrorToast";
 
 const routes = [
   {
@@ -64,6 +65,7 @@ function App() {
   }, [dispatch]);
   return (
     <div className="App">
+      <ErrorToast></ErrorToast>
       <Switch>
         {routes.map((route) => (
           <Route path={route.path}>
