@@ -64,13 +64,20 @@
 
 .inspect-footer {
   position: absolute;
-  bottom: 0;
+  bottom: 2rem;
   left: 0;
   width: 100%;
   font-size: 1rem;
   padding: 1rem;
   padding-top: 0.5rem;
-  border-top: 0.1rem #e0e0e0 solid;
+}
+
+.stats {
+  padding: 0.5rem 0 0.5rem 0 !important;
+  border-bottom: 0.1rem #e0e0e0 solid;
+}
+.stat-head {
+  font-size: 1.25rem;
 }
 .stat-col {
   text-align: center;
@@ -85,10 +92,12 @@
   border-radius: 0.5rem;
 }
 .stat-row {
+  margin: 0 !important;
 }
 .stat-sep {
   color: rgb(98, 102, 105);
   padding: 0.25rem;
+  margin: 0 !important;
 }
 
 .side-cont {
@@ -170,14 +179,12 @@
 @media screen and (max-width: 1200px) {
   .inspect-footer {
     position: relative;
-    border-bottom: 0.1rem #e0e0e0 solid;
     padding: 0;
   }
   .inspect-area {
-    height: 10vh;
+    height: 15vh;
   }
 
   .side-cont {
-    height: 20vh;
   }
 }

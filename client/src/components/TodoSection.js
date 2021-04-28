@@ -18,7 +18,7 @@ import {
   selectCurrentTodo,
   setSelectedTodo,
 } from "../features/project/projectSlice";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { SideTasks } from "./SideTasks";
 import { Returner } from "./Returner";
 import { DeleteButton } from "./DeleteButton";
@@ -31,6 +31,7 @@ export function TodoSection(props) {
   const [imp, setImp] = useState(0);
   const [time, setTime] = useState(0);
   const [diff, setDiff] = useState(0);
+  const [show, setShow] = useState(false);
   useEffect(() => {
     if (t.id) {
       if (
@@ -144,88 +145,98 @@ export function TodoSection(props) {
           style={todo.id ? {} : { display: "none" }}
         >
           <SideTasks></SideTasks>
-          <Container fluid>
-            <Row className="stat-sep">Importance</Row>
-            <Row className="stat-row">
-              <Col
-                className="stat-col"
-                style={todo.stats && imp === 1 ? { color: "#2ECFCA" } : {}}
-                onClick={() => (imp !== 1 ? setImp(1) : setImp(0))}
-              >
-                <i class="fas fa-exclamation"></i>
-              </Col>
-              <Col
-                className="stat-col"
-                style={todo.stats && imp === 2 ? { color: "#F8DF77" } : {}}
-                onClick={() => (imp !== 2 ? setImp(2) : setImp(0))}
-              >
-                <i class="fas fa-exclamation"></i>
-                <i class="fas fa-exclamation"></i>
-              </Col>
-              <Col
-                className="stat-col"
-                style={todo.stats && imp === 3 ? { color: "#FF4E62" } : {}}
-                onClick={() => (imp !== 3 ? setImp(3) : setImp(0))}
-              >
-                <i class="fas fa-exclamation"></i>
-                <i class="fas fa-exclamation"></i>
-                <i class="fas fa-exclamation"></i>
-              </Col>
-            </Row>
-            <Row className="stat-sep">Time</Row>
-            <Row className="stat-row">
-              <Col
-                className="stat-col"
-                style={todo.stats && time === 1 ? { color: "#2ECFCA" } : {}}
-                onClick={() => (time !== 1 ? setTime(1) : setTime(0))}
-              >
-                <i class="fas fa-hourglass"></i>
-              </Col>
-              <Col
-                className="stat-col"
-                style={todo.stats && time === 2 ? { color: "#F8DF77" } : {}}
-                onClick={() => (time !== 2 ? setTime(2) : setTime(0))}
-              >
-                <i class="fas fa-hourglass"></i>
-                <i class="fas fa-hourglass"></i>
-              </Col>
-              <Col
-                className="stat-col"
-                style={todo.stats && time === 3 ? { color: "#FF4E62" } : {}}
-                onClick={() => (time !== 3 ? setTime(3) : setTime(0))}
-              >
-                <i class="fas fa-hourglass"></i>
-                <i class="fas fa-hourglass"></i>
-                <i class="fas fa-hourglass"></i>
-              </Col>
-            </Row>
-            <Row className="stat-sep">Difficulty</Row>
-            <Row className="stat-row">
-              <Col
-                className="stat-col"
-                style={todo.stats && diff === 1 ? { color: "#2ECFCA" } : {}}
-                onClick={() => (diff !== 1 ? setDiff(1) : setDiff(0))}
-              >
-                <i class="fas fa-plus-circle"></i>
-              </Col>
-              <Col
-                className="stat-col"
-                style={todo.stats && diff === 2 ? { color: "#F8DF77" } : {}}
-                onClick={() => (diff !== 2 ? setDiff(2) : setDiff(0))}
-              >
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-plus-circle"></i>
-              </Col>
-              <Col
-                className="stat-col"
-                style={todo.stats && diff === 3 ? { color: "#FF4E62" } : {}}
-                onClick={() => (diff !== 3 ? setDiff(3) : setDiff(0))}
-              >
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-plus-circle"></i>
-              </Col>
-            </Row>
+          <Container fluid className="stats">
+            <div className="stat-head" onClick={() => setShow(!show)}>
+              {!show ? (
+                <i class="fas fa-chevron-down"></i>
+              ) : (
+                <i class="fas fa-chevron-up"></i>
+              )}{" "}
+              Stats
+            </div>
+            <div style={show ? {} : { display: "none" }}>
+              <Row className="stat-sep">Importance</Row>
+              <Row className="stat-row">
+                <Col
+                  className="stat-col"
+                  style={todo.stats && imp === 1 ? { color: "#2ECFCA" } : {}}
+                  onClick={() => (imp !== 1 ? setImp(1) : setImp(0))}
+                >
+                  <i class="fas fa-exclamation"></i>
+                </Col>
+                <Col
+                  className="stat-col"
+                  style={todo.stats && imp === 2 ? { color: "#F8DF77" } : {}}
+                  onClick={() => (imp !== 2 ? setImp(2) : setImp(0))}
+                >
+                  <i class="fas fa-exclamation"></i>
+                  <i class="fas fa-exclamation"></i>
+                </Col>
+                <Col
+                  className="stat-col"
+                  style={todo.stats && imp === 3 ? { color: "#FF4E62" } : {}}
+                  onClick={() => (imp !== 3 ? setImp(3) : setImp(0))}
+                >
+                  <i class="fas fa-exclamation"></i>
+                  <i class="fas fa-exclamation"></i>
+                  <i class="fas fa-exclamation"></i>
+                </Col>
+              </Row>
+              <Row className="stat-sep">Time</Row>
+              <Row className="stat-row">
+                <Col
+                  className="stat-col"
+                  style={todo.stats && time === 1 ? { color: "#2ECFCA" } : {}}
+                  onClick={() => (time !== 1 ? setTime(1) : setTime(0))}
+                >
+                  <i class="fas fa-hourglass"></i>
+                </Col>
+                <Col
+                  className="stat-col"
+                  style={todo.stats && time === 2 ? { color: "#F8DF77" } : {}}
+                  onClick={() => (time !== 2 ? setTime(2) : setTime(0))}
+                >
+                  <i class="fas fa-hourglass"></i>
+                  <i class="fas fa-hourglass"></i>
+                </Col>
+                <Col
+                  className="stat-col"
+                  style={todo.stats && time === 3 ? { color: "#FF4E62" } : {}}
+                  onClick={() => (time !== 3 ? setTime(3) : setTime(0))}
+                >
+                  <i class="fas fa-hourglass"></i>
+                  <i class="fas fa-hourglass"></i>
+                  <i class="fas fa-hourglass"></i>
+                </Col>
+              </Row>
+              <Row className="stat-sep">Difficulty</Row>
+              <Row className="stat-row">
+                <Col
+                  className="stat-col"
+                  style={todo.stats && diff === 1 ? { color: "#2ECFCA" } : {}}
+                  onClick={() => (diff !== 1 ? setDiff(1) : setDiff(0))}
+                >
+                  <i class="fas fa-plus-circle"></i>
+                </Col>
+                <Col
+                  className="stat-col"
+                  style={todo.stats && diff === 2 ? { color: "#F8DF77" } : {}}
+                  onClick={() => (diff !== 2 ? setDiff(2) : setDiff(0))}
+                >
+                  <i class="fas fa-plus-circle"></i>
+                  <i class="fas fa-plus-circle"></i>
+                </Col>
+                <Col
+                  className="stat-col"
+                  style={todo.stats && diff === 3 ? { color: "#FF4E62" } : {}}
+                  onClick={() => (diff !== 3 ? setDiff(3) : setDiff(0))}
+                >
+                  <i class="fas fa-plus-circle"></i>
+                  <i class="fas fa-plus-circle"></i>
+                  <i class="fas fa-plus-circle"></i>
+                </Col>
+              </Row>
+            </div>
           </Container>
         </div>
       </Section>

@@ -35,6 +35,10 @@ export function Settings(props) {
               <div
                 className="settings-nav"
                 style={page === "appearance" ? { color: "black" } : {}}
+                onClick={() => {
+                  setPage("appearance");
+                  window.location.href = "#s-inspect";
+                }}
               >
                 Appearance
               </div>
