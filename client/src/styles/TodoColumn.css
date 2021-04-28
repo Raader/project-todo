@@ -9,7 +9,7 @@
   white-space: pre;
 }
 .inspect-menu .main {
-  border-right: 0.1rem #e0e0e0 solid;
+  border-right: 0.1rem var(--primary-border) solid;
   padding-right: 0.5rem;
   margin-right: 1rem;
   cursor: pointer;
@@ -34,7 +34,7 @@
 }
 
 .inspect-header {
-  border-top: 0.1rem #e0e0e0 solid;
+  border-top: 0.1rem var(--primary-border) solid;
   margin-top: 1rem;
 }
 
@@ -74,14 +74,14 @@
 
 .stats {
   padding: 0.5rem 0 0.5rem 0 !important;
-  border-bottom: 0.1rem #e0e0e0 solid;
+  border-bottom: 0.1rem var(--primary-border) solid;
 }
 .stat-head {
   font-size: 1.25rem;
 }
 .stat-col {
   text-align: center;
-  border-right: 0.1rem #e0e0e0 solid;
+  border-right: 0.1rem var(--primary-border) solid;
   cursor: pointer;
   padding: 0 !important;
   margin-bottom: 0.5rem;
@@ -104,7 +104,7 @@
   padding: 0.5rem;
   padding-right: 0;
   padding-left: 0;
-  border-bottom: 0.1rem #e0e0e0 solid;
+  border-bottom: 0.1rem var(--primary-border) solid;
 }
 .side-head {
   font-size: 1.25rem;
@@ -135,14 +135,14 @@
 
 .side-item {
   padding: 0.25rem;
-  border-bottom: 0.1rem #e0e0e0 solid;
+  border-bottom: 0.1rem var(--primary-border) solid;
   margin-bottom: 0.1rem;
   cursor: pointer;
   font-weight: 600;
 }
 
 .side-item .append {
-  border-left: 0.1rem #e0e0e0 solid;
+  border-left: 0.1rem var(--primary-border) solid;
 }
 .side-item-main {
   width: 70%;

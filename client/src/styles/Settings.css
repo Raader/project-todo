@@ -11,14 +11,14 @@
 }
 
 .settings-navbar {
-  border-right: 0.1rem #e0e0e0 solid;
+  border-right: 0.1rem var(--primary-border) solid;
   height: 90vh;
   padding-right: 1rem;
 }
 
 .settings-nav {
   font-size: 1.25rem;
-  border-bottom: 0.1rem #e0e0e0 solid;
+  border-bottom: 0.1rem var(--primary-border) solid;
   padding: 0.5rem;
   font-weight: 500;
   text-align: left;

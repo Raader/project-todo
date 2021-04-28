@@ -1,6 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Anton&family=Open+Sans:ital,wght@0,400;1,300;1,400;1,600&family=Shippori+Mincho:wght@400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=RocknRoll+One&display=swap");
 
+:root {
+  --primary-color: white;
+  --primary-bgcolor: #f0f8fe;
+  --secondary-color: black;
+  --secondary-bgcolor: #405364;
+  --primary-border: #e0e0e0;
+  --secondary-border: #384857;
+}
+
+[data-theme="book"] {
+  --primary-bgcolor: #ffd670;
+  --primary-border: #f1cb6a;
+  --secondary-bgcolor: #529999;
+  --secondary-border: #4d9191;
+}
 .App {
   text-align: center;
   font-family: "Akaya Telivigala", cursive;
