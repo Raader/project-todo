@@ -4,6 +4,13 @@
   padding: 1rem;
   text-align: left;
 }
+
+.user-opform .form-label {
+}
+
+.user-opform .form-control {
+  border-bottom: 0.1rem #e0e0e0 solid !important;
+}
 .user-op {
   margin-top: 2rem !important;
 }
