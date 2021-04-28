@@ -2,9 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=RocknRoll+One&display=swap");
 
 :root {
-  --primary-color: white;
+  --primary-color: black;
+  --primary-color-lighter: rgb(65, 64, 64);
   --primary-bgcolor: #f0f8fe;
-  --secondary-color: black;
+  --secondary-color: white;
+  --secondary-color-lighter: rgb(207, 207, 207);
   --secondary-bgcolor: #405364;
   --primary-border: #e0e0e0;
   --secondary-border: #384857;

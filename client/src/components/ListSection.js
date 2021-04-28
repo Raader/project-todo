@@ -177,7 +177,9 @@ export function ListSection(props) {
                     window.location.href = "#inspect";
                   }}
                   style={
-                    current.id === todo.id ? { backgroundColor: "#e6edf3" } : {}
+                    current.id === todo.id
+                      ? { backgroundColor: "rgba(124, 124, 124, 0.1)" }
+                      : {}
                   }
                 >
                   <span

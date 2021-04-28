@@ -71,7 +71,7 @@
 
 .todo-list .list-item:hover {
   border-radius: 0.5rem;
-  background-color: #e6edf3;
+  background-color: rgba(124, 124, 124, 0.1);
 }
 
 .todo-input {

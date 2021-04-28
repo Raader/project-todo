@@ -88,7 +88,7 @@
   transition: all 0.2s;
 }
 .stat-col:hover {
-  background-color: #e6edf3;
+  background-color: rgba(124, 124, 124, 0.1) !important;
   border-radius: 0.5rem;
 }
 .stat-row {
@@ -120,7 +120,7 @@
 }
 
 .side-head .append:hover {
-  background-color: #e6edf3;
+  background-color: rgba(255, 255, 255, 0.281);
   border-radius: 0.5rem;
 }
 
@@ -153,11 +153,11 @@
   padding: 0.5rem;
 }
 .side-item i:hover {
-  background-color: #eef0f1;
+  background-color: rgba(255, 255, 255, 0.281);
   border-radius: 0.5rem;
 }
 .side-item:hover {
-  background-color: #e6edf3;
+  background-color: rgba(124, 124, 124, 0.1);
   border-radius: 0.5rem;
 }
 
