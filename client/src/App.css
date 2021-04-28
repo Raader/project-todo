@@ -16,6 +16,12 @@
   --secondary-bgcolor: #529999;
   --secondary-border: #4d9191;
 }
+[data-theme="cook"] {
+  --primary-bgcolor: #fa7921;
+  --primary-border: #ee711d;
+  --secondary-bgcolor: #0c4767;
+  --secondary-border: #0c415e;
+}
 .App {
   text-align: center;
   font-family: "Akaya Telivigala", cursive;
