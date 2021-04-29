@@ -19,17 +19,22 @@
 [data-theme="book"] {
   --primary-bgcolor: #ffd670;
   --primary-border: #f1cb6a;
+  --primary-color-hover: rgba(253, 253, 253, 0.3);
   --secondary-bgcolor: #529999;
   --secondary-border: #4d9191;
   --tier-1: #9abfc2;
   --tier-2: #7de0d3;
   --tier-3: #23a1f5;
 }
-[data-theme="cook"] {
-  --primary-bgcolor: #fa7921;
-  --primary-border: #ee711d;
-  --secondary-bgcolor: #0c4767;
-  --secondary-border: #0c415e;
+
+[data-theme="doom"] {
+  --primary-bgcolor: #f4f3ee;
+  --primary-border: #ecebe6;
+  --secondary-bgcolor: #040404;
+  --secondary-border: #222222;
+  --tier-1: #0b7a75;
+  --tier-2: #f18f01;
+  --tier-3: #c44536;
 }
 .App {
   text-align: center;
