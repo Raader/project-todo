@@ -63,9 +63,9 @@
 .th {
   background-color: white;
   border-radius: 0.5rem;
-  width: 100%;
   cursor: pointer;
   border: 0.1rem transparent solid;
+  margin: 0.75rem;
 }
 
 .th:hover {
@@ -75,4 +75,10 @@
 .th-img {
   width: 15rem;
   height: 10rem;
+}
+
+@media screen and (max-width: 900px) {
+  .th-settings {
+    padding-bottom: 5rem;
+  }
 }

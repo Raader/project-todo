@@ -19,7 +19,7 @@ export function ApperanceSettings() {
       <h2>Themes</h2>
       <Container fluid>
         <Row>
-          <Col xs="auto">
+          <Col lg xl="4">
             <div
               className="th"
               onClick={() => handleSelect("classic")}
@@ -29,7 +29,7 @@ export function ApperanceSettings() {
               <div>Classic</div>
             </div>
           </Col>
-          <Col xs="auto">
+          <Col lg xl="4">
             <div
               className="th"
               onClick={() => handleSelect("summer")}
@@ -39,7 +39,7 @@ export function ApperanceSettings() {
               <div>Summer</div>
             </div>
           </Col>
-          <Col xs="auto">
+          <Col lg xl="4">
             <div
               className="th"
               onClick={() => handleSelect("doom")}
