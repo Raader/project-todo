@@ -53,20 +53,20 @@ export function TodoBar(props) {
               <Dropdown.Item className="drop">
                 <span
                   onClick={() => setImp(imp !== 1 ? 1 : 0)}
-                  style={imp === 1 ? { color: "#2ECFCA" } : {}}
+                  style={imp === 1 ? { color: "var(--tier-1)" } : {}}
                 >
                   <i class="fas fa-exclamation"></i>
                 </span>
                 <span
                   onClick={() => setImp(imp !== 2 ? 2 : 0)}
-                  style={imp === 2 ? { color: "#F8DF77" } : {}}
+                  style={imp === 2 ? { color: "var(--tier-2)" } : {}}
                 >
                   <i class="fas fa-exclamation"></i>
                   <i class="fas fa-exclamation"></i>
                 </span>
                 <span
                   onClick={() => setImp(imp !== 3 ? 3 : 0)}
-                  style={imp === 3 ? { color: "#FF4E62" } : {}}
+                  style={imp === 3 ? { color: "var(--tier-3)" } : {}}
                 >
                   <i class="fas fa-exclamation"></i>
                   <i class="fas fa-exclamation"></i>
@@ -78,20 +78,20 @@ export function TodoBar(props) {
               <Dropdown.Item className="drop">
                 <span
                   onClick={() => setTime(time !== 1 ? 1 : 0)}
-                  style={time === 1 ? { color: "#2ECFCA" } : {}}
+                  style={time === 1 ? { color: "var(--tier-1)" } : {}}
                 >
                   <i class="fas fa-hourglass"></i>
                 </span>
                 <span
                   onClick={() => setTime(time !== 2 ? 2 : 0)}
-                  style={time === 2 ? { color: "#F8DF77" } : {}}
+                  style={time === 2 ? { color: "var(--tier-2)" } : {}}
                 >
                   <i class="fas fa-hourglass"></i>
                   <i class="fas fa-hourglass"></i>
                 </span>
                 <span
                   onClick={() => setTime(time !== 3 ? 3 : 0)}
-                  style={time === 3 ? { color: "#FF4E62" } : {}}
+                  style={time === 3 ? { color: "var(--tier-3)" } : {}}
                 >
                   <i class="fas fa-hourglass"></i>
                   <i class="fas fa-hourglass"></i>
@@ -103,20 +103,20 @@ export function TodoBar(props) {
               <Dropdown.Item className="drop">
                 <span
                   onClick={() => setDiff(diff !== 1 ? 1 : 0)}
-                  style={diff === 1 ? { color: "#2ECFCA" } : {}}
+                  style={diff === 1 ? { color: "var(--tier-1)" } : {}}
                 >
                   <i class="fas fa-plus-circle"></i>
                 </span>
                 <span
                   onClick={() => setDiff(diff !== 2 ? 2 : 0)}
-                  style={diff === 2 ? { color: "#F8DF77" } : {}}
+                  style={diff === 2 ? { color: "var(--tier-2)" } : {}}
                 >
                   <i class="fas fa-plus-circle"></i>
                   <i class="fas fa-plus-circle"></i>
                 </span>
                 <span
                   onClick={() => setDiff(diff !== 3 ? 3 : 0)}
-                  style={diff === 3 ? { color: "#FF4E62" } : {}}
+                  style={diff === 3 ? { color: "var(--tier-3)" } : {}}
                 >
                   <i class="fas fa-plus-circle"></i>
                   <i class="fas fa-plus-circle"></i>

@@ -159,14 +159,18 @@ export function TodoSection(props) {
               <Row className="stat-row">
                 <Col
                   className="stat-col"
-                  style={todo.stats && imp === 1 ? { color: "#2ECFCA" } : {}}
+                  style={
+                    todo.stats && imp === 1 ? { color: "var(--tier-1)" } : {}
+                  }
                   onClick={() => (imp !== 1 ? setImp(1) : setImp(0))}
                 >
                   <i class="fas fa-exclamation"></i>
                 </Col>
                 <Col
                   className="stat-col"
-                  style={todo.stats && imp === 2 ? { color: "#F8DF77" } : {}}
+                  style={
+                    todo.stats && imp === 2 ? { color: "var(--tier-2)" } : {}
+                  }
                   onClick={() => (imp !== 2 ? setImp(2) : setImp(0))}
                 >
                   <i class="fas fa-exclamation"></i>
@@ -174,7 +178,9 @@ export function TodoSection(props) {
                 </Col>
                 <Col
                   className="stat-col"
-                  style={todo.stats && imp === 3 ? { color: "#FF4E62" } : {}}
+                  style={
+                    todo.stats && imp === 3 ? { color: "var(--tier-3)" } : {}
+                  }
                   onClick={() => (imp !== 3 ? setImp(3) : setImp(0))}
                 >
                   <i class="fas fa-exclamation"></i>
@@ -186,14 +192,18 @@ export function TodoSection(props) {
               <Row className="stat-row">
                 <Col
                   className="stat-col"
-                  style={todo.stats && time === 1 ? { color: "#2ECFCA" } : {}}
+                  style={
+                    todo.stats && time === 1 ? { color: "var(--tier-1)" } : {}
+                  }
                   onClick={() => (time !== 1 ? setTime(1) : setTime(0))}
                 >
                   <i class="fas fa-hourglass"></i>
                 </Col>
                 <Col
                   className="stat-col"
-                  style={todo.stats && time === 2 ? { color: "#F8DF77" } : {}}
+                  style={
+                    todo.stats && time === 2 ? { color: "var(--tier-2)" } : {}
+                  }
                   onClick={() => (time !== 2 ? setTime(2) : setTime(0))}
                 >
                   <i class="fas fa-hourglass"></i>
@@ -201,7 +211,9 @@ export function TodoSection(props) {
                 </Col>
                 <Col
                   className="stat-col"
-                  style={todo.stats && time === 3 ? { color: "#FF4E62" } : {}}
+                  style={
+                    todo.stats && time === 3 ? { color: "var(--tier-3)" } : {}
+                  }
                   onClick={() => (time !== 3 ? setTime(3) : setTime(0))}
                 >
                   <i class="fas fa-hourglass"></i>
@@ -213,14 +225,18 @@ export function TodoSection(props) {
               <Row className="stat-row">
                 <Col
                   className="stat-col"
-                  style={todo.stats && diff === 1 ? { color: "#2ECFCA" } : {}}
+                  style={
+                    todo.stats && diff === 1 ? { color: "var(--tier-1)" } : {}
+                  }
                   onClick={() => (diff !== 1 ? setDiff(1) : setDiff(0))}
                 >
                   <i class="fas fa-plus-circle"></i>
                 </Col>
                 <Col
                   className="stat-col"
-                  style={todo.stats && diff === 2 ? { color: "#F8DF77" } : {}}
+                  style={
+                    todo.stats && diff === 2 ? { color: "var(--tier-2)" } : {}
+                  }
                   onClick={() => (diff !== 2 ? setDiff(2) : setDiff(0))}
                 >
                   <i class="fas fa-plus-circle"></i>
@@ -228,7 +244,9 @@ export function TodoSection(props) {
                 </Col>
                 <Col
                   className="stat-col"
-                  style={todo.stats && diff === 3 ? { color: "#FF4E62" } : {}}
+                  style={
+                    todo.stats && diff === 3 ? { color: "var(--tier-3)" } : {}
+                  }
                   onClick={() => (diff !== 3 ? setDiff(3) : setDiff(0))}
                 >
                   <i class="fas fa-plus-circle"></i>

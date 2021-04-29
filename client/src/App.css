@@ -11,6 +11,9 @@
   --secondary-bgcolor: #405364;
   --primary-border: #e0e0e0;
   --secondary-border: #384857;
+  --tier-1: #2ecfca;
+  --tier-2: #f8df77;
+  --tier-3: #ff4e62;
 }
 
 [data-theme="book"] {
@@ -18,6 +21,9 @@
   --primary-border: #f1cb6a;
   --secondary-bgcolor: #529999;
   --secondary-border: #4d9191;
+  --tier-1: #9abfc2;
+  --tier-2: #7de0d3;
+  --tier-3: #23a1f5;
 }
 [data-theme="cook"] {
   --primary-bgcolor: #fa7921;

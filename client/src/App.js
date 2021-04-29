@@ -57,7 +57,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     document.body.style.background = "var(--primary-bgcolor)";
-    document.documentElement.setAttribute("data-theme", "bo");
+    document.documentElement.setAttribute("data-theme", "book");
   }, []);
   useEffect(() => {
     const token = localStorage.getItem("token");
