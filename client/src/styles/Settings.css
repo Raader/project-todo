@@ -59,3 +59,20 @@
 .us-stat {
   padding: 0.5rem;
 }
+
+.th {
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 100%;
+  cursor: pointer;
+  border: 0.1rem transparent solid;
+}
+
+.th:hover {
+  border: 0.1rem gray solid;
+}
+
+.th-img {
+  width: 15rem;
+  height: 10rem;
+}

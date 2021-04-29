@@ -16,7 +16,7 @@
   --tier-3: #ff4e62;
 }
 
-[data-theme="book"] {
+[data-theme="summer"] {
   --primary-bgcolor: #ffd670;
   --primary-border: #f1cb6a;
   --primary-color-hover: rgba(253, 253, 253, 0.3);
