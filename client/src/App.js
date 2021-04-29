@@ -56,7 +56,11 @@ const routes = [
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    document.body.style.background = "#F0F8FE";
+    document.body.style.background = "var(--primary-bgcolor)";
+    const theme = localStorage.getItem("theme");
+    if (theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+    }
   }, []);
   useEffect(() => {
     const token = localStorage.getItem("token");

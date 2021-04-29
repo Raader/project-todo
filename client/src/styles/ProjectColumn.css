@@ -1,6 +1,6 @@
 .project-footer {
   margin-top: 2rem;
-  border-top: solid #384857 0.2rem;
+  border-top: solid var(--secondary-border) 0.2rem;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -114,10 +114,10 @@
   padding-left: 0;
 }
 .project-main {
-  background-color: #405364;
+  background-color: var(--secondary-bgcolor);
   padding-top: 0rem;
   padding-bottom: 0;
-  border-right: solid #384857 0.2rem !important;
+  border-right: solid var(--secondary-border) 0.2rem !important;
   color: rgb(232, 232, 233) !important;
   width: 16rem;
 }
@@ -126,7 +126,7 @@
   font-size: 1.25rem;
   padding: 0.75rem;
   color: white;
-  border-bottom: solid #384857 0.2rem;
+  border-bottom: solid var(--secondary-border) 0.2rem;
 }
 .user-port .main {
   display: inline-block;

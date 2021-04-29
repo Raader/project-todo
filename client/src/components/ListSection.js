@@ -80,7 +80,7 @@ export function ListSection(props) {
   };
 
   const todoStats = (stats) => {
-    const clrs = ["#2ECFCA", "#F8DF77", "#FF4E62"];
+    const clrs = ["var(--tier-1)", "var(--tier-2)", "var(--tier-3)"];
     if (!stats) return;
     const imp = [];
     for (let i = 0; i < stats.importance; i++) {
@@ -177,7 +177,9 @@ export function ListSection(props) {
                     window.location.href = "#inspect";
                   }}
                   style={
-                    current.id === todo.id ? { backgroundColor: "#e6edf3" } : {}
+                    current.id === todo.id
+                      ? { backgroundColor: "var(--primary-color-hover" }
+                      : {}
                   }
                 >
                   <span

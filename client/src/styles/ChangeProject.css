@@ -3,16 +3,16 @@
 }
 .modal-header {
   border: 0 !important;
-  border-bottom: 0.1rem #e0e0e0 solid !important;
+  border-bottom: 0.1rem var(--primary-border) solid !important;
   color: black;
 }
 .modal-footer {
   border: 0 !important;
-  border-top: 0.1rem #e0e0e0 solid !important;
+  border-top: 0.1rem var(--primary-border) solid !important;
 }
 
 .modal .form-control {
-  border: 0.1rem #e0e0e0 solid !important;
+  border: 0.1rem var(--primary-border) solid !important;
 }
 
 .plist {
@@ -35,7 +35,7 @@
 }
 .plist-header {
   color: black;
-  border-bottom: 0.1rem #e0e0e0 solid;
+  border-bottom: 0.1rem var(--primary-border) solid;
   font-weight: 500 !important;
   padding-top: 0.5rem;
   font-size: 1.75rem;
@@ -53,11 +53,11 @@
 }
 
 .plist-footer {
-  border-top: 0.1rem #e0e0e0 solid;
+  border-top: 0.1rem var(--primary-border) solid;
 }
 
 .project {
-  border-bottom: 0.1rem #e0e0e0 solid;
+  border-bottom: 0.1rem var(--primary-border) solid;
   border-radius: 0.25rem;
   padding: 0.75rem;
   font-weight: 600;
@@ -81,7 +81,7 @@
 .project-inspect {
   padding: 0.5rem;
   padding-top: 0.75rem;
-  border-left: 0.1rem #e0e0e0 solid !important;
+  border-left: 0.1rem var(--primary-border) solid !important;
   height: 100vh;
   text-align: left;
 }
@@ -90,13 +90,13 @@
   padding: 0.25rem;
   font-size: 1.5rem;
   text-align: left;
-  border-bottom: 0.1rem #e0e0e0 solid;
+  border-bottom: 0.1rem var(--primary-border) solid;
 }
 
 .project-inspect-body {
 }
 .project-select {
-  border-top: 0.1rem #e0e0e0 solid;
+  border-top: 0.1rem var(--primary-border) solid;
   text-align: left;
   padding-top: 1rem;
 }

@@ -1,6 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Anton&family=Open+Sans:ital,wght@0,400;1,300;1,400;1,600&family=Shippori+Mincho:wght@400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=RocknRoll+One&display=swap");
 
+:root {
+  --primary-color: black;
+  --primary-color-lighter: rgb(65, 64, 64);
+  --primary-bgcolor: #f0f8fe;
+  --secondary-color: white;
+  --secondary-color-lighter: rgb(207, 207, 207);
+  --primary-color-hover: rgba(124, 124, 124, 0.1);
+  --secondary-bgcolor: #405364;
+  --primary-border: #e0e0e0;
+  --secondary-border: #384857;
+  --tier-1: #2ecfca;
+  --tier-2: #f8df77;
+  --tier-3: #ff4e62;
+}
+
+[data-theme="summer"] {
+  --primary-bgcolor: #ffd670;
+  --primary-border: #f1cb6a;
+  --primary-color-hover: rgba(253, 253, 253, 0.3);
+  --secondary-bgcolor: #529999;
+  --secondary-border: #4d9191;
+  --tier-1: #9abfc2;
+  --tier-2: #7de0d3;
+  --tier-3: #23a1f5;
+}
+
+[data-theme="doom"] {
+  --primary-bgcolor: #f4f3ee;
+  --primary-border: #ecebe6;
+  --secondary-bgcolor: #040404;
+  --secondary-border: #222222;
+  --tier-1: #0b7a75;
+  --tier-2: #f18f01;
+  --tier-3: #c44536;
+}
 .App {
   text-align: center;
   font-family: "Akaya Telivigala", cursive;
