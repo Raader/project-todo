@@ -178,7 +178,7 @@ export function ListSection(props) {
                   }}
                   style={
                     current.id === todo.id
-                      ? { backgroundColor: "rgba(124, 124, 124, 0.1)" }
+                      ? { backgroundColor: "var(--primary-color-hover" }
                       : {}
                   }
                 >
