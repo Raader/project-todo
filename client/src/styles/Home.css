@@ -19,6 +19,9 @@
 .jumbotron .btn-nice {
   color: white !important;
 }
+.jumbotron .btn-nice:hover {
+  color: black !important;
+}
 .paragraphs {
   height: 50vh;
 }
