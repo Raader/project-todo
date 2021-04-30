@@ -151,3 +151,8 @@
     display: block;
   }
 }
+@media screen and (max-width: 1200px) {
+  .app-page {
+    margin-bottom: 4rem;
+  }
+}
