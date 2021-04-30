@@ -125,7 +125,7 @@
 
 .returner {
   display: none;
-  color: rgb(63, 63, 63);
+  color: var(--primary-color-lighter);
   cursor: pointer;
   text-align: center;
   font-size: 1.5rem;
@@ -170,5 +170,10 @@
   }
   .returner {
     display: block;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .app-page {
+    margin-bottom: 4rem;
   }
 }

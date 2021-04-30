@@ -76,7 +76,7 @@ function App() {
             {route.title ? <BrandBar></BrandBar> : <Fragment></Fragment>}
             {route.sidebar ? (
               <Container fluid>
-                <Row>
+                <Row className="app-page">
                   <Col className="no-padding" md="auto">
                     <ProjectSection path={route.alias}></ProjectSection>
                   </Col>
