@@ -10,7 +10,9 @@ export function MiniNavbar(props) {
           <Col className="no-padding">
             <div
               className="pnav-item"
-              style={props.path === "main" ? { color: "white" } : {}}
+              style={
+                props.path === "main" ? { color: "var(--secondary-color)" } : {}
+              }
               onClick={() => history.push("/main")}
             >
               <i class="fas fa-columns"></i>
@@ -19,7 +21,11 @@ export function MiniNavbar(props) {
           <Col className="no-padding">
             <div
               className="pnav-item"
-              style={props.path === "select" ? { color: "white" } : {}}
+              style={
+                props.path === "select"
+                  ? { color: "var(--secondary-color)" }
+                  : {}
+              }
               onClick={() => history.push("/select")}
             >
               <i class="fas fa-stream"></i>
@@ -28,7 +34,11 @@ export function MiniNavbar(props) {
           <Col className="no-padding">
             <div
               className="pnav-item"
-              style={props.path === "settings" ? { color: "white" } : {}}
+              style={
+                props.path === "settings"
+                  ? { color: "var(--secondary-color)" }
+                  : {}
+              }
               onClick={() => history.push("/settings")}
             >
               <i class="fas fa-cog"></i>
@@ -36,7 +46,9 @@ export function MiniNavbar(props) {
           </Col>
           <Col
             className="no-padding"
-            style={props.path === "about" ? { color: "white" } : {}}
+            style={
+              props.path === "about" ? { color: "var(--secondary-color)" } : {}
+            }
             onClick={() => history.push("/about")}
           >
             <div className="pnav-item">

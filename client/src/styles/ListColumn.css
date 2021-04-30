@@ -227,7 +227,7 @@
   }
   .todo-list .list-item .main {
     width: 90%;
-    border-bottom: 0.1rem #e0e0e0 solid;
+    border-bottom: 0.1rem var(--primary-border) solid;
     padding-bottom: 0.25rem;
   }
   .todo-list .list-item {
