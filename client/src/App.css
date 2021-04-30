@@ -15,6 +15,7 @@
   --tier-1: #2ecfca;
   --tier-2: #f8df77;
   --tier-3: #ff4e62;
+  --todo-input: rgba(255, 255, 255, 0.5);
 }
 
 [data-theme="summer"] {
@@ -42,10 +43,12 @@
   --primary-color: white;
   --primary-color-lighter: rgb(204, 204, 204);
   --primary-color-hover: rgba(253, 253, 253, 0.1);
+  --primary-color-disabled: rgba(155, 155, 155, 0.514);
   --primary-bgcolor: #040404;
   --primary-border: #222222;
   --secondary-bgcolor: #111111;
   --secondary-border: #0e0d0d;
+  --todo-input: rgba(71, 71, 71, 0.5);
 }
 .App {
   text-align: center;
