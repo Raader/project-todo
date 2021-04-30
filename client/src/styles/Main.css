@@ -18,13 +18,13 @@
 
 .btn-nice {
   background-color: transparent !important;
-  color: black !important;
+  color: var(--primary-color) !important;
   border: 0.1rem var(--primary-border) solid !important;
   font-weight: 600 !important;
 }
 
 .btn-nice:hover {
-  background-color: rgba(136, 136, 136, 0.1) !important;
+  background-color: var(--primary-color-hover) !important;
 }
 .project-name {
   margin-top: 0.75rem;

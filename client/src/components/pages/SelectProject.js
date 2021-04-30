@@ -58,7 +58,7 @@ export function SelectProject(props) {
                     }}
                     style={
                       selected && selected.id === project.id
-                        ? { backgroundColor: "rgba(53, 53, 53, 0.1)" }
+                        ? { backgroundColor: "var(--primary-color-hover)" }
                         : {}
                     }
                   >

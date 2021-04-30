@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { Returner } from "./Returner";
 
 export function ApperanceSettings() {
   const [selected, setSelected] = useState("classic");
@@ -16,6 +17,7 @@ export function ApperanceSettings() {
   };
   return (
     <div className="th-settings">
+      <Returner></Returner>
       <h2>Themes</h2>
       <Container fluid>
         <Row>
@@ -47,6 +49,18 @@ export function ApperanceSettings() {
             >
               <div className="th-img"></div>
               <div>Doom</div>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg xl="4">
+            <div
+              className="th"
+              onClick={() => handleSelect("dark")}
+              style={selected === "dark" ? { borderColor: "gray" } : {}}
+            >
+              <div className="th-img"></div>
+              <div>Dark</div>
             </div>
           </Col>
         </Row>

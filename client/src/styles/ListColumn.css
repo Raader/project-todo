@@ -3,7 +3,7 @@
   padding-bottom: 0;
   padding-top: 0;
   border-right: solid var(--primary-border) 0.15rem;
-  color: rgb(65, 64, 64);
+  color: var(--primary-color-lighter);
 }
 
 .todo-list {
@@ -25,7 +25,7 @@
   padding: 0.75rem;
   padding-top: 1rem;
   font-weight: 600;
-  color: black;
+  color: var(--primary-color);
 }
 .todo-top-menu .dropdown-menu {
   font-size: 1.25rem !important;
@@ -52,7 +52,7 @@
   overflow-y: hidden;
 }
 .completed {
-  color: rgba(10, 10, 10, 0.514) !important;
+  color: var(--primary-color-disabled) !important;
   background-color: transparent !important;
   border: 0 !important;
 }
@@ -76,20 +76,20 @@
 
 .todo-input {
   margin-bottom: 0.25rem;
-  background-color: rgba(255, 255, 255, 0.5) !important;
+  background-color: var(--todo-input) !important;
+  color: var(--primary-color);
   border: 0.1rem var(--primary-border) solid !important;
   border-radius: 0.5rem !important;
   font-size: 1rem !important;
-  border-bottom: 0.1rem var(--primary-border) solid !important;
   transition: all 0.2s;
 }
 
-.todo-input:hover .stat-drop {
-  display: inherit;
+.todo-input .form-control {
+  color: var(--primary-color) !important;
 }
 
-.todo-input:hover {
-  border-color: rgb(150, 148, 148) !important;
+.todo-input:focus-within {
+  border-color: var(--primary-color);
 }
 
 .todo-input .stat-drop {
