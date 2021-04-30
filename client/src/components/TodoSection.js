@@ -147,7 +147,7 @@ export function TodoSection(props) {
           <SideTasks></SideTasks>
           <Container fluid className="stats">
             <div className="stat-head" onClick={() => setShow(!show)}>
-              {!show ? (
+              {show ? (
                 <i class="fas fa-chevron-down"></i>
               ) : (
                 <i class="fas fa-chevron-up"></i>

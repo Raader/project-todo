@@ -12,13 +12,15 @@ export function SideTasks(props) {
   const [show, setShow] = useState(false);
   return (
     <div className="side-cont">
-      <div className="side-head" onClick={() => setShow(!show)}>
-        {!show ? (
-          <i class="fas fa-chevron-down"></i>
-        ) : (
-          <i class="fas fa-chevron-up"></i>
-        )}{" "}
-        Side Tasks{" "}
+      <div className="side-head">
+        <span onClick={() => setShow(!show)}>
+          {show ? (
+            <i class="fas fa-chevron-down"></i>
+          ) : (
+            <i class="fas fa-chevron-up"></i>
+          )}{" "}
+          Side Tasks{" "}
+        </span>
         <span
           className="append"
           style={show ? {} : { display: "none" }}
