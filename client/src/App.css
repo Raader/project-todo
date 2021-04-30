@@ -12,6 +12,7 @@
   --secondary-bgcolor: #405364;
   --primary-border: #e0e0e0;
   --secondary-border: #384857;
+  --secondary-color-hover: rgba(161, 166, 172, 0.336);
   --tier-1: #2ecfca;
   --tier-2: #f8df77;
   --tier-3: #ff4e62;
@@ -19,11 +20,16 @@
 }
 
 [data-theme="summer"] {
-  --primary-bgcolor: #ffd670;
-  --primary-border: #f1cb6a;
-  --primary-color-hover: rgba(253, 253, 253, 0.3);
-  --secondary-bgcolor: #529999;
-  --secondary-border: #4d9191;
+  --primary-color: #583d72;
+  --primary-color-lighter: #5f427a;
+  --primary-bgcolor: #ffc996;
+  --primary-border: #f5c191;
+  --primary-color-hover: #9f5f801c;
+  --secondary-bgcolor: #ff8474;
+  --secondary-color: #fff44f;
+  --secondary-color-lighter: #e6db4c;
+  --secondary-border: #f17d6e;
+  --secondary-color-hover: rgba(255, 255, 255, 0.1);
   --tier-1: #9abfc2;
   --tier-2: #7de0d3;
   --tier-3: #23a1f5;

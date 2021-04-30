@@ -62,7 +62,11 @@ export function ProjectSection(props) {
             <div className="project-stats">
               <div
                 className="pnav-item"
-                style={props.path === "main" ? { color: "white" } : {}}
+                style={
+                  props.path === "main"
+                    ? { color: "var(--secondary-color)" }
+                    : {}
+                }
                 onClick={() => history.push("/main")}
               >
                 <span className="pnav-i">
@@ -91,7 +95,11 @@ export function ProjectSection(props) {
               </div>
               <div
                 className="pnav-item"
-                style={props.path === "select" ? { color: "white" } : {}}
+                style={
+                  props.path === "select"
+                    ? { color: "var(--secondary-color)" }
+                    : {}
+                }
                 onClick={() => history.push("/select")}
               >
                 <span className="pnav-i">
@@ -101,7 +109,11 @@ export function ProjectSection(props) {
               </div>
               <div
                 className="pnav-item"
-                style={props.path === "settings" ? { color: "white" } : {}}
+                style={
+                  props.path === "settings"
+                    ? { color: "var(--secondary-color)" }
+                    : {}
+                }
                 onClick={() => history.push("/settings")}
               >
                 <span className="pnav-i">
@@ -111,7 +123,11 @@ export function ProjectSection(props) {
               </div>
               <div
                 className="pnav-item"
-                style={props.path === "about" ? { color: "white" } : {}}
+                style={
+                  props.path === "about"
+                    ? { color: "var(--secondary-color)" }
+                    : {}
+                }
                 onClick={() => history.push("/about")}
               >
                 <span className="pnav-i">

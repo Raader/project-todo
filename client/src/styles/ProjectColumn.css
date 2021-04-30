@@ -16,7 +16,7 @@
   cursor: pointer;
 }
 .inav:hover {
-  color: white;
+  color: var(--secondary-color);
   background-color: rgba(161, 166, 172, 0.336);
   border-radius: 0.5rem;
 }
@@ -54,7 +54,7 @@
 .project-info {
   border-top: solid #384857 0.2rem;
   font-size: 1rem;
-  color: white;
+  color: var(--primary-color);
 }
 .project-info .title {
   margin-left: 1rem;
@@ -78,7 +78,7 @@
   border-radius: 0.5rem;
   padding-left: 0.5rem;
   cursor: pointer;
-  color: rgb(207, 207, 207);
+  color: var(--secondary-color-lighter);
   font-weight: 500;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
@@ -93,20 +93,21 @@
 }
 
 .pnav-item:hover {
-  color: white;
-  background-color: rgba(161, 166, 172, 0.336);
+  color: var(--secondary-color);
+  background-color: var(--secondary-color-hover);
 }
 
 .pnav-drop {
   padding: 0.5rem;
   padding-top: 0;
   margin-left: 2rem;
-  border-left: 0.1rem rgba(161, 166, 172, 0.336) solid;
+  border-left: 0.1rem var(--secondary-color-hover) solid;
   font-size: 1rem;
 }
 .pnav-drop-item {
   padding: 0.25rem;
   padding-left: 0.5rem;
+  color: var(--secondary-color-lighter);
 }
 
 #drop-header {
@@ -125,7 +126,7 @@
 .user-port {
   font-size: 1.25rem;
   padding: 0.75rem;
-  color: white;
+  color: var(--secondary-color);
   border-bottom: solid var(--secondary-border) 0.2rem;
 }
 .user-port .main {
@@ -137,7 +138,7 @@
 .user-menu {
   float: right;
   cursor: pointer;
-  color: rgb(232, 232, 233);
+  color: var(--secondary-color-lighter);
 }
 .user-portrait {
 }
@@ -145,7 +146,7 @@
   margin-left: 0.5rem;
 }
 .user-menu i:hover {
-  color: white;
+  color: var(--secondary-color);
 }
 
 .hover .project-cont {
