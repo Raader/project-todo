@@ -22,7 +22,7 @@
   border-top: 0 !important;
   font-family: "Open Sans", sans-serif;
   height: 100vh;
-  color: rgb(65, 64, 64);
+  color: var(--primary-color-lighter) !important;
 }
 .plist-body {
   overflow-y: scroll;
@@ -34,7 +34,7 @@
   display: none;
 }
 .plist-header {
-  color: black;
+  color: var(--primary-color) !important;
   border-bottom: 0.1rem var(--primary-border) solid;
   font-weight: 500 !important;
   padding-top: 0.5rem;
@@ -47,9 +47,10 @@
   font-size: 1.25rem !important;
   margin: 1rem;
   background-color: transparent !important;
+  color: var(--primary-color) !important;
 }
 .plist-create:hover {
-  background-color: white !important;
+  background-color: var(--primary-color-hover) !important;
 }
 
 .plist-footer {
@@ -69,7 +70,7 @@
 }
 .project:hover {
   border-radius: 0.5rem;
-  background-color: rgba(53, 53, 53, 0.1);
+  background-color: var(--primary-color-hover);
 }
 .project .date {
   float: right;
@@ -84,6 +85,7 @@
   border-left: 0.1rem var(--primary-border) solid !important;
   height: 100vh;
   text-align: left;
+  color: var(--primary-color);
 }
 
 .project-inspect-header {
@@ -105,6 +107,7 @@
   background-color: transparent;
   border: none;
   width: 16rem !important;
+  color: var(--primary-color);
 }
 
 .clean-input:focus,

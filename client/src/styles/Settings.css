@@ -8,6 +8,7 @@
   font-weight: 600;
   height: 10vh;
   padding-top: 1rem;
+  color: var(--primary-color);
 }
 
 .settings-navbar {
@@ -22,13 +23,13 @@
   padding: 0.5rem;
   font-weight: 500;
   text-align: left;
-  color: rgb(121, 121, 121);
+  color: var(--primary-color-lighter);
   cursor: pointer;
 }
 
 .settings-nav:hover {
-  color: black;
-  background-color: rgba(99, 99, 99, 0.1);
+  color: var(--primary-color);
+  background-color: var(--primary-color-hover);
 }
 
 .settings-inspect {
@@ -36,17 +37,19 @@
 }
 
 .us-cont {
+  color: var(--primary-color);
 }
 
 .us-portrait {
   font-size: 10rem;
+  color: var(--primary-color--lighter);
 }
 .us-name {
   font-size: 2rem;
 }
 .us-email {
   font-size: 1.25rem;
-  color: rgb(85, 85, 85);
+  color: var(--primary-color-lighter);
 }
 .us-options {
   padding: 1rem;
@@ -54,18 +57,23 @@
 
 .us-stats {
   font-size: 1rem;
-  color: rgb(107, 107, 107);
+  color: var(--primary-color-disabled);
 }
 .us-stat {
   padding: 0.5rem;
 }
 
+.th-settings {
+  color: var(--primary-color);
+}
+
 .th {
-  background-color: white;
+  background-color: var(--primary-bgcolor);
   border-radius: 0.5rem;
   cursor: pointer;
   border: 0.1rem transparent solid;
   margin: 0.75rem;
+  color: var(--primary-color) !important;
 }
 
 .th:hover {

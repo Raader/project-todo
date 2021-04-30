@@ -4,6 +4,7 @@
 :root {
   --primary-color: black;
   --primary-color-lighter: rgb(65, 64, 64);
+  --primary-color-disabled: rgba(10, 10, 10, 0.514);
   --primary-bgcolor: #f0f8fe;
   --secondary-color: white;
   --secondary-color-lighter: rgb(207, 207, 207);
@@ -35,6 +36,16 @@
   --tier-1: #0b7a75;
   --tier-2: #f18f01;
   --tier-3: #c44536;
+}
+
+[data-theme="dark"] {
+  --primary-color: white;
+  --primary-color-lighter: rgb(204, 204, 204);
+  --primary-color-hover: rgba(253, 253, 253, 0.1);
+  --primary-bgcolor: #040404;
+  --primary-border: #222222;
+  --secondary-bgcolor: #111111;
+  --secondary-border: #0e0d0d;
 }
 .App {
   text-align: center;
@@ -92,10 +103,11 @@
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   padding: 0.5rem;
+  color: var(--primary-color);
 }
 .about h2 {
   padding-bottom: 0.5rem;
-  border-bottom: 0.1rem #e0e0e0 solid !important;
+  border-bottom: 0.1rem var(--primary-border) solid !important;
   font-weight: 600;
 }
 .about p {
@@ -112,7 +124,7 @@
 
 .returner:hover {
   color: black;
-  background-color: #e6edf3;
+  background-color: var(--primary-color-hover);
   border-radius: 0.5rem;
 }
 

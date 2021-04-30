@@ -24,7 +24,7 @@ export function Settings(props) {
             <div className="settings-navbar">
               <div
                 className="settings-nav"
-                style={page === "user" ? { color: "black" } : {}}
+                style={page === "user" ? { color: "var(--primary-color)" } : {}}
                 onClick={() => {
                   setPage("user");
                   window.location.href = "#s-inspect";
@@ -34,7 +34,9 @@ export function Settings(props) {
               </div>
               <div
                 className="settings-nav"
-                style={page === "appearance" ? { color: "black" } : {}}
+                style={
+                  page === "appearance" ? { color: "var(--primary-color)" } : {}
+                }
                 onClick={() => {
                   setPage("appearance");
                   window.location.href = "#s-inspect";

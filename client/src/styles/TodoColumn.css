@@ -1,5 +1,5 @@
 .inspect-main {
-  color: rgb(71, 71, 71);
+  color: var(--primary-color-lighter);
   padding-right: 1rem;
   padding-left: 1rem;
 }
@@ -26,11 +26,12 @@
 }
 .toggle i {
   cursor: pointer;
+  color: var(--primary-color-lighter);
   width: 1.5rem !important;
 }
 
 .toggle i:hover {
-  color: black;
+  color: var(--primary-color);
 }
 
 .inspect-header {
@@ -41,11 +42,12 @@
 .inspect-header .form-control {
   font-size: 1.25rem !important;
   padding: 0 !important;
+  color: var(--primary-color) !important;
 }
 
 .inspect-body {
   margin-top: 1rem;
-  color: rgb(63, 63, 63);
+  color: inherit;
 }
 
 .inspect-area {
@@ -54,6 +56,7 @@
   outline: 0 !important;
   width: 100%;
   height: 20vh;
+  color: var(--primary-color) !important;
   resize: none;
 }
 
@@ -95,7 +98,7 @@
   margin: 0 !important;
 }
 .stat-sep {
-  color: rgb(98, 102, 105);
+  color: var(--primary-color-lighter);
   padding: 0.25rem;
   margin: 0 !important;
 }
@@ -164,6 +167,7 @@
 .cleaner-input {
   background-color: transparent;
   border: none;
+  color: var(--primary-color) !important;
 }
 
 .cleaner-input:focus {

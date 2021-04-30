@@ -52,6 +52,18 @@ export function ApperanceSettings() {
             </div>
           </Col>
         </Row>
+        <Row>
+          <Col lg xl="4">
+            <div
+              className="th"
+              onClick={() => handleSelect("dark")}
+              style={selected === "dark" ? { borderColor: "gray" } : {}}
+            >
+              <div className="th-img"></div>
+              <div>Dark</div>
+            </div>
+          </Col>
+        </Row>
       </Container>
     </div>
   );
