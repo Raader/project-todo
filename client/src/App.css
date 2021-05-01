@@ -163,6 +163,12 @@
   max-width: 500px !important;
   font-size: 1.25rem !important;
 }
+
+form .btn-nice,
+.modal-body .btn-nice {
+  color: black !important;
+}
+
 @media screen and (max-width: 573px) {
   .load-body,
   .load-logo {
