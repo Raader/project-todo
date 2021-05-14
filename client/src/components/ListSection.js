@@ -95,7 +95,7 @@ export function ListSection(props) {
       diff.push(<i class="fas fa-plus-circle"></i>);
     }
     return (
-      <div className="stat-cont">
+      <span className="stat-cont">
         <span
           className="stat"
           id="first"
@@ -127,7 +127,7 @@ export function ListSection(props) {
         >
           {diff.length > 0 ? diff : "a"}
         </span>
-      </div>
+      </span>
     );
   };
   return (
@@ -196,7 +196,7 @@ export function ListSection(props) {
                     <i class="far fa-square"></i>
                   </span>{" "}
                   <span className="main">{todo.name}</span>
-                  <span className="todo-append">{todoStats(todo.stats)}</span>
+                  {todoStats(todo.stats)}
                 </div>
               ) : (
                 <div

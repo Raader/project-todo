@@ -164,9 +164,7 @@
 }
 
 .todo-append {
-  float: right;
-  white-space: nowrap;
-  text-align: center;
+  vertical-align: bottom;
 }
 .stat {
   width: 3rem;
@@ -176,10 +174,12 @@
   white-space: nowrap;
   overflow: hidden;
   font-size: 0.75rem !important;
+  vertical-align: bottom;
 }
 
-.stat.cont {
-  width: 6rem;
+.stat-cont {
+  float: right;
+  white-space: nowrap;
 }
 .todo-append .stat i {
   overflow: hidden;
