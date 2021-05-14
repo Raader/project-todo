@@ -47,7 +47,6 @@
   width: 70%;
   max-width: 30rem;
   white-space: nowrap;
-  display: inline-block;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -167,6 +166,7 @@
 .todo-append {
   float: right;
   white-space: nowrap;
+  text-align: center;
 }
 .stat {
   width: 3rem;

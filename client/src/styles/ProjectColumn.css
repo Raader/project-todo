@@ -130,7 +130,6 @@
   border-bottom: solid var(--secondary-border) 0.2rem;
 }
 .user-port .main {
-  display: inline-block;
   width: 10rem;
   overflow-x: hidden;
 }
