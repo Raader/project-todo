@@ -165,6 +165,7 @@
 
 .todo-append {
   vertical-align: bottom;
+  float: right;
 }
 .stat {
   width: 3rem;
