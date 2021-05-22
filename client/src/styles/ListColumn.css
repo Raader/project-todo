@@ -227,12 +227,14 @@
   .stat {
   }
   .todo-list .list-item .main {
+    display: inline-block;
     width: 90%;
     border-bottom: 0.1rem var(--primary-border) solid;
     padding-bottom: 0.25rem;
   }
   .todo-list .list-item {
     height: 4.5rem;
+    padding-bottom: 0.25rem;
   }
   .btn-nobtn {
     max-width: 45vw !important;
